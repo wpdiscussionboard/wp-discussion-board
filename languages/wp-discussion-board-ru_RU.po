@@ -1,0 +1,708 @@
+# Copyright (C) 2016 Discussion Board
+# This file is distributed under the same license as the Discussion Board package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Discussion Board 1.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-discussion-"
+"board\n"
+"POT-Creation-Date: 2016-01-21 17:23+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-01-22 16:08+0300\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru_RU\n"
+
+#. Plugin Name of the plugin/theme
+#: admin/class-ct-db-admin.php:50 admin/class-ct-db-admin.php:669
+#: templates/archive-discussion-topics.php:66
+msgid "Discussion Board"
+msgstr "Доска Обсуждений"
+
+#: admin/class-ct-db-admin.php:59
+msgid "Discussion Board Settings"
+msgstr "Параметры Доски Обсуждений"
+
+#: admin/class-ct-db-admin.php:66
+msgid "Archive title"
+msgstr "Название архива"
+
+#: admin/class-ct-db-admin.php:74
+msgid "New topic message"
+msgstr "Новое сообщение темы"
+
+#: admin/class-ct-db-admin.php:92
+msgid "Restricted message"
+msgstr "Ограниченное сообщение"
+
+#: admin/class-ct-db-admin.php:100
+msgid "Hide WP Login?"
+msgstr "Скрыть WP логин?"
+
+#: admin/class-ct-db-admin.php:108
+msgid "Log-in form page"
+msgstr "Страница формы входа в систему"
+
+#: admin/class-ct-db-admin.php:116
+msgid "Prevent wp-admin access?"
+msgstr "Предотвратить wp-администраторский доступ?"
+
+#: admin/class-ct-db-admin.php:124
+msgid "Add check to registration form to prevent spam"
+msgstr "Добавьте проверку к форме регистрации, чтобы предотвратить спам"
+
+#: admin/class-ct-db-admin.php:132
+msgid "Publish new topic without moderation"
+msgstr "Опубликуйте новую тему без модерирования"
+
+#: admin/class-ct-db-admin.php:140
+msgid "Prevent user re-posting within (seconds):"
+msgstr ""
+"Предотвращение повторного размещения пользователем в течении (секунды):"
+
+#: admin/class-ct-db-admin.php:158
+msgid "Discussion Topics"
+msgstr "Темы обсуждения"
+
+#: admin/class-ct-db-admin.php:159
+msgid "Please enter your topic title and content below."
+msgstr "Введите свой заголовок темы и содержание ниже."
+
+#: admin/class-ct-db-admin.php:159
+msgid "This page is not available"
+msgstr "Эта страница не доступна"
+
+#: admin/class-ct-db-admin.php:160
+msgid ""
+"You're not currently permitted to view this content. Please log-in or "
+"register in order to view the page."
+msgstr ""
+"Вы в настоящее время не допускаетесь, чтобы увидеть это содержание. "
+"Пожалуйста, войдите или зарегистрируйтесь для того, чтобы просмотреть "
+"страницу."
+
+#: admin/class-ct-db-admin.php:178
+msgid "Design Settings"
+msgstr "Настройки дизайна"
+
+#: admin/class-ct-db-admin.php:185
+msgid "Enqueue icons?"
+msgstr "Добавить иконки?"
+
+#: admin/class-ct-db-admin.php:193
+msgid "Enqueue styles?"
+msgstr "Добавить стили?"
+
+#: admin/class-ct-db-admin.php:201
+msgid "Use theme templates"
+msgstr "Используйте шаблоны темы"
+
+#: admin/class-ct-db-admin.php:209
+msgid "Display topic information"
+msgstr "Информация о теме дисплея"
+
+#: admin/class-ct-db-admin.php:217
+msgid "Number of topics per page"
+msgstr "Количество тем на странице"
+
+#: admin/class-ct-db-admin.php:225
+msgid "Number of words per excerpt"
+msgstr "Количество слов в выдержке"
+
+#: admin/class-ct-db-admin.php:260
+msgid "User Settings"
+msgstr "Пользовательские настройки"
+
+#: admin/class-ct-db-admin.php:267
+msgid "Redirect on log-in"
+msgstr "Перенаправить на вход в систему"
+
+#: admin/class-ct-db-admin.php:275
+msgid "Permitted viewer roles"
+msgstr "Разрешенные роли просмотра"
+
+#: admin/class-ct-db-admin.php:283
+msgid "Permitted poster roles"
+msgstr "Разрешенные роли плаката"
+
+#: admin/class-ct-db-admin.php:291
+msgid "Register new user as"
+msgstr "Зарегистрировать нового пользователя как"
+
+#: admin/class-ct-db-admin.php:299
+msgid "Require account activation"
+msgstr "Требовать активацию учетной записи"
+
+#: admin/class-ct-db-admin.php:391
+msgid ""
+"Check this to include a radio button option on the registration form to "
+"reduce the number of spam registrations"
+msgstr ""
+"Установите этот флажок, чтобы включить радио кнопку опции в регистрационной "
+"форме, чтобы уменьшить количество спам-регистраций"
+
+#: admin/class-ct-db-admin.php:399
+msgid ""
+"This will prevent users logging in via wp-login.php and force them to use "
+"the Discussion Board log-in form. You must specify a front-end page "
+"containing your log-in form in the option below."
+msgstr ""
+"Это позволит запретить пользователям вход в систему через wp-login.php и "
+"заставит их использовать  войти в форму доски обсуждений . Вы должны "
+"указать интерфейс страницы, содержащую регистрационную форму в опции ниже."
+
+#: admin/class-ct-db-admin.php:415
+msgid "After logging in, the user will be redirected to this page"
+msgstr ""
+"После входа в систему, пользователь будет перенаправлен на эту страницу"
+
+#: admin/class-ct-db-admin.php:423
+msgid ""
+"Hide the Admin bar and prevent wp-admin access to users registered on the "
+"Discussion Board. By default, this will apply to users with the Subscriber "
+"role."
+msgstr ""
+"Скрыть Админ-бар и предотвратить WP-администратора доступ для "
+"пользователей, зарегистрированных на форуме. По умолчанию, это будет "
+"применяться к пользователям с ролью subscriber (абонент)."
+
+#: admin/class-ct-db-admin.php:439
+msgid ""
+"A page to display your log-in form. Ensure you add the "
+"[discussion_board_login_form] shortcode to this page."
+msgstr ""
+"Страница, чтобы вывести на экран Вашу форму входа в систему. Убедитесь, "
+"чтобы Вы добавили [discussion_board_login_form] шорткод к этой странице."
+
+#: admin/class-ct-db-admin.php:479
+msgid ""
+"Select one or more user roles that are permitted to view Discussion Board "
+"topics. Administrators can always view."
+msgstr ""
+"Выберите одну или несколько ролей пользователей, которым разрешен просмотр "
+"тем доски обсуждений. Администраторы могут всегда посмотреть."
+
+#: admin/class-ct-db-admin.php:514
+msgid ""
+"Select one or more user roles that are permitted to post new Discussion "
+"Board topics"
+msgstr ""
+"Выберите одну или несколько ролей пользователей, которые могут размещать "
+"новые темы доски обсуждений"
+
+#: admin/class-ct-db-admin.php:546
+msgid "Newly registered users will be assigned this role"
+msgstr "Вновь зарегистрированным пользователям будет назначена эта роль"
+
+#: admin/class-ct-db-admin.php:554
+msgid "Select this option to publish all new topics without moderation"
+msgstr "Выберите этот вариант, чтобы публиковать все новые темы без модерации"
+
+#: admin/class-ct-db-admin.php:567
+msgid ""
+"The number of seconds before a user can post a new topic. This prevents "
+"misuse."
+msgstr ""
+"Количество секунд, прежде чем пользователь сможет начать новую тему. Это "
+"предотвращает неправильное использование."
+
+#: admin/class-ct-db-admin.php:575
+msgid ""
+"Check this to require new users to click an activation link before they are "
+"fully registered. This will significantly reduce spam registrations."
+msgstr ""
+"Установите этот флажок, чтобы потребовать новых пользователей щелкнуть по "
+"ссылке активации, прежде чем они будут полностью зарегистрированы. Это "
+"значительно уменьшит регистрацию спама."
+
+#: admin/class-ct-db-admin.php:583
+msgid "This will automatically log users in once they have registered."
+msgstr ""
+"Это позволит автоматически регистрировать пользователей после регистрации."
+
+#: admin/class-ct-db-admin.php:624
+msgid ""
+"Truncate the content to a set number of words when each topic is displayed "
+"in the archive. Leave at 0 to display all the content for each topic on "
+"archive pages."
+msgstr ""
+"Обрезать содержимое до заданного количества слов, когда каждая тема "
+"отображается в архиве. Оставьте на 0, чтобы отобразить все содержимое по "
+"каждой теме на страницах архива."
+
+#: admin/class-ct-db-admin.php:671
+msgid "Options"
+msgstr "Опции"
+
+#: admin/class-ct-db-admin.php:672
+msgid "Design"
+msgstr "Дизайн"
+
+#: admin/class-ct-db-admin.php:673
+msgid "User"
+msgstr "Пользователь"
+
+#: admin/class-ct-db-admin.php:677
+msgid "Categories"
+msgstr "Категории"
+
+#: admin/class-ct-db-admin.php:678
+msgid " Pro"
+msgstr " Pro"
+
+#: admin/class-ct-db-admin.php:727
+msgid ""
+"You've chosen to hide the WP Login page but you haven't specified a page on "
+"the front end with a login page. Until you specify that, the option to hide "
+"WP Login is disabled."
+msgstr ""
+"Вы приняли решение скрыть Страницу входа в систему WP, но Вы не определили "
+"страницу на фронтэнде со страницей входа в систему. Пока Вы не определяете, "
+"что, опция скрыть Вход в систему WP отключена."
+
+#: public/class-ct-db-public.php:90
+msgid "Pending"
+msgstr "В ожидании"
+
+#: public/class-ct-db-public.php:105
+msgctxt "post type general name"
+msgid "Topics"
+msgstr "Темы [ post type general name ]"
+
+#: public/class-ct-db-public.php:106
+msgctxt "post type singular name"
+msgid "Topic"
+msgstr "Тема [ post type singular name ]"
+
+#: public/class-ct-db-public.php:107
+msgctxt "admin menu"
+msgid "Topics"
+msgstr "Темы [ admin menu ]"
+
+#: public/class-ct-db-public.php:108
+msgctxt "add new on admin bar"
+msgid "Topic"
+msgstr "Тема [ add new on admin bar ]"
+
+#: public/class-ct-db-public.php:109
+msgctxt "topic"
+msgid "Add New"
+msgstr "Добавить новую [ topic ]"
+
+#: public/class-ct-db-public.php:110
+msgid "Add New Topic"
+msgstr "Добавить Новую Тему"
+
+#: public/class-ct-db-public.php:111
+msgid "New Topic"
+msgstr "Новая Тема"
+
+#: public/class-ct-db-public.php:112
+msgid "Edit Topic"
+msgstr "Редактировать Тему"
+
+#: public/class-ct-db-public.php:113 public/class-ct-db-public.php:711
+msgid "View Topic"
+msgstr "Просмотр Темы"
+
+#: public/class-ct-db-public.php:114
+msgid "All Topics"
+msgstr "Все Темы"
+
+#: public/class-ct-db-public.php:115
+msgid "Search Topics"
+msgstr "Поиск Темы"
+
+#: public/class-ct-db-public.php:116
+msgid "Parent Topic:"
+msgstr "Родительская тема:"
+
+#: public/class-ct-db-public.php:117
+msgid "No topics found."
+msgstr "Темы не найдены."
+
+#: public/class-ct-db-public.php:118
+msgid "No topics found in Trash."
+msgstr "Темы не найдены в корзине."
+
+#: public/class-ct-db-public.php:122
+msgid "Description."
+msgstr "Описание."
+
+#: public/class-ct-db-public.php:143
+msgctxt "taxonomy general name"
+msgid "Topic Categories"
+msgstr "Категории Темы [ taxonomy general name ]"
+
+#: public/class-ct-db-public.php:144
+msgctxt "taxonomy singular name"
+msgid "Topic Category"
+msgstr "Категория Темы [ taxonomy singular name ]"
+
+#: public/class-ct-db-public.php:145
+msgid "Search Topic Categories"
+msgstr "Поиск Темы в категории"
+
+#: public/class-ct-db-public.php:146
+msgid "All Topic Categories"
+msgstr "Все Темы Категории"
+
+#: public/class-ct-db-public.php:147
+msgid "Parent Topic Category"
+msgstr "Родительская категория Темы"
+
+#: public/class-ct-db-public.php:148
+msgid "Parent Topic Category:"
+msgstr "Родительская Категория Темы:"
+
+#: public/class-ct-db-public.php:149
+msgid "Edit Topic Category"
+msgstr "Отредактируйте категорию темы"
+
+#: public/class-ct-db-public.php:150
+msgid "Update Topic Category"
+msgstr "Обновите категорию темы"
+
+#: public/class-ct-db-public.php:151
+msgid "Add New Topic Category"
+msgstr "Добавьте новую категорию темы"
+
+#: public/class-ct-db-public.php:152
+msgid "New Topic Category Name"
+msgstr "Новое название категории темы"
+
+#: public/class-ct-db-public.php:153
+msgid "Topic Categories"
+msgstr "Категории темы"
+
+#: public/class-ct-db-public.php:203
+msgid "Please add a title."
+msgstr "Пожалуйста, добавьте заголовок."
+
+#: public/class-ct-db-public.php:210
+msgid "Please add some content to the topic."
+msgstr "Пожалуйста, добавьте некоторый контент к теме."
+
+#: public/class-ct-db-public.php:218
+msgid "We found"
+msgstr "Мы нашли"
+
+#: public/class-ct-db-public.php:219
+msgid "an item missing:"
+msgid_plural "some items missing:"
+msgstr[0] "пункт отсутствует:"
+msgstr[1] "некоторые пункты отсутствуют:"
+msgstr[2] ""
+
+#: public/class-ct-db-public.php:267
+msgid " successfully added. View it at:"
+msgstr "успешно Добавлено. Просмотреть в:"
+
+#: public/class-ct-db-public.php:271
+msgid " is awaiting moderation"
+msgstr "ожидает модерации"
+
+#: public/class-ct-db-public.php:304
+msgid " minutes"
+msgstr "минут"
+
+#: public/class-ct-db-public.php:306
+msgid "a minute"
+msgstr "минуту"
+
+#: public/class-ct-db-public.php:308
+msgid "You can't post a new topic just yet. Please come back in "
+msgstr ""
+"Вы просто еще не можете создать новую тему. Пожалуйста, возвратитесь в"
+
+#: public/class-ct-db-public.php:344
+msgid "Select a category"
+msgstr "Выберите категорию"
+
+#: public/class-ct-db-public.php:361
+msgid "Start Topic"
+msgstr "Запустите тему"
+
+#: public/class-ct-db-public.php:409
+msgid "Read More"
+msgstr "Читайте больше"
+
+#: public/class-ct-db-public.php:425
+msgid "There are no topics posted yet."
+msgstr "Еще нет никаких отправленных тем."
+
+#: public/class-ct-db-public.php:669
+msgid "Sorry - you're not permitted to view this content."
+msgstr "К сожалению - вы не допускаетесь для просмотра этой страницы."
+
+#: public/class-ct-db-public.php:681
+msgid ""
+"You're logged in but you don't seem to have permission to view the content. "
+"Please contact the site administrator for further information."
+msgstr ""
+"Вы зарегистрированы, но у Вас, кажется, нет разрешения просмотра контента. "
+"Пожалуйста, свяжитесь с администратором сайта для получения дополнительной "
+"информации."
+
+#: public/class-ct-db-public.php:773
+msgid "New comment on your topic"
+msgstr "Новый комментарий к Вашей теме"
+
+#: public/class-ct-db-public.php:774
+msgid "A new comment has been left on your topic: "
+msgstr "Новый комментарий был оставлен по вашей теме:"
+
+#: public/class-ct-db-public.php:921 public/class-ct-db-public.php:1176
+#: public/class-ct-db-public.php:1707 public/class-ct-db-public.php:1708
+msgid "Log in"
+msgstr "Вход"
+
+#: public/class-ct-db-public.php:935
+msgid "Register"
+msgstr "Регистрация"
+
+#: public/class-ct-db-public.php:978
+msgid "Content not available"
+msgstr "Контент не доступен"
+
+#: public/class-ct-db-public.php:1000
+msgid " reply"
+msgid_plural " replies"
+msgstr[0] "ответ"
+msgstr[1] "ответов"
+msgstr[2] "ответов"
+
+#: public/class-ct-db-public.php:1045
+msgid "You are already registered on this site."
+msgstr "Вы уже зарегистрированы на этом сайте."
+
+#: public/class-ct-db-public.php:1092 public/class-ct-db-public.php:1167
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: public/class-ct-db-public.php:1096
+msgid "Email"
+msgstr "Электронная почта"
+
+#: public/class-ct-db-public.php:1100
+msgid "First Name"
+msgstr "Имя"
+
+#: public/class-ct-db-public.php:1104
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: public/class-ct-db-public.php:1108 public/class-ct-db-public.php:1171
+msgid "Password"
+msgstr "Пароль"
+
+#: public/class-ct-db-public.php:1112
+msgid "Confirm Password"
+msgstr "Подтвердите Пароль"
+
+#: public/class-ct-db-public.php:1117
+msgid "Are you a human?"
+msgstr "Ты человек?"
+
+#: public/class-ct-db-public.php:1125
+msgid "Register Your Account"
+msgstr "Зарегистрируйте свой аккаунт"
+
+#: public/class-ct-db-public.php:1160
+msgid ""
+"Please check your inbox for an email containing a link to reset your "
+"password."
+msgstr ""
+"Пожалуйста, проверьте свой почтовый ящик для электронной почты, содержащий "
+"ссылку для восстановления пароля."
+
+#: public/class-ct-db-public.php:1182
+msgid "Lost password?"
+msgstr "Забыли пароль?"
+
+#: public/class-ct-db-public.php:1204 public/class-ct-db-public.php:1226
+msgid "You've entered an invalid combination of username and password."
+msgstr "Вы ввели неверное сочетание имени пользователя и пароля."
+
+#: public/class-ct-db-public.php:1215
+msgid ""
+"You haven't activated your registration yet. Please check your email for an "
+"activation link"
+msgstr ""
+"Вы не активировали вашу регистрацию еще. Пожалуйста, проверьте вашу "
+"электронную почту для активации ссылки"
+
+#: public/class-ct-db-public.php:1220
+msgid "Please enter a password"
+msgstr "Пожалуйста, введите пароль"
+
+#: public/class-ct-db-public.php:1304
+msgid "That username has already been taken. Please choose another."
+msgstr "Это имя пользователя уже занято. Пожалуйста, выберите другое."
+
+#: public/class-ct-db-public.php:1308
+msgid ""
+"The username you selected was not valid. Please only use lowercase "
+"alphanumeric characters."
+msgstr ""
+"Логин, который вы выбрали был не действителен. Пожалуйста, используйте "
+"только строчные алфавитно-цифровые символы."
+
+#: public/class-ct-db-public.php:1312
+msgid "Please enter your username."
+msgstr "Пожалуйста, введите ваше имя пользователя."
+
+#: public/class-ct-db-public.php:1316
+msgid "Please enter your first name."
+msgstr "Пожалуйста, введите ваше имя."
+
+#: public/class-ct-db-public.php:1320
+msgid "Please enter your last name."
+msgstr "Пожалуйста, введите Вашу фамилию."
+
+#: public/class-ct-db-public.php:1324
+msgid "Please check you have entered a valid email address."
+msgstr ""
+"Пожалуйста, проверьте, что вы ввели действительный адрес электронной почты."
+
+#: public/class-ct-db-public.php:1328
+msgid "That email address has already been registered."
+msgstr "Этот адрес электронной почты уже зарегистрирован."
+
+#: public/class-ct-db-public.php:1332
+msgid "Please enter a password."
+msgstr "Пожалуйста, введите пароль."
+
+#: public/class-ct-db-public.php:1336
+msgid "Please check that the passwords match."
+msgstr "Пожалуйста, проверьте, что пароли совпадают."
+
+#: public/class-ct-db-public.php:1398
+msgid "Activate your account"
+msgstr "Активировать свой аккаунт"
+
+#: public/class-ct-db-public.php:1399
+msgid ""
+"<p>Thank you for registering. Please activate your account by clicking the "
+"link below:</p>"
+msgstr ""
+"<р>Спасибо за регистрацию. Пожалуйста, активируйте свой аккаунт, нажав на "
+"ссылку ниже:</p>"
+
+#: public/class-ct-db-public.php:1504
+msgid ""
+"Please check your inbox for an activation email - if you don't see an email "
+"from us, please remember to check your spam folder."
+msgstr ""
+"Пожалуйста, проверьте Ваш почтовый ящик для активации электронной почты - "
+"если Вы не видите письмо от нас, пожалуйста, не забудьте проверить папку со "
+"спамом."
+
+#: public/class-ct-db-public.php:1506
+msgid "Thank you for registering. You may now log in."
+msgstr "Спасибо за регистрацию. Теперь вы можете войти в систему."
+
+#: public/class-ct-db-public.php:1520
+msgid "You have activated your account successfully. You can now log in."
+msgstr ""
+"Вы активировали Ваш аккаунт успешно. Теперь вы можете войти в систему."
+
+#: public/class-ct-db-public.php:1601
+msgid "Error"
+msgstr "Ошибка"
+
+#: public/class-ct-db-public.php:1626
+msgid "New Topic Posted"
+msgstr "Новая Тема Размещена"
+
+#: public/class-ct-db-public.php:1627
+msgid "<p>A new topic has been created:<br>"
+msgstr "<p>Новая тема уже создана:<br>"
+
+#: public/class-ct-db-public.php:1629
+msgid "Topic status: "
+msgstr "Тема статус:"
+
+#: public/class-ct-db-public.php:1631
+msgid "This topic is waiting for you to moderate and publish it."
+msgstr "Эта тема ожидает Вас, чтобы модерировать и опубликовать ее."
+
+#: public/class-ct-db-public.php:1633
+msgid "This topic has been published and is live."
+msgstr "Эта тема была опубликована и живая."
+
+#: public/class-ct-db-public.php:1691 public/class-ct-db-public.php:1692
+msgid "Log out"
+msgstr "Выход"
+
+#: templates/archive-discussion-topics.php:36
+msgid "Continue reading %s"
+msgstr "Продолжите читать %s"
+
+#: templates/archive-discussion-topics.php:43
+msgid "Leave a comment"
+msgstr "Оставьте комментарий"
+
+#: templates/archive-discussion-topics.php:43
+msgid "1 Comment"
+msgstr "1 комментарий"
+
+#: templates/archive-discussion-topics.php:43
+msgid "% Comments"
+msgstr "% Комментарии"
+
+#: templates/archive-discussion-topics.php:45
+msgid "Edit"
+msgstr "Редактировать"
+
+#: templates/archive-discussion-topics.php:55
+msgid "Previous page"
+msgstr "Предыдущая страница"
+
+#: templates/archive-discussion-topics.php:56
+msgid "Next page"
+msgstr "Следующая страница"
+
+#: templates/archive-discussion-topics.php:57
+msgid "Page"
+msgstr "Страница"
+
+#: templates/archive-discussion-topics.php:70
+msgid "There were no topics found."
+msgstr "Там не было найдено тем."
+
+#: templates/single-discussion-topics.php:39
+msgid "Next"
+msgstr "Далее"
+
+#: templates/single-discussion-topics.php:40
+msgid "Next topic:"
+msgstr "Следующая тема:"
+
+#: templates/single-discussion-topics.php:42
+msgid "Previous"
+msgstr "Предыдущие"
+
+#: templates/single-discussion-topics.php:43
+msgid "Previous topic:"
+msgstr "Предыдущая тема:"
+
+#. Plugin URI of the plugin/theme
+msgid "http://catapultthemes.com/discussion-board/"
+msgstr "http://catapultthemes.com/discussion-board/"
+
+#. Description of the plugin/theme
+msgid "Provide a simple discussion board for your site"
+msgstr "Предоставьте простой форум для своего сайта"
+
+#. Author of the plugin/theme
+msgid "Catapult Themes"
+msgstr "Catapult Themes"
+
+#. Author URI of the plugin/theme
+msgid "http://catapultthemes.com/"
+msgstr "http://catapultthemes.com/"

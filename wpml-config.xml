@@ -1,0 +1,14 @@
+<wpml-config>
+	<!-- Single option -->
+	<custom-types>
+		<custom-type translate="1">discussion-topics</custom-type>
+	</custom-types>
+	<admin-texts>
+		<key name="ctdb_options_settings">
+			<key name="new_topic_page" />
+			<key name="discussion_topics_page" />
+			<key name="frontend_login_page" />
+			<key name="redirect_to_page" />
+		</key>
+	</admin-texts>
+</wpml-config>

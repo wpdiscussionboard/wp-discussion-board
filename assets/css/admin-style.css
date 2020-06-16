@@ -1,0 +1,69 @@
+.ctdb-outer-wrap {
+	margin-right: 300px;
+	padding: 0;
+}
+.ctdb-inner-wrap {
+	position: relative;
+	width: 100%;
+	min-width: 463px;
+	float: left;
+}
+.ctdb-banners {
+	float: right;
+	margin-right: -300px;
+	width: 280px;
+}
+.ctdb-banners img {
+	max-width: 100%;
+}
+.ctdb-banner {
+	margin-bottom: 1.5em;
+}
+@media only screen and (max-width: 850px) {
+	.ctdb-outer-wrap {
+		margin-right: 0;
+	}
+	.ctdb-inner-wrap {
+		position: relative;
+		width: 100%;
+		min-width: 0;
+		float: none;
+	}
+	.ctdb-banners {
+		float: none;
+		margin-right: 0;
+		width: 100%;
+	}
+	.ctdb-banner {
+		float: left;
+		margin-right: 20px;
+	}
+}
+.is-dbpro .hide-dbpro {
+	display: none;
+}
+
+.ctdb-about-section {
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ddd;
+}
+h3.ctdb-about {
+	font-size: 1.8em;
+	font-weight: normal;
+	opacity: 0.6;
+}
+.ctdb-about-section ul li a {
+	text-decoration: none;
+}
+.ctdb-about-section ul li a:after {
+	font-family: dashicons;
+	content: "\f504";
+	margin-left: 4px;
+}
+.ctdb-update-message p:before {
+	content: '';
+	display: none;
+}
+.update-message p:empty {
+	display: none;
+}
