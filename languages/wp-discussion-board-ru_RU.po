@@ -692,17 +692,17 @@ msgid "Previous topic:"
 msgstr "Предыдущая тема:"
 
 #. Plugin URI of the plugin/theme
-msgid "http://catapultthemes.com/discussion-board/"
-msgstr "http://catapultthemes.com/discussion-board/"
+msgid "https://wpdiscussionboard.com"
+msgstr "https://wpdiscussionboard.com"
 
 #. Description of the plugin/theme
 msgid "Provide a simple discussion board for your site"
 msgstr "Предоставьте простой форум для своего сайта"
 
 #. Author of the plugin/theme
-msgid "Catapult Themes"
-msgstr "Catapult Themes"
+msgid "WP Discussion Board"
+msgstr "WP Discussion Board"
 
 #. Author URI of the plugin/theme
-msgid "http://catapultthemes.com/"
-msgstr "http://catapultthemes.com/"
+msgid "https://wpdiscussionboard.com"
+msgstr "https://wpdiscussionboard.com"

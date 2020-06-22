@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Discussion Board
-Plugin URI: https://discussionboard.pro/
+Plugin URI: https://wpdiscussionboard.com
 Description: Provide a simple discussion board for your site
 Version: 2.3.15
-Author: Plugin Republic
-Author URI: https://pluginrepublic.com/
+Author: WP Discussion Board
+Author URI: https://wpdiscussionboard.com
 Text Domain: wp-discussion-board
 Domain Path: /languages
 */

@@ -719,12 +719,14 @@ if( ! class_exists( 'CT_DB_Admin' ) ) { // Don't initialise if there's already a
 					</div><!-- .ctdb-inner-wrap -->
 					<div class="ctdb-banners">
 						<div class="ctdb-banner hide-dbpro">
-							<a target="_blank" href="https://discussionboard.pro/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro">
-								<img src="<?php echo DB_PLUGIN_URL . 'assets/images/discussion-board-banner-ad.png'; ?>" alt="" >
+							<a target="_blank" href="https://wpdiscussionboard.com/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro">
+								<img src="<?php echo DB_PLUGIN_URL . 'assets/images/discussion-board-banner-ad.png'; ?>" alt="Discussion Board Pro" >
 							</a>
 						</div>
 						<div class="ctdb-banner">
-							<a target="_blank" href="https://beeketing.com/redirect?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fbeeketing-for-woocommerce%2F&utm_channel=promo&utm_medium=partnership&utm_term=catapultthemes"><img src="<?php echo DB_PLUGIN_URL . 'assets/images/beeketing.png'; ?>" alt="" ></a>
+							<a target="_blank" href="https://wordpress.org/plugins/watchtower/">
+								<img src="<?php echo DB_PLUGIN_URL . 'assets/images/watchtower-banner-ad.png'; ?>" alt="Watchtower for WordPress" >
+							</a>
 						</div>
 					</div>
 				</div><!-- .ctdb-outer-wrap -->
@@ -818,10 +820,10 @@ if( ! class_exists( 'CT_DB_Admin' ) ) { // Don't initialise if there's already a
 		public function filter_action_links( $links ) {
 
 			$links['settings'] = '<a href="' . admin_url( 'edit.php?post_type=discussion-topics&page=discussion_board' ) . '">' . __( 'Settings', 'wp-discussion-board' ) . '</a>';
-			$links['support'] = '<a href="https://discussionboard.pro/documentation/">' . __( 'Support', 'wp-discussion-board' ) . '</a>';
+			$links['support'] = '<a href="https://wpdiscussionboard.com/docs/">' . __( 'Support', 'wp-discussion-board' ) . '</a>';
 			// Check to see if Pro version already installed
 			if( ! class_exists( 'CT_DB_Pro_Admin' ) ) {
-				$links['upgrade'] = '<a href="https://discussionboard.pro">' . __( 'Upgrade', 'wp-discussion-board' ) . '</a>';
+				$links['upgrade'] = '<a href="https://wpdiscussionboard.com">' . __( 'Upgrade', 'wp-discussion-board' ) . '</a>';
 			}
 
 			return $links;

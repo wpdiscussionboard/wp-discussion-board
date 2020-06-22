@@ -172,9 +172,9 @@ msgid ""
 "Discussion Board. Please note that the plugin settings and topics are now "
 "all under the Discussion Board menu item in the left hand navigation menu - "
 "just under Comments and above Appearance. As always, if you have any "
-"questions or comments please <a href=\"mailto:info@catapultthemes.com"
+"questions or comments please <a href=\"mailto:support@wpdiscussionboard.com"
 "\">contact me</a> directly or post a topic on <a target=\"_blank\" href="
-"\"https://discussionboard.pro/\">the website</a>."
+"\"https://wpdiscussionboard.com/\">the website</a>."
 msgstr ""
 
 #: includes/admin/class-ct-db-admin-notices.php:41
@@ -1073,7 +1073,7 @@ msgid "Submitting form"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://discussionboard.pro/"
+msgid "https://wpdiscussionboard.com/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -1081,9 +1081,9 @@ msgid "Provide a simple discussion board for your site"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Catapult Themes"
+msgid "WP Discussion Board"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://catapultthemes.com/"
+msgid "https://wpdiscussionboard.com"
 msgstr ""

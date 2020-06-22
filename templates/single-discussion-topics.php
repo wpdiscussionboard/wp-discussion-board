@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying a single Discussion Topic post type
- * Follow the guidance at catapultthemes.com to update this for your theme
+ * Follow the guidance at wpdiscussionboard.com to update this for your theme
  */
 
 get_header(); ?>

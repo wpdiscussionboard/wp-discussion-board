@@ -91,7 +91,7 @@ if( ! class_exists( 'CT_DB_Admin_About' ) ) { // Don't initialise if there's alr
 							<?php printf( '<h4>%s</h4>', __( 'Support link', 'wp-discussion-board' ) ); ?>
 							<?php printf(
 								'<ul class="ctdb-support-links"><li><a href="%s" target="_blank">%s</a></li></ul>',
-								'https://discussionboard.pro/documentation/',
+								'https://wpdiscussionboard.com/docs/',
 								__( 'Getting started support article', 'wp-discussion-board' )
 							); ?>
 						</div>
@@ -113,11 +113,11 @@ if( ! class_exists( 'CT_DB_Admin_About' ) ) { // Don't initialise if there's alr
 							<?php printf( '<p>%s</p>', __( 'You can change the settings by clicking on the Settings link in the Discussion Board menu. There is more information on the links below:', 'wp-discussion-board' ) ); ?>
 							<?php printf(
 								'<ul class="ctdb-support-links"><li><a href="%s" target="_blank">%s</a></li><li><a href="%s" target="_blank">%s</a></li><li><a href="%s" target="_blank">%s</a></li></ul>',
-								'https://discussionboard.pro/documentation/#general-tab',
+								'https://wpdiscussionboard.com/docs/#general-tab',
 								__( 'General settings', 'wp-discussion-board' ),
-								'https://discussionboard.pro/documentation/#design-tab',
+								'https://wpdiscussionboard.com/docs/#design-tab',
 								__( 'Design settings', 'wp-discussion-board' ),
-								'https://discussionboard.pro/documentation/#user-tab',
+								'https://wpdiscussionboard.com/docs/#user-tab',
 								__( 'User settings', 'wp-discussion-board' )
 							); ?>
 
@@ -136,18 +136,14 @@ if( ! class_exists( 'CT_DB_Admin_About' ) ) { // Don't initialise if there's alr
 					</div><!-- .ctdb-inner-wrap -->
 					<div class="ctdb-banners">
 						<div class="ctdb-banner hide-dbpro">
-							<a target="_blank" href="https://discussionboard.pro/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro">
+							<a target="_blank" href="https://wpdiscussionboard.com/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro">
 								<img src="<?php echo DB_PLUGIN_URL . 'assets/images/discussion-board-banner-ad.png'; ?>" alt="" >
 							</a>
 						</div>
 						<div class="ctdb-banner">
-							<a target="_blank" href="https://catapultthemes.com/downloads/showcase/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=showcase"><img src="<?php echo DB_PLUGIN_URL . 'assets/images/showcase-featured-image.jpg'; ?>" alt="" ></a>
-						</div>
-						<div class="ctdb-banner">
-							<a target="_blank" href="https://catapultthemes.com/downloads/bookings-for-woocommerce/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=bookings"><img src="<?php echo DB_PLUGIN_URL . 'assets/images/bookings-for-woocommerce-banner-ad.jpg'; ?>" alt="" ></a>
-						</div>
-						<div class="ctdb-banner">
-							<a target="_blank" href="http://superheroslider.catapultthemes.com/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=superhero"><img src="<?php echo DB_PLUGIN_URL . 'assets/images/shs-banner-ad.png'; ?>" alt="" ></a>
+							<a target="_blank" href="https://wordpress.org/plugins/watchtower/">
+								<img src="<?php echo DB_PLUGIN_URL . 'assets/images/watchtower-banner-ad.png'; ?>" alt="Watchtower for WordPress" >
+							</a>
 						</div>
 						<div class="ctdb-banner">
 							<a target="_blank" href="https://singularitytheme.com/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=singularity"><img src="<?php echo DB_PLUGIN_URL . 'assets/images/singularity-banner-ad.png'; ?>" alt="" ></a>

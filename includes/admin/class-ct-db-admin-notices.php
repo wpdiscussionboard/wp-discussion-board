@@ -47,11 +47,11 @@ class CT_DB_Admin_Notices extends CT_DB_Admin {
 						'<p>%s</p>',
 						sprintf( 
 							__( 'Don\'t forget: if you have any questions or problems regarding the plugin, please <a href="%s" target="_blank">contact me directly <span class="dashicons dashicons-external"></span></a> and I will get straight back to you.', 'wp-discussion-board' ),
-						'https:/catapultthemes.com/contact/'
+						'https://wpdiscussionboard.com/support/'
 						 )
 					); ?>
 					<?php printf( '<p>%s</p>', __( 'Many thanks for your support.', 'wp-discussion-board' ) ); ?>
-					<?php printf( '<p><em>%s</em></p>', __( 'Gareth, Catapult Themes.', 'wp-discussion-board' ) ); ?>
+					<?php printf( '<p><em>%s</em></p>', __( 'Matt, Discussion Board Maintainer.', 'wp-discussion-board' ) ); ?>
 				
 					<?php printf(
 						'<p><a class="button button-primary" href="%s">%s</a> <a class="dismiss-text button button-secondary" data-notice="review_notice" href="#">%s</a></p>',
@@ -112,11 +112,11 @@ class CT_DB_Admin_Notices extends CT_DB_Admin {
 					<?php printf( '<p>%s</p>', __( 'Hi. Thanks for using Discussion Board - I hope it\'s helping you run a successful forum. I just wanted to remind you about the Pro version, which features multiple boards for creating sub-forums, categories and tags, topic following, user profiles, WYSIWYG editing, image uploads, and more.', 'wp-discussion-board' ) ); ?>
 					<?php printf( '<p>%s</p>', __( 'You can get 20% off the cost of the Pro version - just use the discount code UPGRADE on the checkout page. Click the button below to find out more.', 'wp-discussion-board' ) ); ?>
 					<?php printf( '<p>%s</p>', __( 'Thanks for using my plugin.', 'wp-discussion-board' ) ); ?>
-					<?php printf( '<p><em>%s</em></p>', __( 'Gareth, Catapult Themes.', 'wp-discussion-board' ) ); ?>
+					<?php printf( '<p><em>%s</em></p>', __( 'Matt, Discussion Board Maintainer.', 'wp-discussion-board' ) ); ?>
 					
 					<?php printf(
 						'<p><a class="button button-primary" href="%s">%s</a> <a class="dismiss-text button button-secondary" data-notice="pro_notice" href="#">%s</a></p>',
-						'https://catapultthemes.com/downloads/discussion-board-pro/?utm_source=pro_notice&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro',
+						'https://wpdiscussionboard.com/?utm_source=pro_notice&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro',
 						__( 'Find out more', 'wp-discussion-board' ),
 						__( 'No thanks', 'wp-discussion-board' )
 					 ); ?>

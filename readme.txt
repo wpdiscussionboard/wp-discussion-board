@@ -1,6 +1,6 @@
 === Discussion Board - WordPress Forum Plugin ===
-Contributors: Catapult_Themes, jf_bertrand
-Donate Link: https://discussionboard.pro/
+Contributors: MattGeri, Catapult_Themes, jf_bertrand
+Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
 Tested up to: 5.4.1
@@ -37,7 +37,7 @@ A key feature of Discussion Board is the ability to control separately who can v
 
 You can specify which role new users will be assigned when they register. You can also require users to activate their registration by verifying their email address - this drastically reduces spam registrations.
 
-In the [Pro version](https://discussionboard.pro/ "WordPress forum plugin"), you also have the option to approve new registrations yourself if you want.
+In the [Pro version](https://wpdiscussionboard.com/ "WordPress forum plugin"), you also have the option to approve new registrations yourself if you want.
 
 = Front end log-in =
 
@@ -86,7 +86,7 @@ You can use this plugin to create any type of forum that you like. Typically, th
 
 = WordPress forum plugin demo =
 
-There's [a Discussion Board demo here](https://discussionboard.pro/ "Discussion Board Demo"). Note that this demo includes some features only available with the Pro version. Feel free to register and post some sample content.
+There's [a Discussion Board demo here](https://wpdiscussionboard.com "Discussion Board Demo"). Note that this demo includes some features only available with the Pro version. Feel free to register and post some sample content.
 
 = WordPress forum theme =
 
@@ -100,15 +100,13 @@ There are many, many reasons to want to install a WordPress forum plugin on your
 * Get closer to your users - a forum is a priceless way of learning more about what makes your users tick, whether the forum is support-based or just a general community discussion board.
 * Market more effectively - when users register for your forum, they are providing you with their email address, meaning that you have a great opportunity to market directly to people you know are interested in your offering.
 
-If you'd like some more information about forums, what they are, and why you'd want one, there's a substantial article on our website on [how to add a forum in WordPress](https://pluginrepublic.com/how-to-add-a-forum-to-wordpress/).
-
 = Documentation =
 
-Full documentation and guidance on getting started with the plugin and on its features is [here](https://discussionboard.pro/documentation/).
+Full documentation and guidance on getting started with the plugin and on its features is [here](https://wpdiscussionboard.com/docs/).
 
 = Is there a Pro version? =
 
-Oh yes, there's a [Pro version](https://discussionboard.pro/) to give you even more possibilities with your forum. Features include:
+Oh yes, there's a [Pro version](https://wpdiscussionboard.com) to give you even more possibilities with your forum. Features include:
 
 * Multiple Discussion Boards for different subjects
 * Set statuses for topics, e.g. 'Resolved', 'Open', etc
@@ -121,7 +119,7 @@ Oh yes, there's a [Pro version](https://discussionboard.pro/) to give you even m
 * Admin approvals - optionally require all new registrations to be approved by an admin
 * WYSIWYG editor
 
-[Check out the Pro version here](https://discussionboard.pro/).
+[Check out the Pro version here](https://wpdiscussionboard.com).
 
 == Installation ==
 
@@ -136,17 +134,17 @@ Oh yes, there's a [Pro version](https://discussionboard.pro/) to give you even m
 
 = I've installed Discussion Board. Now what do I do? =
 
-Discussion Board will automatically install three pages for you:
+Discussion Board will automatically create three pages for you:
 
 * A page with a log-in and registration form
 * A page with a form for users to post new topics
 * A page listing existing topics
 
-There are further, detailed instructions for the free and pro versions on [the website](https://discussionboard.pro/documentation/).
+There are further, detailed instructions for the free and pro versions on [the website](https://wpdiscussionboard.com/docs/).
 
 = Where can I see a demo? =
 
-There's [a demo here](https://discussionboard.pro/ "Discussion Board Demo"). Note that this demo includes some features only available with the Pro version. Feel free to register and post some content so that you can see how it works from the user's point of view.
+There's [a demo here](https://wpdiscussionboard.com "Discussion Board Demo"). Note that this demo includes some features only available with the Pro version. Feel free to register and post some content so that you can see how it works from the user's point of view.
 
 = Some users are reporting that they don't receive an activation email =
 
