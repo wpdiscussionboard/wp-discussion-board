@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  wordpress:
+    container_name: wpdiscussionboard
+    restart: always
+    depends_on:
+      - wpdiscussionboard_db
+    links:
+      - wpdiscussionboard_db:mysql
+    image: andreccosta/wordpress-xdebug
+    ports:
+      - "8092:80"
+    env_file:
+      - .env
+    volumes:
+      - ./wp:/var/www/html/
+      - .:/var/www/html/wp-content/plugins/wp-discussion-board
+      - ./vendor/wp-phpunit/wp-phpunit:/var/www/html/tests/phpunit
+      - ./public/wp-tests-config.php:/var/www/html/wp-tests-config.php
+    networks:
+      - local
+    environment:
+      WP_TESTS_DIR: /var/www/html/tests/phpunit
+      WP_PHPUNIT__TESTS_CONFIG: /var/www/html/wp-tests-config.php
+
+  wpdiscussionboard_db:
+    container_name: wpdiscussionboard_mysql
+    image: mysql:5.7
+    ports:
+      - "3332:3306"
+    env_file:
+      - .env
+    volumes:
+      - "./docker/data/db:/var/lib/mysql"
+    networks:
+      - local
+
+networks:
+  local:
+    external: true

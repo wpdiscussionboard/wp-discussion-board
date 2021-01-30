@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress coding standards">
+	<rule ref="WordPress-Extra" />
+
+	<arg name="extensions" value="php" />
+	<arg name="colors" />
+	<arg value="sp" /><!-- Show sniff codes and progress in all reports. -->
+
+	<exclude-pattern>/node_modules/</exclude-pattern>
+	<exclude-pattern>/vendor/</exclude-pattern>
+	<exclude-pattern>/docker/</exclude-pattern>
+	<exclude-pattern>/wp/</exclude-pattern>
+</ruleset>
