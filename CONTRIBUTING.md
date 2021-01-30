@@ -12,11 +12,11 @@ Lets us know if you run into a bug when using the plugin. You can report a bug b
 
 ### Suggest features
 
-Send us all your ideas for the plugin, we'd love to hear them! Features are managed by Github issues. Create a new issue to suggest a feature.
+Send us all your ideas for the plugin, we'd love to hear of them! Features are managed by Github issues. Create a [new issue](https://github.com/wpdiscussionboard/wp-discussion-board/issues/new) to suggest a feature.
 
 ### Code
 
-We're more than happy to accept bug fixes and even feature enhancements to the plugin. Code submissions are handled via Github pull requests. You can submit a PR via the repository.
+We're more than happy to accept bug fixes and even feature enhancements to the plugin. Code submissions are handled via Github pull requests. You can [submit a PR](https://github.com/wpdiscussionboard/wp-discussion-board/compare) via the repository.
 
 ## Development workflow
 
@@ -34,8 +34,20 @@ Releases are currently done manually, however we will shortly be automating this
 
 ## Development environment
 
-We currently do not have a dedicated local development environment for the project. We recommend getting setup with [LocalWP](https://localwp.com/) or a docker/vagrant based virtual environment like [Lando](https://lando.dev/) or [VVV2](https://varyingvagrantvagrants.org/).
+The plugin project repository ships with a very simple Docker based environment which can be used for local development.
+
+Make sure you have [Docker](https://www.docker.com/) installed for this development environment to work.
+
+To get it setup, firstly run `composer install` in the root of the repository.
+
+Then simply run `composer up` to start the local development environment.
+
+You can now access the local environment at [http://localhost:8092](http://localhost:8092)
+
+If you prefer to use your own custom local development environment, we recommend [LocalWP](https://localwp.com/) or a docker/vagrant based virtual environment like [Lando](https://lando.dev/) or [VVV2](https://varyingvagrantvagrants.org/).
 
 ## Code standards
 
 We strictly follow the [WPCS](https://github.com/WordPress/WordPress-Coding-Standards) guidelines for our coding standards.
+
+To lint your code, make sure Composer is up to date by running `composer update`. And then run `composer lint` to run WPCS.
