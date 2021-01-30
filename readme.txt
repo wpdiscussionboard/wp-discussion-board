@@ -121,6 +121,10 @@ Oh yes, there's a [Pro version](https://wpdiscussionboard.com) to give you even 
 
 [Check out the Pro version here](https://wpdiscussionboard.com).
 
+= Contributing =
+
+If you would like to contribute to the plugin, we've put together a [guide on how to contribute](https://github.com/wpdiscussionboard/wp-discussion-board/blob/master/CONTRIBUTING.md).
+
 == Installation ==
 
 = From your dashboard =
