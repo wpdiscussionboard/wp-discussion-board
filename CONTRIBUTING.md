@@ -12,11 +12,11 @@ Lets us know if you run into a bug when using the plugin. You can report a bug b
 
 ### Suggest features
 
-Send us all your ideas for the plugin, we'd love to hear them! Features are managed by Github issues. Create a new issue to suggest a feature.
+Send us all your ideas for the plugin, we'd love to hear of them! Features are managed by Github issues. Create a [new issue](https://github.com/wpdiscussionboard/wp-discussion-board/issues/new) to suggest a feature.
 
 ### Code
 
-We're more than happy to accept bug fixes and even feature enhancements to the plugin. Code submissions are handled via Github pull requests. You can submit a PR via the repository.
+We're more than happy to accept bug fixes and even feature enhancements to the plugin. Code submissions are handled via Github pull requests. You can [submit a PR](https://github.com/wpdiscussionboard/wp-discussion-board/compare) via the repository.
 
 ## Development workflow
 
