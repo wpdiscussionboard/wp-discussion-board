@@ -57,7 +57,15 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		 */
 		public function return_login_registration_form( $atts, $content = '' ) {
 
-			if( ! is_user_logged_in() ) {
+            $successful_registration = false;
+			if(!empty($_POST) && isset($_POST['ctdb_user_email'])){
+				$user = get_user_by( 'email', $_POST['ctdb_user_email'] );
+				if($user){
+					$successful_registration = true;
+				}
+			}			
+
+			if( ! is_user_logged_in() && !$successful_registration) {
 
 				$message = '';
 				$class = '';
