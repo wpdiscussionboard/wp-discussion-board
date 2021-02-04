@@ -289,7 +289,7 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 						</p>
 
 						<p>
-							<span id="ctdb_user_form-response" class="validation-response"><small>Please make sure all required fields are filled out.</small></span>
+							<span id="ctdb_user_form-response" class="validation-response"><small><?php esc_html_e( 'Please make sure all required fields are filled out.', 'wp-discussion-board' ); ?></small></span>
 						</p>
 
 					</fieldset>
