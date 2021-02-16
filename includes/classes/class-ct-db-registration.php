@@ -288,14 +288,20 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 							<input type="submit" value="<?php _e( 'Register Your Account', 'wp-discussion-board' ); ?>"/>
 						</p>
 
+						<p>
+							<span id="ctdb_user_form-response" class="validation-response"><small><?php esc_html_e( 'Please make sure all required fields are filled out.', 'wp-discussion-board' ); ?></small></span>
+						</p>
+
 					</fieldset>
 
 					<script>
 						// Do inline validation for username
 						jQuery(document).ready(function($){
+							$(this).parents('form').find('#ctdb_user_form-response').hide();
 							// On focusout so that we only evaluate inputs once completed
 							// Send current so that we only evaluate current input
 							$('#ctdb-registration-wrap input').on('focusout',function(){
+								$(this).parents('form').find('#ctdb_user_form-response').hide();
 								var required = 'false';
 								if($(this).hasClass('required')){
 									required = 'true';
@@ -337,7 +343,16 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 									}
 								});
 							});
+
+							$('#ctdb_registration_form').submit(function(event) {
+								if($(this).find('input.invalid').length > 0){
+									$(this).find('#ctdb_user_form-response').show();
+									event.preventDefault();
+								}
+							});
+
 						});
+
 					</script>
 
 					<?php do_action( 'google_invre_render_widget_action' ); ?>
