@@ -3,9 +3,9 @@ Contributors: MattGeri, Catapult_Themes, jf_bertrand
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 5.4.1
+Tested up to: 5.6.2
 Requires PHP: 5.2.4
-Stable tag: 2.3.15
+Stable tag: 2.3.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -176,6 +176,10 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 2. Example topic with replies (includes some Pro features)
 
 == Changelog ==
+
+= 2.3.16, March 8 2021 =
+* Fixed: Registration form required fields throw validation if not filled out
+* Fixed: After a user registers, don't show the registration form again
 
 = 2.3.15, May 11 2020 =
 * Added: ctdb_admin_email filter
