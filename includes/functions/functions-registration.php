@@ -114,34 +114,51 @@ if ( ! function_exists ( 'ctdb_set_html_content_type' ) ) {
  * @return Array
  * @since 2.3.0
  */
-if ( ! function_exists ( 'ctdb_get_extra_fields' ) ) {
+if ( ! function_exists( 'ctdb_get_extra_fields' ) ) {
 	function ctdb_get_extra_fields() {
 		$registration_fields = ctdb_registration_form_fields();
-		$protected_fields = ctdb_get_protected_registration_fields();
-		if( ! empty( $protected_fields ) && is_array( $protected_fields ) ) {
-			foreach( $protected_fields as $key ) {
+		$protected_fields    = ctdb_get_protected_registration_fields();
+		if ( ! empty( $protected_fields ) && is_array( $protected_fields ) ) {
+			foreach ( $protected_fields as $key ) {
 				// Unset the protected fields
-				unset( $registration_fields[$key] );
+				unset( $registration_fields[ $key ] );
 			}
 		}
+
 		// Only the extra fields are left
 		return $registration_fields;
 	}
 }
 
 /**
- * Save additional user meta field values
- * @param $user_id User ID
- * @param $post_obj $_POST
+ * Save additional user meta field values.
+ *
+ * @param $user_id int    The User ID.
+ * @param $post_obj array The $_POST array.
+ *
  * @since 2.3.0
  */
-if ( ! function_exists ( 'ctdb_register_extra_fields' ) ) {
+if ( ! function_exists( 'ctdb_register_extra_fields' ) ) {
 	function ctdb_register_extra_fields( $user_id, $post_obj ) {
 		$extra_fields = ctdb_get_extra_fields();
-		if( $extra_fields ) {
-			foreach( $extra_fields as $field ) {
-				if( isset( $post_obj[$field['id']] ) && ! empty( $field['meta_key'] ) ) {
-					update_user_meta( $user_id, $field['meta_key'], sanitize_text_field( $post_obj[$field['id']] ) );
+
+		if ( $extra_fields ) {
+			foreach ( $extra_fields as $field ) {
+				$meta_key = ! empty( $field['meta_key'] ) ? $field['meta_key'] : $field['id'];
+
+				/*
+				 * Backwards compatible support for `textarea`.
+				 *
+				 * @since 2.3.17
+				 */
+				if ( ! empty( $field['field'] ) && 'checkbox' === $field['field'] ) {
+					$field['type'] = 'checkbox';
+				}
+
+				if ( isset( $post_obj[ $field['id'] ] ) ) {
+					update_user_meta( $user_id, $meta_key, sanitize_text_field( wp_unslash( $post_obj[ $field['id'] ] ) ) );
+				} elseif ( 'checkbox' === $field['type'] && empty( $post_obj[ $field['id'] ] ) ) {
+					update_user_meta( $user_id, $meta_key, 'no' );
 				}
 			}
 		}

@@ -258,49 +258,76 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 				<form id="ctdb_registration_form" class="ctdb-form" action="" method="POST">
 
 					<fieldset>
+						<?php
+						if ( ! empty( $form ) ) {
+							foreach ( $form as $field ) {
+								if ( isset( $_POST[ "{$field['id']}" ] ) ) { // phpcs:ignore
+									$value = $_POST[ "{$field['id']}" ]; // phpcs:ignore
+								} else {
+									$value = '';
+								}
 
-						<?php if( ! empty( $form ) ) {
-							foreach( $form as $field ) {
-								if( $field['field'] == 'input' ) {
-									if( isset( $_POST["{$field['id']}"] ) ) {
-										$value = $_POST["{$field['id']}"];
-									} else {
-										$value = '';
-									} ?>
-									<p>
-										<label for="<?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_attr( $field['label'] ); ?><span id="<?php echo esc_attr( $field['id'] ); ?>-response" class="validation-response"></span></label>
-										<input name="<?php echo esc_attr( $field['id'] ); ?>" id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $field['class'] ); ?> <?php echo esc_attr( $field['id'] ); ?>" type="<?php echo esc_attr( $field['type'] ); ?>" value="<?php echo $value; ?>"/>
-									</p>
-								<?php } else if( $field['field'] == 'textarea' ) {
-									if( isset( $_POST["{$field['id']}"] ) ) {
-										$value = $_POST["{$field['id']}"];
-									} else {
-										$value = '';
-									} ?>
-									<p>
-										<label for="<?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_attr( $field['label'] ); ?><span id="<?php echo esc_attr( $field['id'] ); ?>-response" class="validation-response"></span></label>
-										<textarea name="<?php echo esc_attr( $field['id'] ); ?>" id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $field['class'] ); ?> <?php echo esc_attr( $field['id'] ); ?>"><?php echo $value; ?></textarea>
-									</p>
-								<?php }
+								/*
+								 * Backwards compatible support for `textarea`.
+								 *
+								 * @since 2.3.17
+								 */
+								if ( ! empty( $field['field'] ) && 'checkbox' === $field['field'] ) {
+									$field['type'] = 'checkbox';
+								}
+
+								switch ( $field['type'] ) {
+									case 'email':
+									case 'hidden':
+									case 'number':
+									case 'password':
+									case 'tel':
+									case 'text':
+									case 'url':
+										?>
+										<p>
+											<label for="<?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_attr( $field['label'] ); ?><span id="<?php echo esc_attr( $field['id'] ); ?>-response" class="validation-response"></span></label>
+											<input name="<?php echo esc_attr( $field['id'] ); ?>" id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $field['class'] ); ?> <?php echo esc_attr( $field['id'] ); ?>" type="<?php echo esc_attr( $field['type'] ); ?>" value="<?php echo esc_attr( $value ); ?>"/>
+										</p>
+										<?php
+										break;
+									case 'checkbox':
+										?>
+										<p>
+											<input name="<?php echo esc_attr( $field['id'] ); ?>" id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $field['class'] ); ?> <?php echo esc_attr( $field['id'] ); ?>" type="checkbox" value="yes" <?php checked( 'yes', $value ); ?> />
+											<label for="<?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_attr( $field['label'] ); ?><span id="<?php echo esc_attr( $field['id'] ); ?>-response" class="validation-response"></span></label>
+										</p>
+										<?php
+										break;
+									case 'textarea':
+										?>
+										<p>
+											<label for="<?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_attr( $field['label'] ); ?><span id="<?php echo esc_attr( $field['id'] ); ?>-response" class="validation-response"></span></label>
+											<textarea name="<?php echo esc_attr( $field['id'] ); ?>" id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $field['class'] ); ?> <?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_attr( $value ); ?></textarea>
+										</p>
+										<?php
+										break;
+								}
 							}
-						} ?>
-						<?php if( $require_humanity ) { // Add humanity check ?>
+						}
+
+						if ( $require_humanity ) :
+							?>
 							<p class="ctdb-check-humanity-wrapper">
-								<label><?php _e( 'Are you a human?', 'wp-discussion-board' ); ?></label>
-								<input name="ctdb_check_humanity" value="no" type="radio"/> <?php _e( 'No', 'wp-discussion-board' ); ?><br>
-								<input name="ctdb_check_humanity" value="yes" type="radio"/> <?php _e( 'Yes', 'wp-discussion-board' ); ?>
+								<label><?php esc_html_e( 'Are you a human?', 'wp-discussion-board' ); ?></label>
+								<input name="ctdb_check_humanity" value="no" type="radio"/> <?php esc_html_e( 'No', 'wp-discussion-board' ); ?><br />
+								<input name="ctdb_check_humanity" value="yes" type="radio"/> <?php esc_html_e( 'Yes', 'wp-discussion-board' ); ?>
 							</p>
-						<?php } ?>
+						<?php endif; ?>
 						<p>
 							<input type="hidden" name="ctdb_page" value="register"/>
-							<input type="hidden" name="ctdb_register_nonce" value="<?php echo wp_create_nonce('ctdb-register-nonce'); ?>"/>
-							<input type="submit" value="<?php _e( 'Register Your Account', 'wp-discussion-board' ); ?>"/>
+							<input type="hidden" name="ctdb_register_nonce" value="<?php echo esc_attr( wp_create_nonce( 'ctdb-register-nonce' ) ); ?>" />
+							<input type="submit" value="<?php esc_html_e( 'Register Your Account', 'wp-discussion-board' ); ?>" />
 						</p>
 
 						<p>
 							<span id="ctdb_user_form-response" class="validation-response"><small><?php esc_html_e( 'Please make sure all required fields are filled out.', 'wp-discussion-board' ); ?></small></span>
 						</p>
-
 					</fieldset>
 
 					<script>
