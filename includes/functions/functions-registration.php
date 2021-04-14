@@ -146,18 +146,9 @@ if ( ! function_exists( 'ctdb_register_extra_fields' ) ) {
 			foreach ( $extra_fields as $field ) {
 				$meta_key = ! empty( $field['meta_key'] ) ? $field['meta_key'] : $field['id'];
 
-				/*
-				 * Backwards compatible support for `textarea`.
-				 *
-				 * @since 2.3.17
-				 */
-				if ( ! empty( $field['field'] ) && 'checkbox' === $field['field'] ) {
-					$field['type'] = 'checkbox';
-				}
-
 				if ( isset( $post_obj[ $field['id'] ] ) ) {
 					update_user_meta( $user_id, $meta_key, sanitize_text_field( wp_unslash( $post_obj[ $field['id'] ] ) ) );
-				} elseif ( 'checkbox' === $field['type'] && empty( $post_obj[ $field['id'] ] ) ) {
+				} elseif ( ! empty( $field['type'] ) && 'checkbox' === $field['type'] && empty( $post_obj[ $field['id'] ] ) ) {
 					update_user_meta( $user_id, $meta_key, 'no' );
 				}
 			}

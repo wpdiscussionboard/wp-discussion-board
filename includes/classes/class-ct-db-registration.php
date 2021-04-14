@@ -268,12 +268,14 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 								}
 
 								/*
-								 * Backwards compatible support for `textarea`.
+								 * Backwards compatible support for `textarea`. Previously, `field` could
+								 * have been defined without `type` being defined. We've removed `field`
+								 * now and only rely on `type`.
 								 *
 								 * @since 2.3.17
 								 */
-								if ( ! empty( $field['field'] ) && 'checkbox' === $field['field'] ) {
-									$field['type'] = 'checkbox';
+								if ( ! empty( $field['field'] ) && 'textarea' === $field['field'] ) {
+									$field['type'] = 'textarea';
 								}
 
 								switch ( $field['type'] ) {
