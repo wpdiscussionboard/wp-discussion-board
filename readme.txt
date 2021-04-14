@@ -3,9 +3,9 @@ Contributors: MattGeri, Catapult_Themes, jf_bertrand
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 5.6.2
+Tested up to: 5.7
 Requires PHP: 5.2.4
-Stable tag: 2.3.16
+Stable tag: 2.3.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -176,6 +176,9 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 2. Example topic with replies (includes some Pro features)
 
 == Changelog ==
+
+= 2.3.17, April 14 2021 =
+* Added: Ability to add custom checkbox fields to the registration form
 
 = 2.3.16, March 8 2021 =
 * Fixed: Registration form required fields throw validation if not filled out
