@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-discussion-"
 "board\n"
 "POT-Creation-Date: 2021-04-15 14:19+0200\n"
-"PO-Revision-Date: 2021-04-15 14:24+0200\n"
+"PO-Revision-Date: 2021-04-15 19:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -57,26 +57,20 @@ msgid "Log-in form page"
 msgstr "Page de connexion"
 
 #: includes/admin/admin-settings.php:52
-#, fuzzy
-#| msgid ""
-#| "A page to display your log-in form. Ensure you add the "
-#| "[discussion_board_login_form] shortcode to this page."
 msgid ""
 "The page that displays your log-in form. The [discussion_board_login_form] "
 "shortcode should be on this page."
 msgstr ""
 "Une page pour afficher votre formulaire de connexion. Cette page doit "
-"contenir le shortcode [discussion_board_login_form]"
+"contenir le shortcode [discussion_board_login_form]."
 
 #: includes/admin/admin-settings.php:58
 msgid "Redirect on log-in"
 msgstr "Redirection après la connexion"
 
 #: includes/admin/admin-settings.php:60
-#, fuzzy
-#| msgid "After logging in, the user will be redirected to this page"
 msgid "After logging in, the user will be redirected to this page."
-msgstr "Après connexion, l'utilisateur sera redirigé vers cette page"
+msgstr "Après connexion, l'utilisateur sera redirigé vers cette page."
 
 #: includes/admin/admin-settings.php:70
 msgid "Messages"
@@ -117,18 +111,13 @@ msgid "Hide WP Login?"
 msgstr "Masquer WP login ?"
 
 #: includes/admin/admin-settings.php:114
-#, fuzzy
-#| msgid ""
-#| "This will prevent users logging in via wp-login.php and force them to use "
-#| "the Discussion Board log-in form. You must specify a front-end page "
-#| "containing your log-in form in the option below."
 msgid ""
 "This will prevent users logging in via wp-login.php and force them to use "
 "the Discussion Board log-in form. You must specify a front-end page "
 "containing your log-in form in the Log-in form page field above."
 msgstr ""
 "Obliger les utilisateurs à se connecter par le formulaire de la nouvelle "
-"page de connexion qui doit être spécifiée dans les options ci-dessous"
+"page de connexion qui doit être spécifiée dans les options ci-dessous."
 
 #: includes/admin/admin-settings.php:120
 msgid "Hide log-in form with restricted content?"
@@ -165,7 +154,7 @@ msgstr ""
 #: includes/admin/admin-settings.php:144
 msgid "Add check to registration form to prevent spam"
 msgstr ""
-"Ajouter une vérification au formulaire d'inscription pour éviter les spams ?"
+"Ajouter une vérification au formulaire d'inscription pour éviter les spams"
 
 #: includes/admin/admin-settings.php:146
 msgid ""
@@ -184,17 +173,13 @@ msgid "Publish new topic without moderation"
 msgstr "Publier le nouveau Sujet sans modération"
 
 #: includes/admin/admin-settings.php:165
-#, fuzzy
-#| msgid "Select this option to publish all new topics without moderation"
 msgid "Select this option to publish all new topics without moderation."
 msgstr ""
-"Sélectionner cette option pour publier les nouveaux Sujets sans modération"
+"Sélectionner cette option pour publier les nouveaux Sujets sans modération."
 
 #: includes/admin/admin-settings.php:171
-#, fuzzy
-#| msgid "Prevent user re-posting within (seconds):"
 msgid "Prevent user re-posting within (seconds)"
-msgstr "Empêcher l'utilisateur de poster à nouveau (secondes) : "
+msgstr "Empêcher l'utilisateur de poster à nouveau (secondes)"
 
 #: includes/admin/admin-settings.php:183
 msgid ""
@@ -316,9 +301,6 @@ msgid ""
 msgstr ""
 
 #: includes/admin/class-ct-db-admin-about.php:82 includes/install.php:87
-#, fuzzy
-#| msgctxt "post type general name"
-#| msgid "Topics"
 msgid "Topics"
 msgstr "Sujets"
 
@@ -472,10 +454,8 @@ msgstr ""
 
 #: includes/admin/class-ct-db-admin-notices.php:54
 #: includes/admin/class-ct-db-admin-notices.php:115
-#, fuzzy
-#| msgid "Discussion Board Settings"
 msgid "Matt, Discussion Board Maintainer."
-msgstr "Réglages Espace de discussion"
+msgstr "Réglages Espace de discussion."
 
 #: includes/admin/class-ct-db-admin-notices.php:60
 #: includes/admin/class-ct-db-admin-notices.php:121
@@ -504,10 +484,8 @@ msgid ""
 msgstr ""
 
 #: includes/admin/class-ct-db-admin-notices.php:114
-#, fuzzy
-#| msgid "Thank you for registering. You may now log in."
 msgid "Thanks for using my plugin."
-msgstr "Merci pour votre inscription ! Vous pouvez vous connecter"
+msgstr "Merci pour votre inscription ! Vous pouvez vous connecter."
 
 #: includes/admin/class-ct-db-admin-notices.php:120
 msgid "Find out more"
@@ -572,7 +550,7 @@ msgid ""
 msgstr ""
 "Sélectionner un ou plusierus rôle(s) d'utilisateur autorisés à afficher les "
 "Sujets de l'espace de discussion. les administrateurs peuvent toujours "
-"l'afficher"
+"l'afficher."
 
 #: includes/admin/class-ct-db-admin.php:453
 msgid ""
@@ -588,7 +566,7 @@ msgstr "Rôle attribué aux nouveaux utilisateurs par défaut"
 
 #: includes/admin/class-ct-db-admin.php:500
 msgid "This will automatically log users in once they have registered."
-msgstr "Les utilisateurs seront automatiquement connectés après inscription"
+msgstr "Les utilisateurs seront automatiquement connectés après inscription."
 
 #: includes/admin/class-ct-db-admin.php:539
 msgid ""
@@ -617,7 +595,7 @@ msgid ""
 "archive pages."
 msgstr ""
 "Fixer le nombre de mots à afficher dans l'extrait, sur la page Archive des "
-"Sujets. 0 pour afficher le texte complet"
+"Sujets. 0 pour afficher le texte complet."
 
 #: includes/admin/class-ct-db-admin.php:643
 msgid "Decide how to display user name"
@@ -674,7 +652,7 @@ msgid ""
 msgstr ""
 "Vous avez choisi de masquer la page de connexion habituelle, sans préciser "
 "de nouvelle page de connexion : wp-login.php ne sera masqué que lorsque "
-"cette nouvelle page sera indiquée"
+"cette nouvelle page sera indiquée."
 
 #: includes/admin/class-ct-db-admin.php:823
 msgid "Support"
@@ -686,11 +664,11 @@ msgstr ""
 
 #: includes/classes/class-ct-db-front-end.php:124
 msgid "Please add a title."
-msgstr "Merci d'ajouter un Titre"
+msgstr "Merci d'ajouter un Titre."
 
 #: includes/classes/class-ct-db-front-end.php:130
 msgid "Please add some content to the topic."
-msgstr "Merci d'ajouter le contenu de la Discussion"
+msgstr "Merci d'ajouter le contenu de la Discussion."
 
 #: includes/classes/class-ct-db-front-end.php:147
 msgid "We found"
@@ -698,11 +676,11 @@ msgstr "Nous avons trouvé"
 
 #: includes/classes/class-ct-db-front-end.php:196
 msgid " successfully added. View it at:"
-msgstr "ajouté avec succès. Pour l'afficher : "
+msgstr " ajouté avec succès. Pour l'afficher:"
 
 #: includes/classes/class-ct-db-front-end.php:200
 msgid " is awaiting moderation"
-msgstr "en attente de modération"
+msgstr " en attente de modération"
 
 #: includes/classes/class-ct-db-front-end.php:230
 msgid " minutes"
@@ -716,19 +694,14 @@ msgstr "1 minute"
 msgid "You can't post a new topic just yet. Please come back in "
 msgstr ""
 "Vous ne pouvez pas démarrer de nouveau sujet pour le moment. Attendez "
-"quelques minutes et revenez"
+"quelques minutes et revenez "
 
 #: includes/classes/class-ct-db-front-end.php:280
-#, fuzzy
-#| msgctxt "taxonomy singular name"
-#| msgid "Topic Category"
 msgid "Topic Title"
 msgstr "Catégorie de Sujet"
 
 #: includes/classes/class-ct-db-front-end.php:281
 #, fuzzy
-#| msgctxt "taxonomy singular name"
-#| msgid "Topic Category"
 msgid "Topic Content"
 msgstr "Catégorie de Sujet"
 
@@ -742,16 +715,13 @@ msgstr "Afficher le Sujet"
 
 #: includes/classes/class-ct-db-front-end.php:554
 msgid "There are no topics posted yet."
-msgstr "Aucun Sujet de discussion pour le moment"
+msgstr "Aucun Sujet de discussion pour le moment."
 
 #: includes/classes/class-ct-db-front-end.php:593
 msgid "Read More"
 msgstr "Lire..."
 
 #: includes/classes/class-ct-db-front-end.php:624
-#, fuzzy
-#| msgctxt "post type singular name"
-#| msgid "Topic"
 msgid "Topic"
 msgstr "Sujet"
 
@@ -788,7 +758,7 @@ msgstr ""
 
 #: includes/classes/class-ct-db-front-end.php:998
 msgid "Sorry - you're not permitted to view this content."
-msgstr "Désolé, vous n'êtes pas autorisé à afficher ceci"
+msgstr "Désolé, vous n'êtes pas autorisé à afficher ceci."
 
 #: includes/classes/class-ct-db-front-end.php:1032
 #: includes/classes/class-ct-db-front-end.php:1033
@@ -826,17 +796,15 @@ msgstr "Nouveau commentaire sur votre Sujet"
 
 #: includes/classes/class-ct-db-notifications.php:215
 msgid "A new comment has been left on your topic: "
-msgstr "Votre sujet a reçu un nouveau commentaire"
+msgstr "Votre sujet a reçu un nouveau commentaire: "
 
 #: includes/classes/class-ct-db-notifications.php:254
 msgid "New comment - please moderate"
 msgstr ""
 
 #: includes/classes/class-ct-db-notifications.php:255
-#, fuzzy
-#| msgid "Please add some content to the topic."
 msgid "Please moderate the following comment on the topic: "
-msgstr "Merci d'ajouter le contenu de la Discussion"
+msgstr "Merci d'ajouter le contenu de la Discussion: "
 
 #: includes/classes/class-ct-db-notifications.php:288
 #: includes/classes/class-ct-db-notifications.php:331
@@ -844,23 +812,21 @@ msgid "New Topic Posted"
 msgstr "Nouveau Sujet de discussion"
 
 #: includes/classes/class-ct-db-notifications.php:289
-#, fuzzy
-#| msgid "<p>A new topic has been created:<br>"
 msgid "A new topic has been created:"
-msgstr "<p>Un nouveau Sujet a été posté : <br>"
+msgstr "Un nouveau Sujet a été posté:"
 
 #: includes/classes/class-ct-db-notifications.php:291
 msgid "Topic status: "
-msgstr "Statut Discussion"
+msgstr "Statut Discussion: "
 
 #: includes/classes/class-ct-db-notifications.php:293
 msgid "This topic is waiting for you to moderate and publish it."
-msgstr "Ce Sujet attend votre modération"
+msgstr "Ce Sujet attend votre modération."
 
 #: includes/classes/class-ct-db-notifications.php:299
 #: includes/classes/class-ct-db-notifications.php:335
 msgid "This topic has been published and is live."
-msgstr "Ce Sujet est validé et visible"
+msgstr "Ce Sujet est validé et visible."
 
 #: includes/classes/class-ct-db-notifications.php:332
 msgid "<p>A new topic has been created:<br>"
@@ -876,7 +842,7 @@ msgstr "Contenu non disponible"
 
 #: includes/classes/class-ct-db-registration.php:212
 msgid "You are already registered on this site."
-msgstr "Vous êtes déjà enregistré(e) sur ce site"
+msgstr "Vous êtes déjà enregistré(e) sur ce site."
 
 #: includes/classes/class-ct-db-registration.php:319
 msgid "Are you a human?"
@@ -988,7 +954,7 @@ msgid ""
 "password."
 msgstr ""
 "Un lien a été envoyé sur votre adresse mail pour définir un nouveau mot de "
-"passe"
+"passe."
 
 #: includes/classes/class-ct-db-registration.php:627
 msgid "Lost password?"
@@ -997,7 +963,7 @@ msgstr "Mot de passe perdu ?"
 #: includes/classes/class-ct-db-registration.php:649
 #: includes/classes/class-ct-db-registration.php:672
 msgid "You've entered an invalid combination of username and password."
-msgstr "Combinaison Identifiant / Mot de passe erronée"
+msgstr "Combinaison Identifiant / Mot de passe erronée."
 
 #: includes/classes/class-ct-db-registration.php:661
 msgid ""
@@ -1017,7 +983,7 @@ msgstr ""
 
 #: includes/classes/class-ct-db-registration.php:819
 msgid "That username has already been taken. Please choose another."
-msgstr "Cet identifiant est déjà utilisé ! Un autre ?"
+msgstr "Cet identifiant est déjà utilisé! Un autre?"
 
 #: includes/classes/class-ct-db-registration.php:823
 msgid ""
@@ -1025,27 +991,27 @@ msgid ""
 "alphanumeric characters."
 msgstr ""
 "Cet identifiant n'est pas valide. N'utiliser que des caractères "
-"alphanumériques"
+"alphanumériques."
 
 #: includes/classes/class-ct-db-registration.php:827
 msgid "Please enter your username."
-msgstr "Saisir votre identifiant"
+msgstr "Saisir votre identifiant."
 
 #: includes/classes/class-ct-db-registration.php:831
 msgid "Please check you have entered a valid email address."
-msgstr "Merci de vérifier votre adresse e-mail"
+msgstr "Merci de vérifier votre adresse e-mail."
 
 #: includes/classes/class-ct-db-registration.php:835
 msgid "That email address has already been registered."
-msgstr "Cet e-mail est déjà utilisé"
+msgstr "Cet e-mail est déjà utilisé."
 
 #: includes/classes/class-ct-db-registration.php:839
 msgid "Please enter a password."
-msgstr "Saisir un mot de passe"
+msgstr "Saisir un mot de passe."
 
 #: includes/classes/class-ct-db-registration.php:843
 msgid "Please check that the passwords match."
-msgstr "Vérifier que les mots de passe sont identiques"
+msgstr "Vérifier que les mots de passe sont identiques."
 
 #: includes/classes/class-ct-db-registration.php:852
 msgid "not set"
@@ -1057,15 +1023,15 @@ msgid ""
 "from us, please remember to check your spam folder."
 msgstr ""
 "Un e-mail d'activation vous a été envoyé. n'oubliez pas de vérifier dans vos "
-"spams si vous ne le recevez pas"
+"spams si vous ne le recevez pas."
 
 #: includes/classes/class-ct-db-registration.php:974
 msgid "Thank you for registering. You may now log in."
-msgstr "Merci pour votre inscription ! Vous pouvez vous connecter"
+msgstr "Merci pour votre inscription ! Vous pouvez vous connecter."
 
 #: includes/classes/class-ct-db-registration.php:990
 msgid "You have activated your account successfully. You can now log in."
-msgstr "Compate activé, bienvenue ! Vous pouvez vous connecter"
+msgstr "Compate activé, bienvenue! Vous pouvez vous connecter."
 
 #: includes/classes/class-ct-db-registration.php:1059
 #: includes/classes/class-ct-db-registration.php:1077
@@ -1139,13 +1105,11 @@ msgstr "Sujets de discussion"
 
 #: includes/functions/functions-messages.php:39
 msgid "Please enter your topic title and content below."
-msgstr "Merci de saisir le titre et le contenu de votre Sujet ci-dessous"
+msgstr "Merci de saisir le titre et le contenu de votre Sujet ci-dessous."
 
 #: includes/functions/functions-messages.php:56
-#, fuzzy
-#| msgid "This page is not available"
 msgid "This page is not available."
-msgstr "Page indisponible"
+msgstr "Page indisponible."
 
 #: includes/functions/functions-messages.php:73
 msgid ""
@@ -1153,7 +1117,7 @@ msgid ""
 "register in order to view the page."
 msgstr ""
 "Vous n'êtes pas autorisé(e) à afficher ce contenu. Merci de vous connecter "
-"ou de vous inscrire"
+"ou de vous inscrire."
 
 #: includes/functions/functions-messages.php:90
 msgid ""
@@ -1161,23 +1125,19 @@ msgid ""
 "Please contact the site administrator for further information."
 msgstr ""
 "Vous êtes connecté(e), mais vous n'être pas autorisé à afficher le contenu. "
-"Merci de prendre contact avec le webmaster pour plus d'infos"
+"Merci de prendre contact avec le webmaster pour plus d'infos."
 
 #: includes/functions/functions-registration.php:74
 msgid "Activate your account"
 msgstr "Activer votre compte"
 
 #: includes/functions/functions-registration.php:75
-#, fuzzy
-#| msgid ""
-#| "<p>Thank you for registering. Please activate your account by clicking "
-#| "the link below:</p>"
 msgid ""
 "Thank you for registering. Please activate your account by clicking the link "
 "below:"
 msgstr ""
 "Merci pour votre inscription. Vous devez l'activer en cliquant sur le lien "
-"ci-dessous"
+"ci-dessous:"
 
 #: includes/functions/functions-skins.php:28
 #, php-format
@@ -1190,10 +1150,8 @@ msgid "Edit"
 msgstr "Modifier"
 
 #: includes/functions/functions-skins.php:50
-#, fuzzy
-#| msgid " is awaiting moderation"
 msgid "Your comment is awaiting moderation."
-msgstr "en attente de modération"
+msgstr "En attente de modération."
 
 #: includes/install.php:42
 msgid "Add New Topic"
@@ -1217,15 +1175,15 @@ msgstr "Chercher parmi les Discussions"
 
 #: includes/install.php:48
 msgid "Parent Topic:"
-msgstr "Sujet Parent : "
+msgstr "Sujet Parent:"
 
 #: includes/install.php:49
 msgid "No topics found."
-msgstr "Aucune discussion trouvée"
+msgstr "Aucune discussion trouvée."
 
 #: includes/install.php:50
 msgid "No topics found in Trash."
-msgstr "Pas de Sujet de discussion dans la corbeille"
+msgstr "Pas de Sujet de discussion dans la corbeille."
 
 #: includes/install.php:54
 msgid "Description."
@@ -1268,7 +1226,7 @@ msgstr "Page"
 
 #: templates/archive-discussion-topics.php:70
 msgid "There were no topics found."
-msgstr "Aucune discussion trouvée"
+msgstr "Aucune discussion trouvée."
 
 #: templates/comments-classic-forum.php:44
 msgid "Comments are closed."
@@ -1280,7 +1238,7 @@ msgstr "Suivant"
 
 #: templates/single-discussion-topics.php:40
 msgid "Next topic:"
-msgstr "Sujet suivant : "
+msgstr "Sujet suivant:"
 
 #: templates/single-discussion-topics.php:42
 msgid "Previous"
@@ -1288,4 +1246,4 @@ msgstr "Précédent"
 
 #: templates/single-discussion-topics.php:43
 msgid "Previous topic:"
-msgstr "Sujet précédent : "
+msgstr "Sujet précédent:"
