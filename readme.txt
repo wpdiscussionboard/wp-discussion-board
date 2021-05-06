@@ -177,6 +177,10 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 
 == Changelog ==
 
+= 2.3.18, May 6 2021 =
+* Updated: Updated the POT translation files to include new strings
+* Updated: French and Russian translation files
+
 = 2.3.17, April 14 2021 =
 * Added: Ability to add custom checkbox fields to the registration form
 
