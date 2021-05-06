@@ -10,65 +10,54 @@ Text Domain: wp-discussion-board
 Domain Path: /languages
 */
 
+namespace WPDiscussionBoard;
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function ctdb_load_plugin_textdomain() {
-	load_plugin_textdomain( 'wp-discussion-board', false, basename( dirname( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'plugins_loaded', 'ctdb_load_plugin_textdomain' );
-
-/**
- * Define constants
- **/
-if ( ! defined( 'DB_PLUGIN_URL' ) ) {
-	define( 'DB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-}
-
-if ( ! defined( 'DB_PLUGIN_DIR' ) ) {
-	define( 'DB_PLUGIN_DIR', dirname( __FILE__ ) );
-}
-
-if ( ! defined( 'DB_PLUGIN_VERSION' ) ) {
-	define( 'DB_PLUGIN_VERSION', '2.3.15' );
-}
-
-// Plugin Root File.
+// Define plugin root file.
 if ( ! defined( 'DB_PLUGIN_FILE' ) ) {
 	define( 'DB_PLUGIN_FILE', __FILE__ );
 }
 
-/**
- * Load her up.
- **/
-require_once dirname( __FILE__ ) . '/includes/install.php';
-require_once dirname( __FILE__ ) . '/includes/customizer.php';
+// Load config.
+require_once 'includes/config/config.php';
+
+// Load text domain.
+function ctdb_load_plugin_textdomain() {
+	load_plugin_textdomain( 'wp-discussion-board', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'WPDiscussionBoard\ctdb_load_plugin_textdomain' );
+
+// Load plugin.
+require_once DB_PLUGIN_DIR . '/includes/install.php';
+require_once DB_PLUGIN_DIR . '/includes/customizer.php';
 
 if ( is_admin() ) {
-	require_once dirname( __FILE__ ) . '/includes/admin/admin-settings.php';
-	require_once dirname( __FILE__ ) . '/includes/admin/class-ct-db-admin.php';
-	require_once dirname( __FILE__ ) . '/includes/admin/class-ct-db-admin-about.php';
-	require_once dirname( __FILE__ ) . '/includes/admin/class-ct-db-admin-notices.php';
-	require_once dirname( __FILE__ ) . '/includes/admin/class-ct-db-admin-upgrades.php';
-	$admin_about = new CT_DB_Admin_About();
-	$admin_about->init();
+	require_once DB_PLUGIN_DIR . '/includes/admin/admin-settings.php';
+	require_once DB_PLUGIN_DIR . '/includes/admin/class-ct-db-admin.php';
+	require_once DB_PLUGIN_DIR . '/includes/admin/class-admin-getting-started.php';
+	require_once DB_PLUGIN_DIR . '/includes/admin/class-ct-db-admin-notices.php';
+	require_once DB_PLUGIN_DIR . '/includes/admin/class-ct-db-admin-upgrades.php';
+	$admin = new Admin_Getting_Started();
+	$admin->init();
 }
 
-require_once dirname( __FILE__ ) . '/includes/classes/class-ct-db-public.php';
-require_once dirname( __FILE__ ) . '/includes/classes/class-ct-db-front-end.php';
-require_once dirname( __FILE__ ) . '/includes/classes/class-ct-db-notifications.php';
-require_once dirname( __FILE__ ) . '/includes/classes/class-ct-db-template-loader.php';
-require_once dirname( __FILE__ ) . '/includes/classes/class-ct-db-registration.php';
-require_once dirname( __FILE__ ) . '/includes/classes/class-ct-db-skins.php';
-require_once dirname( __FILE__ ) . '/includes/classes/class-ct-db-user.php';
-require_once dirname( __FILE__ ) . '/includes/functions/functions-layout.php';
-require_once dirname( __FILE__ ) . '/includes/functions/functions-messages.php';
-require_once dirname( __FILE__ ) . '/includes/functions/functions-notifications.php';
-require_once dirname( __FILE__ ) . '/includes/functions/functions-registration.php';
-require_once dirname( __FILE__ ) . '/includes/functions/functions-skins.php';
-require_once dirname( __FILE__ ) . '/includes/functions/functions-user.php';
+require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-public.php';
+require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-front-end.php';
+require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-notifications.php';
+require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-template-loader.php';
+require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-registration.php';
+require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-skins.php';
+require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-user.php';
+require_once DB_PLUGIN_DIR . '/includes/functions/functions-layout.php';
+require_once DB_PLUGIN_DIR . '/includes/functions/functions-messages.php';
+require_once DB_PLUGIN_DIR . '/includes/functions/functions-notifications.php';
+require_once DB_PLUGIN_DIR . '/includes/functions/functions-registration.php';
+require_once DB_PLUGIN_DIR . '/includes/functions/functions-skins.php';
+require_once DB_PLUGIN_DIR . '/includes/functions/functions-user.php';
 
 function ctdb_public_init() {
 	global $CT_DB_Public;

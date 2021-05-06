@@ -47,6 +47,14 @@
 	padding-bottom: 1em;
 	border-bottom: 1px solid #ddd;
 }
+.ctdb-about-section.cta {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	padding: 1.25em 1.25em 0;
+}
+.ctdb-about-section.cta h3 {
+	margin-top: 0;
+}
 h3.ctdb-about {
 	font-size: 1.8em;
 	font-weight: normal;
