@@ -5,7 +5,7 @@ Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wo
 Requires at least: 4.3
 Tested up to: 5.7
 Requires PHP: 5.2.4
-Stable tag: 2.3.17
+Stable tag: 2.3.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
