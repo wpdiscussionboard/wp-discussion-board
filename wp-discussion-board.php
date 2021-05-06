@@ -3,7 +3,7 @@
 Plugin Name: Discussion Board
 Plugin URI: https://wpdiscussionboard.com
 Description: Provide a simple discussion board for your site
-Version: 2.3.17
+Version: 2.3.18
 Author: WP Discussion Board
 Author URI: https://wpdiscussionboard.com
 Text Domain: wp-discussion-board
@@ -31,7 +31,7 @@ if ( ! defined( 'DB_PLUGIN_DIR' ) ) {
 	define( 'DB_PLUGIN_DIR', dirname( __FILE__ ) );
 }
 if ( ! defined( 'DB_PLUGIN_VERSION' ) ) {
-	define( 'DB_PLUGIN_VERSION', '2.3.15' );
+	define( 'DB_PLUGIN_VERSION', '2.3.18' );
 }
 // Plugin Root File.
 if ( ! defined( 'DB_PLUGIN_FILE' ) ) {
