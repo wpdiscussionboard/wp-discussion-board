@@ -5,7 +5,7 @@
  * @package WPDiscussionBoard
  */
 
-namespace WPDiscussionBoard;
+namespace WPDiscussionBoard\Admin;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,22 +13,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Don't initialise if there's already a Discussion Board activated.
-if ( ! class_exists( 'WPDiscussionBoard\Admin_Getting_Started' ) ) {
+if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin_Getting_Started' ) ) {
 	/**
 	 * Class Admin_Getting_Started
 	 *
-	 * @since 2.3.18
+	 * @since 2.4
 	 */
 	class Admin_Getting_Started {
 		/**
 		 * Slug for the page.
+		 *
+		 * @since 2.4
 		 */
 		const SLUG = 'getting_started';
 
 		/**
 		 * Initialize the class and start calling our hooks and filters
 		 *
-		 * @since 1.0.0
+		 * @since 2.4
 		 */
 		public function init() {
 			add_action( 'admin_menu', array( $this, 'add_about_submenu' ), 99 );
@@ -37,6 +39,8 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin_Getting_Started' ) ) {
 
 		/**
 		 * Redirect to the topics page on first install.
+		 *
+		 * @since 2.4
 		 */
 		public function redirect_to_getting_started_page() {
 			$done_redirect = get_option( 'ctdb_done_redirect' );
@@ -58,6 +62,8 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin_Getting_Started' ) ) {
 
 		/**
 		 * Add the submenu item to the CPT menu in WordPress.
+		 *
+		 * @since 2.4
 		 */
 		public function add_about_submenu() {
 			add_submenu_page(
@@ -73,9 +79,11 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin_Getting_Started' ) ) {
 
 		/**
 		 * Render the getting started page.
+		 *
+		 * @since 2.4
 		 */
 		public function render_getting_started() {
-			require DB_PLUGIN_DIR . 'templates/admin/getting-started.php';
+			include WPDBD_PLUGIN_DIR . '/templates/admin/getting-started.php';
 		}
 	}
 }

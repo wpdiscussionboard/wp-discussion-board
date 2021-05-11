@@ -18,59 +18,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin root file.
-if ( ! defined( 'DB_PLUGIN_FILE' ) ) {
-	define( 'DB_PLUGIN_FILE', __FILE__ );
+if ( ! defined( 'WPDBD_PLUGIN_FILE' ) ) {
+	define( 'WPDBD_PLUGIN_FILE', __FILE__ );
 }
 
-// Load config.
+// Load config files.
 require_once 'includes/config/config.php';
 
-// Load text domain.
-function ctdb_load_plugin_textdomain() {
-	load_plugin_textdomain( 'wp-discussion-board', false, basename( dirname( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'plugins_loaded', 'WPDiscussionBoard\ctdb_load_plugin_textdomain' );
-
-// Load plugin.
-require_once DB_PLUGIN_DIR . '/includes/install.php';
-require_once DB_PLUGIN_DIR . '/includes/customizer.php';
-
 if ( is_admin() ) {
-	require_once DB_PLUGIN_DIR . '/includes/admin/admin-settings.php';
-	require_once DB_PLUGIN_DIR . '/includes/admin/class-ct-db-admin.php';
-	require_once DB_PLUGIN_DIR . '/includes/admin/class-admin-getting-started.php';
-	require_once DB_PLUGIN_DIR . '/includes/admin/class-ct-db-admin-notices.php';
-	require_once DB_PLUGIN_DIR . '/includes/admin/class-ct-db-admin-upgrades.php';
-	$admin = new Admin_Getting_Started();
-	$admin->init();
+	require_once 'includes/config/settings.php';
 }
 
-require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-public.php';
-require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-front-end.php';
-require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-notifications.php';
-require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-template-loader.php';
-require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-registration.php';
-require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-skins.php';
-require_once DB_PLUGIN_DIR . '/includes/classes/class-ct-db-user.php';
-require_once DB_PLUGIN_DIR . '/includes/functions/functions-layout.php';
-require_once DB_PLUGIN_DIR . '/includes/functions/functions-messages.php';
-require_once DB_PLUGIN_DIR . '/includes/functions/functions-notifications.php';
-require_once DB_PLUGIN_DIR . '/includes/functions/functions-registration.php';
-require_once DB_PLUGIN_DIR . '/includes/functions/functions-skins.php';
-require_once DB_PLUGIN_DIR . '/includes/functions/functions-user.php';
+// Load helpers.
+require_once 'includes/helpers/autoloader.php';
+require_once 'includes/helpers/install.php';
+require_once 'includes/helpers/customizer.php';
+
+// @todo: Move these to autoloader.
+require_once 'includes/classes/class-ct-db-public.php';
+require_once 'includes/classes/class-ct-db-front-end.php';
+require_once 'includes/classes/class-ct-db-notifications.php';
+require_once 'includes/classes/class-ct-db-template-loader.php';
+require_once 'includes/classes/class-ct-db-registration.php';
+require_once 'includes/classes/class-ct-db-skins.php';
+require_once 'includes/classes/class-ct-db-user.php';
+require_once 'includes/functions/functions-layout.php';
+require_once 'includes/functions/functions-messages.php';
+require_once 'includes/functions/functions-notifications.php';
+require_once 'includes/functions/functions-registration.php';
+require_once 'includes/functions/functions-skins.php';
+require_once 'includes/functions/functions-user.php';
+
+// Deprecated class, functions and variables.
+require_once 'includes/helpers/deprecated.php';
+
+add_action(
+	'plugins_loaded',
+	function() {
+		$bootstrap = Bootstrap::get_instance();
+		$bootstrap->load();
+		do_action( 'wpdbd_init' );
+	}
+);
 
 function ctdb_public_init() {
 	global $CT_DB_Public;
-	$CT_DB_Public = new CT_DB_Public();
+	$CT_DB_Public = new \CT_DB_Public();
 	$CT_DB_Public->init();
 
 	// Make this global
 	global $CT_DB_Skins;
-	$CT_DB_Skins = new CT_DB_Skins();
+	$CT_DB_Skins = new \CT_DB_Skins();
 	$CT_DB_Skins->init();
 	do_action( 'ct_db_public_init' );
 }
-add_action( 'plugins_loaded', 'ctdb_public_init' );
+add_action( 'plugins_loaded', '\WPDiscussionBoard\ctdb_public_init' );
 
 function ctdb_plugin_update_message( $data, $response ) {
 	if ( isset( $data['upgrade_notice'] ) ) {
@@ -80,7 +82,7 @@ function ctdb_plugin_update_message( $data, $response ) {
 		);
 	}
 }
-add_action( 'in_plugin_update_message-wp-discussion-board/wp-discussion-board.php', 'ctdb_plugin_update_message', 10, 2 );
+add_action( 'in_plugin_update_message-wp-discussion-board/wp-discussion-board.php', '\WPDiscussionBoard\ctdb_plugin_update_message', 10, 2 );
 
 function ctdb_ms_plugin_update_message( $file, $plugin ) {
 	if ( is_multisite() && version_compare( $plugin['Version'], $plugin['new_version'], '<' ) ) {
@@ -93,4 +95,4 @@ function ctdb_ms_plugin_update_message( $file, $plugin ) {
 		);
 	}
 }
-add_action( 'after_plugin_row_wp-discussion-board/wp-discussion-board.php', 'ctdb_ms_plugin_update_message', 10, 2 );
+add_action( 'after_plugin_row_wp-discussion-board/wp-discussion-board.php', '\WPDiscussionBoard\ctdb_ms_plugin_update_message', 10, 2 );

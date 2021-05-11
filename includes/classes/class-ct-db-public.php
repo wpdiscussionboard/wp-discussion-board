@@ -29,7 +29,7 @@ if( ! class_exists( 'CT_DB_Public' ) ) { // Don't initialise if there's already 
 			add_filter( 'body_class', array( $this, 'body_class_filter' ) );
 
 			// Call this from install.php
-			add_action( 'init', 'ctdb_register_post_type' );
+			add_action( 'init', 'wpdbd_register_post_type' );
 
 			add_action( 'init', array( $this, 'check_user_permission' ) );
 			add_action( 'init', array( $this, 'hide_admin_bar' ) );
@@ -119,7 +119,7 @@ if( ! class_exists( 'CT_DB_Public' ) ) { // Don't initialise if there's already 
 			$options = get_option( 'ctdb_design_settings' );
 			wp_enqueue_script( 'jquery' );
 			if( isset( $options['enqueue_styles'] ) ) {
-				wp_enqueue_style( 'ctdb-style', DB_PLUGIN_URL . 'assets/css/style.css', array(), DB_PLUGIN_VERSION );
+				wp_enqueue_style( 'ctdb-style', WPDBD_PLUGIN_URL . 'assets/css/style.css', array(), WPDBD_PLUGIN_VERSION );
 			}
 			if( isset( $options['enqueue_dashicons'] ) ) {
 				wp_enqueue_style( 'dashicons' );
