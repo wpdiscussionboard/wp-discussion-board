@@ -15,6 +15,6 @@ namespace WPDiscussionBoard\Admin;
 		<input type="text" name="email" placeholder="<?php esc_attr_e( 'Email Address', 'wp-discussion-board' ); ?>" />
 		<?php wp_nonce_field( Admin_License::NONCE_ACTION, Admin_License::NONCE_NAME ); ?>
 		<input type="submit" name="free_license_activator" value="Register Free License" class="button button-primary" />
-		<p><?php esc_html_e( 'Your email is secure with us! We will only spend you a single email with helpful resources to get you started.', 'wp-discussion-board' ); ?></p>
+		<p><small>* <?php esc_html_e( 'Your email is secure with us! We will only send you a single email with helpful resources to get you started.', 'wp-discussion-board' ); ?></small></p>
 	</form>
 </div>

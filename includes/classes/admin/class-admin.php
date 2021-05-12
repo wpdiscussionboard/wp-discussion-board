@@ -864,7 +864,7 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 							<?php endif; ?>
 
 							<div class="ctdb-banner">
-								<a target="_blank" href="https://wpdiscussionboard.com/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro">
+								<a target="_blank" href="https://wpdiscussionboard.com/?utm_source=wp_plugin&utm_medium=banner&utm_content=sidebar&utm_campaign=upgrade">
 									<img src="<?php echo esc_url( WPDBD_PLUGIN_URL . 'assets/images/discussion-board-banner-ad.png' ); ?>" alt="Discussion Board Pro">
 								</a>
 							</div>

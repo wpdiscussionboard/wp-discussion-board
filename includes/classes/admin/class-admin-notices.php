@@ -124,7 +124,7 @@ class Admin_Notices extends Admin {
 					<?php
 					printf(
 						'<p><a class="button button-primary" href="%s">%s</a> <a class="dismiss-text button button-secondary" data-notice="pro_notice" href="#">%s</a></p>',
-						'https://wpdiscussionboard.com/?utm_source=pro_notice&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro',
+						'https://wpdiscussionboard.com/?utm_source=wp_plugin&utm_medium=notice&utm_content=usage_topics&utm_campaign=upgrade',
 						esc_html__( 'Find out more', 'wp-discussion-board' ),
 						esc_html__( 'No thanks', 'wp-discussion-board' )
 					);

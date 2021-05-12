@@ -52,6 +52,9 @@
 .ctdb-about-section.cta h3 {
 	margin-top: 0;
 }
+.ctdb-about-section.cta small {
+	color: #666;
+}
 h3.ctdb-about {
 	font-size: 1.8em;
 	font-weight: normal;

@@ -107,18 +107,15 @@ $license_key    = get_option( Admin_License::FREE_LICENSE_OPTION_KEY );
 		<div class="ctdb-banners">
 			<?php if ( ! defined( 'DB_PRO_VERSION' ) ) : ?>
 			<div class="ctdb-banner">
-				<a target="_blank"
-				   href="https://wpdiscussionboard.com/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=dbpro">
-					<img src="<?php echo esc_url( WPDBD_PLUGIN_URL . 'assets/images/discussion-board-banner-ad.png' ); ?>"
-						 alt="">
+				<a target="_blank" href="https://wpdiscussionboard.com/?utm_source=wp_plugin&utm_medium=banner&utm_content=sidebar&utm_campaign=upgrade">
+					<img src="<?php echo esc_url( WPDBD_PLUGIN_URL . 'assets/images/discussion-board-banner-ad.png' ); ?>"  alt="">
 				</a>
 			</div>
 			<?php endif; ?>
 			<div class="ctdb-banner">
-				<a target="_blank"
-				   href="https://singularitytheme.com/?utm_source=plugin_ad&utm_medium=wp_plugin&utm_content=ctdb&utm_campaign=singularity"><img
-						src="<?php echo esc_html( WPDBD_PLUGIN_URL . 'assets/images/singularity-banner-ad.png' ); ?>"
-						alt=""></a>
+				<a target="_blank" href="https://singularitytheme.com/?utm_source=wp_plugin&utm_medium=banner&utm_content=sidebar&utm_campaign=singularity">
+					<img src="<?php echo esc_html( WPDBD_PLUGIN_URL . 'assets/images/singularity-banner-ad.png' ); ?>" alt="">
+				</a>
 			</div>
 		</div>
 	</div><!-- .ctdb-outer-wrap -->
