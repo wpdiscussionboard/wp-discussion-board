@@ -15,7 +15,7 @@ if ( is_admin() ) {
 	class CT_DB_Admin extends \WPDiscussionBoard\Admin\Admin {
 		public function __construct() {
 			trigger_error( // phpcs:ignore
-			/* translators: 1: %s PHP class name. */
+				/* translators: 1: %s PHP class name. */
 				sprintf( esc_html__( '%s class has been deprecated since version 2.4. Use \WPDiscussionBoard\Admin\Admin instead', 'wp-discussion-board' ), __CLASS__ ),
 				E_USER_DEPRECATED
 			);
@@ -28,7 +28,7 @@ if ( is_admin() ) {
 	class CT_DB_Admin_About extends \WPDiscussionBoard\Admin\Admin_Getting_Started {
 		public function __construct() {
 			trigger_error( // phpcs:ignore
-			/* translators: 1: %s PHP class name. */
+				/* translators: 1: %s PHP class name. */
 				sprintf( esc_html__( '%s class has been deprecated since version 2.4. Use \WPDiscussionBoard\Admin\Admin_Getting_Started instead', 'wp-discussion-board' ), __CLASS__ ),
 				E_USER_DEPRECATED
 			);
@@ -41,7 +41,7 @@ if ( is_admin() ) {
 	class CT_DB_Admin_Notices extends \WPDiscussionBoard\Admin\Admin_Notices { // phpcs:ignore
 		public function __construct() {
 			trigger_error( // phpcs:ignore
-			/* translators: 1: %s PHP class name. */
+				/* translators: 1: %s PHP class name. */
 				sprintf( esc_html__( '%s class has been deprecated since version 2.4. Use \WPDiscussionBoard\Admin\Admin_Notices instead', 'wp-discussion-board' ), __CLASS__ ),
 				E_USER_DEPRECATED
 			);
@@ -54,7 +54,7 @@ if ( is_admin() ) {
 	class CT_DB_Admin_Upgrades extends \WPDiscussionBoard\Admin\Admin_Upgrades { // phpcs:ignore
 		public function __construct() {
 			trigger_error( // phpcs:ignore
-			/* translators: 1: %s PHP class name. */
+				/* translators: 1: %s PHP class name. */
 				sprintf( esc_html__( '%s class has been deprecated since version 2.4. Use \WPDiscussionBoard\Admin\Admin_Upgrades instead', 'wp-discussion-board' ), __CLASS__ ),
 				E_USER_DEPRECATED
 			);
@@ -95,7 +95,7 @@ if ( is_admin() ) {
 add_action(
 	'wpdbd_init',
 	function() {
-		do_action( 'ct_db_init' );
+		do_action_deprecated( 'ct_db_init', array(), '2.4', 'wpdbd_init' );
 	}
 );
 
@@ -103,36 +103,41 @@ add_action(
 add_filter(
 	'wpdbd_general_page_settings',
 	function( $settings ) {
-		return apply_filters( 'ctdb_general_page_settings', $settings );
-	}
+		return apply_filters_deprecated( 'ctdb_general_page_settings', array( $settings ), '2.4', 'wpdbd_general_page_settings' );
+	},
+	0
 );
 
 add_filter(
 	'wpdbd_general_login_settings',
 	function( $settings ) {
-		return apply_filters( 'ctdb_general_login_settings', $settings );
-	}
+		return apply_filters_deprecated( 'ctdb_general_login_settings', array( $settings ), '2.4', 'wpdbd_general_login_settings' );
+	},
+	0
 );
 
 add_filter(
 	'wpdbd_general_moderation_settings',
 	function( $settings ) {
-		return apply_filters( 'ctdb_general_moderation_settings', $settings );
-	}
+		return apply_filters_deprecated( 'ctdb_general_moderation_settings', array( $settings ), '2.4', 'wpdbd_general_moderation_settings' );
+	},
+	0
 );
 
 add_filter(
 	'wpdbd_general_notification_settings',
 	function( $settings ) {
-		return apply_filters( 'ctdb_general_notification_settings', $settings );
-	}
+		return apply_filters_deprecated( 'ctdb_general_notification_settings', array( $settings ), '2.4', 'wpdbd_general_notification_settings' );
+	},
+	0
 );
 
 add_filter(
 	'wpdbd_filter_user_settings',
 	function( $settings ) {
-		return apply_filters( 'ctdb_filter_user_settings', $settings );
-	}
+		return apply_filters_deprecated( 'ctdb_filter_user_settings', array( $settings ), '2.4', 'wpdbd_filter_user_settings' );
+	},
+	0
 );
 
 // Legacy constants.

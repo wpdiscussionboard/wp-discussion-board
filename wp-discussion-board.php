@@ -12,7 +12,7 @@ Domain Path: /languages
 
 namespace WPDiscussionBoard;
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -56,6 +56,7 @@ add_action(
 	'plugins_loaded',
 	function() {
 		$bootstrap = Bootstrap::get_instance();
+		$bootstrap->init();
 		$bootstrap->load();
 		do_action( 'wpdbd_init' );
 	}

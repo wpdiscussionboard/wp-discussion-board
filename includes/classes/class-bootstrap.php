@@ -37,7 +37,7 @@ class Bootstrap {
 	 * @since 2.4
 	 */
 	public function init() {
-		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 	}
 
 	/**
@@ -138,6 +138,6 @@ class Bootstrap {
 	 * @since 2.4
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'wp-discussion-board', false, WPDBD_PLUGIN_DIR . '/languages/' );
+		load_plugin_textdomain( 'wp-discussion-board', false, basename( WPDBD_PLUGIN_DIR ) . '/languages' );
 	}
 }
