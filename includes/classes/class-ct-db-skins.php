@@ -363,7 +363,7 @@ if( ! class_exists( 'CT_DB_Skins' ) ) {
 
 				// Check plugin compatibility last
 				} else {
-					return DB_PLUGIN_DIR . '/templates/comments-classic-forum.php';
+					return WPDBD_PLUGIN_DIR . '/templates/comments-classic-forum.php';
 				}
 
 			}

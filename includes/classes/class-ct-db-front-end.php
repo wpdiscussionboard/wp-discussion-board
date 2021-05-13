@@ -60,7 +60,7 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 		 * @since 2.1.0
 		 */
 		public function add_styles() {
-			$settings = ctdb_customizer_settings();
+			$settings = wpdbd_customizer_settings();
 			$styles = array();
 
 			$options = get_option( 'ctdb_design_settings' );
