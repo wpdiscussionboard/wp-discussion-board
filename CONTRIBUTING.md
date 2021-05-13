@@ -30,7 +30,14 @@ Our workflow is very basic.
 
 ## Release workflow
 
-Releases are currently done manually, however we will shortly be automating this using Github actions.
+To prepare and deploy a release, follow these steps.
+
+- Create a new branch off of master with the following naming convention `release/x.x.x` where `x.x.x` is the next version number
+- Merge all branches to be deployed to this branch
+- Increment the version number in [readme.txt](readme.txt), [config.php](includes/config/config.php) and [wp-discussion-board.php](wp-discussion-board.php)
+- Make sure all code docblocs reference the new version in their `@since` parameters
+- Merge the final release branch in to the `master` branch
+- Sync the changes to the SVN repo, tag and commit. This is a manual step for now
 
 ## Development environment
 

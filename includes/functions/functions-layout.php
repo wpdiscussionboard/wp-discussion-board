@@ -155,6 +155,6 @@ if ( ! function_exists ( 'ctdb_use_icons' ) ) {
  */
 if ( ! function_exists ( 'ctdb_get_comments_file_path' ) ) {
 	function ctdb_get_comments_file_path() {
-		return apply_filters( 'ctdb_filter_comments_file_path', DB_PLUGIN_DIR . '/templates/empty-comments-file.php' );
+		return apply_filters( 'ctdb_filter_comments_file_path', WPDBD_PLUGIN_DIR . '/templates/empty-comments-file.php' );
 	}
 }
