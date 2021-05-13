@@ -53,8 +53,8 @@ if ( ! class_exists( 'CT_DB_Template_Loader' ) ) {
 					$single_template = trailingslashit( get_template_directory() ) . 'single-discussion-topics.php';
 
 				// Check plugin compatibility last
-				} else if ( file_exists ( DB_PLUGIN_DIR . '/templates/single-discussion-topics.php' ) ) {
-					$single_template = DB_PLUGIN_DIR . '/templates/single-discussion-topics.php';
+				} else if ( file_exists ( WPDBD_PLUGIN_DIR . '/templates/single-discussion-topics.php' ) ) {
+					$single_template = WPDBD_PLUGIN_DIR . '/templates/single-discussion-topics.php';
 				}
 			}
 			
@@ -86,11 +86,11 @@ if ( ! class_exists( 'CT_DB_Template_Loader' ) ) {
 					$archive_template = trailingslashit( get_template_directory() ) . 'archive-discussion-topics.php';
 
 				// Check theme compatibility last
-				} elseif ( file_exists ( DB_PLUGIN_URL . 'templates/archive-discussion-topics.php' ) ) {
-					$archive_template = DB_PLUGIN_URL . 'templates/archive-discussion-topics.php';
+				} elseif ( file_exists ( WPDBD_PLUGIN_URL . 'templates/archive-discussion-topics.php' ) ) {
+					$archive_template = WPDBD_PLUGIN_URL . 'templates/archive-discussion-topics.php';
 
-				} elseif ( file_exists ( DB_PLUGIN_DIR . '/templates/archive-discussion-topics.php' ) ) {
-					$archive_template = DB_PLUGIN_DIR . '/templates/archive-discussion-topics.php';
+				} elseif ( file_exists ( WPDBD_PLUGIN_DIR . '/templates/archive-discussion-topics.php' ) ) {
+					$archive_template = WPDBD_PLUGIN_DIR . '/templates/archive-discussion-topics.php';
 
 				}
 				
