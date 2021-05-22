@@ -258,3 +258,14 @@ function wpdbd_is_single_archive() {
 
 	return false;
 }
+
+/**
+ * Enqueue the color picker scripts in case they are not already enqueued.
+ *
+ * @since 2.4.1
+ */
+function wpdbd_enqueue_color_picker() {
+	wp_enqueue_style( 'wp-color-picker' );
+	wp_enqueue_script( 'wp-color-picker' );
+}
+add_action( 'customize_controls_enqueue_scripts', 'wpdbd_enqueue_color_picker' );
