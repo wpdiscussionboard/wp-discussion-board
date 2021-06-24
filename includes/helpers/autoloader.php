@@ -32,8 +32,15 @@ spl_autoload_register(
 			$path .= sprintf( '%s%s', DIRECTORY_SEPARATOR, $part );
 		}
 
-		if ( file_exists( $path ) ) {
-			require_once $path;
+		// Must we check for deprecated version first?
+		$deprecated_path = str_replace( '/includes/', '/includes/deprecated/', $path );
+
+		if ( defined( 'WPDBD_LEGACY' ) && file_exists( $deprecated_path ) ) {
+			require_once $deprecated_path;
+		} else {
+			if ( file_exists( $path ) ) {
+				require_once $path;
+			}
 		}
 	}
 );
