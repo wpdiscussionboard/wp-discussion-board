@@ -26,7 +26,15 @@ if ( ! defined( 'WPDBD_PLUGIN_FILE' ) ) {
 require_once 'includes/config/config.php';
 
 if ( is_admin() ) {
-	require_once 'includes/config/settings.php';
+	// If the user is using the old deprecated mode, load old settings.
+	if ( ! empty( get_option( 'ctdb_options_settings' ) ) ) {
+		//define( 'WPDBD_LEGACY', true );
+
+		//require_once 'includes/deprecated/config/settings.php';
+		require_once 'includes/config/settings.php'; // @todo: used for testing new UI, remove for build.
+	} else {
+		require_once 'includes/config/settings.php';
+	}
 }
 
 // Load helpers.
