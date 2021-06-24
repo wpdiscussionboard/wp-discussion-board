@@ -997,12 +997,21 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		 * @since 1.0.0
 		 */
 		public function redirect_to_login_page() {
-
 			global $pagenow;
 			$options = get_option( 'ctdb_options_settings' );
 
-			// Check we're not trying to log out or recover password
-			if( isset( $_GET['action'] ) &&( $_GET['action'] == 'logout' || $_GET['action'] == 'lostpassword' || $_GET['action'] == 'rp' ) ) return;
+			// Check we're not trying to log out or recover password.
+			if (
+				! empty( $_GET['action'] ) &&
+				(
+					'logout' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
+					'lostpassword' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
+					'rp' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
+					'resetpass' === sanitize_text_field( wp_unslash( $_GET['action'] ) )
+				)
+			) {
+				return;
+			}
 
 			// If we're heading towards wp-login.php and our settings are right
 			if( 'wp-login.php' == $pagenow && isset( $options['hide_wp_login'] ) && isset( $options['frontend_login_page'] ) ) {
