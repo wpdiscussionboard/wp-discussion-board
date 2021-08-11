@@ -34,7 +34,8 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 			add_filter( 'the_content', array( $this, 'filter_single_content' ) );
 
 			// If the user can view but can't post, filter off the comment fields
-			add_filter( 'comments_template', array ( $this, 'filter_comments' ) );
+			add_filter( 'get_comment_text', array( $this, 'oembed_comments_filter' ), 1, 1 );
+			add_filter( 'comments_template', array( $this, 'filter_comments' ) );
 			add_filter( 'comment_form_defaults', array( $this, 'remove_comment_form_defaults' ) );
 			add_filter( 'comment_form_default_fields', array( $this, 'remove_comment_form_fields' ) );
 			add_filter( 'comment_reply_link', array( $this, 'custom_reply_link' ) );
@@ -46,7 +47,6 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 			add_shortcode( 'is_logged_in', array( $this, 'is_logged_in_shortcode' ), 10, 2 );
 			add_shortcode( 'not_logged_in', array( $this, 'not_logged_in_shortcode' ), 10, 2 );
 			add_shortcode( 'new_topic_button', array( $this, 'new_topic_button_shortcode' ) );
-
 		}
 
 		public function check_user_permission() {
@@ -346,6 +346,36 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 
 			return $content;
 
+		}
+
+		/**
+		 * Enable OEmbeds in comments.
+		 *
+		 * @param string $comment_text The comment text.
+		 *
+		 * @credit https://gist.github.com/sheabunge/6018753
+		 *
+		 * @since 2.4.2
+		 *
+		 * @return string
+		 */
+		public function oembed_comments_filter( $comment_text ) {
+			global $wp_embed;
+
+			// Only for discussion topics, not all comments.
+			if ( ! is_singular( 'discussion-topics' ) ) {
+				return $comment_text;
+			}
+
+			// Automatic discovery would be a security risk, safety first.
+			add_filter( 'embed_oembed_discover', '__return_false', 999 );
+
+			$comment_text = $wp_embed->autoembed( $comment_text );
+
+			// But don't break your posts if you use it.
+			remove_filter( 'embed_oembed_discover', '__return_false', 999 );
+
+			return $comment_text;
 		}
 
 		/*
