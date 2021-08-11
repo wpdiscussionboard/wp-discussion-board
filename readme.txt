@@ -5,7 +5,7 @@ Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wo
 Requires at least: 4.3
 Tested up to: 5.7
 Requires PHP: 5.2.4
-Stable tag: 2.3.17
+Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -176,6 +176,19 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 2. Example topic with replies (includes some Pro features)
 
 == Changelog ==
+
+= 2.4.1, June 24 2021 =
+* Fixed: Always enqueue customizer color picker as some themes don't include it
+* Fixed: Allow user to reset password when forcing the plugin login form
+
+= 2.4, May 13 2021 =
+* Major update, please test before upgrading
+* Updated: Refactor admin code to be cleaner and easier to extend
+* Added: Free license registration form
+
+= 2.3.18, May 6 2021 =
+* Updated: Updated the POT translation files to include new strings
+* Updated: French and Russian translation files
 
 = 2.3.17, April 14 2021 =
 * Added: Ability to add custom checkbox fields to the registration form
