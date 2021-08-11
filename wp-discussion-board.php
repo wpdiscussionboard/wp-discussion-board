@@ -3,7 +3,7 @@
 Plugin Name: Discussion Board
 Plugin URI: https://wpdiscussionboard.com
 Description: Provide a simple discussion board for your site
-Version: 2.4.1
+Version: 2.4.2
 Author: WP Discussion Board
 Author URI: https://wpdiscussionboard.com
 Text Domain: wp-discussion-board
