@@ -31,6 +31,12 @@ WP Discussion Board has a legacy codebase which we're constantly trying to impro
 - Make sure your changes are backwards compatible with prior versions (deprecations can be added where applicable)
 - Add unit tests when introducing new functionality and when refactoring
 
+### Refactoring
+
+There are some important notes to keep in mind when it comes to refactoring.
+
+- The plugin currently uses the `ctdb` prefix in a number of places. Overtime, this should be changed to `wpdbd` for consistency, but it should be backwards compatible so that nothing breaks
+
 ### Structure
 
 The plugin currently does not strictly follow any design patterns or structured architecture. You will see spaghetti code, mixed with some semblances of structure. We're improving this and have recently introduced a structured framework for the plugin which should be adopted fully over time. The basics of this framework include:
