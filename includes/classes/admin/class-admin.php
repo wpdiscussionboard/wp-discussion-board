@@ -44,6 +44,11 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 		 */
 		public function enqueue_scripts( $hook ) {
 			switch ( $hook ) {
+				case 'edit-tags.php':
+				case 'term.php':
+					if( ! isset( $_GET['taxonomy'] ) || 'board' !== $_GET['taxonomy'] ) {
+						break;
+					}
 				case 'discussion-topics_page_discussion_board':
 					wp_enqueue_style( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/css/lib/select2.min.css', array(), WPDBD_PLUGIN_VERSION );
 					wp_enqueue_script( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/js/lib/select2.min.js', array(), WPDBD_PLUGIN_VERSION );
