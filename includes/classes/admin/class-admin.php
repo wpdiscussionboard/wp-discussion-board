@@ -37,6 +37,25 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 			add_action( 'show_user_profile', array( $this, 'ctdb_display_activation_key' ), 10, 1 );
 			add_action( 'edit_user_profile', array( $this, 'ctdb_display_activation_key' ), 10, 1 );
 			add_filter( 'plugin_action_links_wp-discussion-board/wp-discussion-board.php', array( $this, 'filter_action_links' ), 10, 1 );
+
+			add_action( 'wpdbd_load_assets', array( $this, 'load_assets_for_screen' ), 10, 1 );
+
+		}
+
+		/**
+		 * Loads assets for a particular screen.
+		 *
+		 * @since 2.4.3
+		 */
+		public function load_assets_for_screen( $type ) {
+			switch ( $type ) {
+				case 'settings':
+					wp_enqueue_style( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/css/lib/select2.min.css', array(), WPDBD_PLUGIN_VERSION );
+					wp_enqueue_script( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/js/lib/select2.min.js', array(), WPDBD_PLUGIN_VERSION );
+					wp_enqueue_script( 'wpdbd-settings', WPDBD_PLUGIN_URL . 'assets/js/settings.js', array( 'wpdbd-select2' ), WPDBD_PLUGIN_VERSION );
+					wp_localize_script( 'wpdbd-settings', 'config', array() );
+					break;
+			}
 		}
 
 		/**
@@ -44,16 +63,8 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 		 */
 		public function enqueue_scripts( $hook ) {
 			switch ( $hook ) {
-				case 'edit-tags.php':
-				case 'term.php':
-					if( ! isset( $_GET['taxonomy'] ) || 'board' !== $_GET['taxonomy'] ) {
-						break;
-					}
 				case 'discussion-topics_page_discussion_board':
-					wp_enqueue_style( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/css/lib/select2.min.css', array(), WPDBD_PLUGIN_VERSION );
-					wp_enqueue_script( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/js/lib/select2.min.js', array(), WPDBD_PLUGIN_VERSION );
-					wp_enqueue_script( 'wpdbd-settings', WPDBD_PLUGIN_URL . 'assets/js/settings.js', array( 'wpdbd-select2' ), WPDBD_PLUGIN_VERSION );
-					wp_localize_script( 'wpdbd-settings', 'config', array() );
+					$this->load_assets_for_screen( 'settings' );
 					break;
 			}
 
