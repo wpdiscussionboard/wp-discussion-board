@@ -87,6 +87,10 @@ if( ! class_exists( 'CT_DB_Skins' ) ) {
 				$content = $topic_meta . $author . '<div class="ctdb-content-wrap">' . $content . '</div><!-- .ctdb-content-wrap -->';
 			}
 
+			if( wpdb_is_editing_permitted() ) {
+				$content = $content . '<div class="wpdb-post-edit"><a href="#">' . esc_html( 'Edit', 'wp-discussion-board' ) . '</a></div>';
+			}
+
 			return $content;
 
 		}

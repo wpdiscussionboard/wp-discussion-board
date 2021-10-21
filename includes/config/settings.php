@@ -186,6 +186,31 @@ if ( ! function_exists( 'wpdbd_general_page_settings' ) ) {
 				'page'        => 'ctdb_options',
 				'section'     => 'ctdb_options_settings',
 			),
+			'edit_topic_disallowed'            => array(
+				'id'          => 'edit_topic_disallowed',
+				'label'       => __( 'Disallow editing topic', 'wp-discussion-board' ),
+				'callback'    => 'checkbox_callback',
+				'description' => __( 'Select this option to disable editing.', 'wp-discussion-board' ),
+				'page'        => 'ctdb_options',
+				'section'     => 'ctdb_options_settings',
+			),
+			'edit_topic_time_limit'              => array(
+				'id'          => 'edit_topic_time_limit',
+				'label'       => __( 'Prevent user from editing after this time (seconds)', 'wp-discussion-board' ),
+				'callback'    => 'select_callback',
+				'choices'     => array(
+					'15'  => '15',
+					'30'  => '30',
+					'45'  => '45',
+					'60'  => '60',
+					'120' => '120',
+					'180' => '180',
+					'240' => '300',
+				),
+				'description' => __( 'The number of seconds before editing is closed for a user.', 'wp-discussion-board' ),
+				'page'        => 'ctdb_options',
+				'section'     => 'ctdb_options_settings',
+			),
 		);
 		$moderation_settings = apply_filters( 'wpdbd_general_moderation_settings', $moderation_settings );
 

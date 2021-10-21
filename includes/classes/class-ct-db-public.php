@@ -124,6 +124,10 @@ if( ! class_exists( 'CT_DB_Public' ) ) { // Don't initialise if there's already 
 			if( isset( $options['enqueue_dashicons'] ) ) {
 				wp_enqueue_style( 'dashicons' );
 			}
+
+			wp_enqueue_script( 'wpdb-script', WPDBD_PLUGIN_URL . 'assets/js/wpdb.js', array( 'jquery' ), WPDBD_PLUGIN_VERSION, true );
+			wp_localize_script( 'wpdb-script', 'config', array( 
+			) );
 		}
 
 		/*

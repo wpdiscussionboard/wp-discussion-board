@@ -37,6 +37,17 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 			add_action( 'show_user_profile', array( $this, 'ctdb_display_activation_key' ), 10, 1 );
 			add_action( 'edit_user_profile', array( $this, 'ctdb_display_activation_key' ), 10, 1 );
 			add_filter( 'plugin_action_links_wp-discussion-board/wp-discussion-board.php', array( $this, 'filter_action_links' ), 10, 1 );
+			add_filter( 'wp_revisions_to_keep', array( $this, 'limit_revisions' ), 10, 2 );
+		}
+
+		/**
+		 * No limits on revisions.
+		 */
+		public function limit_revisions( $num, $post ) {
+			if ( 'discussion-topics' === $post->post_type ) {
+				return -1;
+			}
+			return $num;
 		}
 
 		/**
