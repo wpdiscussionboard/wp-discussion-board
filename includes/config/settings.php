@@ -199,6 +199,7 @@ if ( ! function_exists( 'wpdbd_general_page_settings' ) ) {
 				'label'       => __( 'Prevent user from editing after this time (seconds)', 'wp-discussion-board' ),
 				'callback'    => 'select_callback',
 				'choices'     => array(
+					'0'  => __( 'Never', 'wp-discussion-board' ),
 					'15'  => '15',
 					'30'  => '30',
 					'45'  => '45',

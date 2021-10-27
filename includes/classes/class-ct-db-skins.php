@@ -50,6 +50,7 @@ if( ! class_exists( 'CT_DB_Skins' ) ) {
 		 * @since 1.7.0
 		 */
 		public function filter_single_content( $content, $position ) {
+			global $post;
 
 			if ( ! in_the_loop() ) return $content;
 			if( 'discussion-topics' != get_post_type() ) return $content;
@@ -88,7 +89,7 @@ if( ! class_exists( 'CT_DB_Skins' ) ) {
 			}
 
 			if( wpdb_is_editing_permitted() ) {
-				$content = $content . '<div class="wpdb-post-edit"><a href="#">' . esc_html( 'Edit', 'wp-discussion-board' ) . '</a></div>';
+				$content = $content . '<div class="wpdb-post-edit"><a href="#" data-topic-id="' . esc_attr( $post->ID ) . '">' . esc_html( 'Edit', 'wp-discussion-board' ) . '</a></div>';
 			}
 
 			return $content;
