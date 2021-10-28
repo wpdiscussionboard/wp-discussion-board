@@ -36,7 +36,7 @@ if( ! class_exists( 'CT_DB_Public' ) ) { // Don't initialise if there's already 
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_head', array( $this, 'add_ajaxurl' ) );
-			add_filter( 'wp_revisions_to_keep', array( $this, 'limit_revisions' ), 10, 2 );
+			add_filter( 'wp_revisions_to_keep', array( $this, 'limit_revisions' ), 99, 2 );
 
 			global $CT_DB_Front_End;
 			$CT_DB_Front_End = new CT_DB_Front_End();
