@@ -32,7 +32,22 @@ if ( ! function_exists ( 'ctdb_classic_forum_comment' ) ) {
 		// do_action( 'ctdb_comment_metadata_end' );
 					
 		$comment_html .= '</div><!-- .comment-metadata -->';
-		$comment_html .= sprintf( '<span class="edit-link ctdb-edit-link"><a href="%s">%s</a></span>', get_edit_comment_link(),  __( 'Edit', 'wp-discussion-board' ) );
+
+		$options = get_option( 'ctdb_options_settings' );
+		$allowed = 0 === intval( $options['edit_comment_disallowed'] );
+
+		if ( $allowed ) {
+			// has more time elapsed since the comment was created than is allowed by settings?
+			$edit_time_limit = intval( $options['edit_comment_time_limit'] );
+			$comment_date = DateTime::createFromFormat( 'Y-m-d H:i:s', sprintf( '%s %s', get_comment_date( 'Y-m-d', $comment ), get_comment_time('H:i:s') ) )->format('U');
+			$now = new DateTime();
+			$time_has_passed = 0 === $edit_time_limit ? false : $now->format('U') - $comment_date > $edit_time_limit;
+			
+			if ( ! $time_has_passed ) {
+				$comment_html .= sprintf( '<span class="edit-link ctdb-edit-link"><a href="%s">%s</a></span>', get_edit_comment_link(),  __( 'Edit', 'wp-discussion-board' ) );
+			}
+		}
+
 		$comment_html .= '</header>';
 		$comment_html .= '<footer class="comment-meta">';
 		$comment_html .= '<div class="comment-author vcard">';
