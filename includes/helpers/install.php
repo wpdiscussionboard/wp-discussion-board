@@ -65,7 +65,7 @@ function wpdbd_register_post_type() {
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'comments', 'thumbnail', 'custom-fields' ),
+		'supports'           => array( 'title', 'editor', 'author', 'comments', 'thumbnail', 'custom-fields', 'revisions' ),
 	);
 	register_post_type( 'discussion-topics', $args );
 }

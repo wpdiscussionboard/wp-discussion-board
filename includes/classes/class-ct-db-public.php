@@ -36,6 +36,7 @@ if( ! class_exists( 'CT_DB_Public' ) ) { // Don't initialise if there's already 
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_head', array( $this, 'add_ajaxurl' ) );
+			add_filter( 'wp_revisions_to_keep', array( $this, 'limit_revisions' ), 99, 2 );
 
 			global $CT_DB_Front_End;
 			$CT_DB_Front_End = new CT_DB_Front_End();
@@ -47,6 +48,16 @@ if( ! class_exists( 'CT_DB_Public' ) ) { // Don't initialise if there's already 
 			$CT_DB_User = new CT_DB_User();
 			$CT_DB_User->init();
 
+		}
+
+		/**
+		 * No limits on revisions.
+		 */
+		public function limit_revisions( $num, $post ) {
+			if ( 'discussion-topics' === $post->post_type ) {
+				return -1;
+			}
+			return $num;
 		}
 
 		public function add_ajaxurl() {
@@ -116,14 +127,26 @@ if( ! class_exists( 'CT_DB_Public' ) ) { // Don't initialise if there's already 
 		 * @since 1.0.0
 		 */
 		public function enqueue_scripts() {
-			$options = get_option( 'ctdb_design_settings' );
+			$designs = get_option( 'ctdb_design_settings' );
 			wp_enqueue_script( 'jquery' );
-			if( isset( $options['enqueue_styles'] ) ) {
+			if( isset( $designs['enqueue_styles'] ) ) {
 				wp_enqueue_style( 'ctdb-style', WPDBD_PLUGIN_URL . 'assets/css/style.css', array(), WPDBD_PLUGIN_VERSION );
 			}
-			if( isset( $options['enqueue_dashicons'] ) ) {
+			if( isset( $designs['enqueue_dashicons'] ) ) {
 				wp_enqueue_style( 'dashicons' );
 			}
+
+			$options = get_option( 'ctdb_options_settings' );
+
+			$new_topic_page = intval( $options['new_topic_page'] );
+			$url = get_permalink( $new_topic_page );
+
+			wp_enqueue_script( 'wpdb-script', WPDBD_PLUGIN_URL . 'assets/js/wpdb.js', array( 'jquery' ), WPDBD_PLUGIN_VERSION, true );
+			wp_localize_script( 'wpdb-script', 'wpdb_config', array( 
+				'edit_post_url' => $url,
+				'rest_nonce' => wp_create_nonce( 'wp_rest' ),
+				'edit_comment_url' => get_rest_url( null, '/wp/v2/comments/' ),
+			) );
 		}
 
 		/*

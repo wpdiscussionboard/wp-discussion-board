@@ -163,12 +163,20 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 					} else {
 						$status = 'draft';
 					}
+
+					// if editing an existing topic
+					$topic_id = isset( $_POST['topic_id'] ) ? wp_strip_all_tags( $_POST['topic_id'] ) : 0;
+					if ( $topic_id ) {
+						$status = 'publish';
+					}
+
 					$post_args = array(
 						'post_title'		=> wp_strip_all_tags( $_POST['topic_title'] ),
 						'post_content'		=> strip_shortcodes( wp_kses_post( $_POST['topic_content'] ) ),
 						'post_status'		=> $status,
 						'post_type' 		=> 'discussion-topics',
 						'comment_status'	=> 'open', // Forces the comment status to open - otherwise no one can reply
+						'ID'				=> $topic_id,
 					);
 
 					// Check for taxonomy
@@ -247,7 +255,7 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 		}
 
 		/*
-		 * This is the HTML for the new topic submission form
+		 * This is the HTML for the new/edit topic submission form.
 		 * @since 1.0.0
 		 */
 		public function new_topic_form_content() {
@@ -260,6 +268,17 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 			if( isset( $_POST['topic_content'] ) ) {
 				$content = strip_shortcodes( stripslashes( $_POST['topic_content'] ) );
 			}
+
+			$is_edit = false;
+			// check post ID
+			$post_id = filter_input( INPUT_POST, 'topic', FILTER_VALIDATE_INT );
+			if ( $post_id ) {
+				$post_to_edit = get_post( $post_id );
+				$title = $post_to_edit->post_title;
+				$content = $post_to_edit->post_content;
+				$is_edit = true;
+			}
+
 			// Check if include categories option is selected
 			$term_select = '';
 			$options = get_option( 'ctdb_options_settings' );
@@ -283,7 +302,13 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 			// Apply filter before submit button
 			$form = apply_filters( 'ctdb_topics_form_before_submit', $form );
 
-			$form['submit'] = '<input type="submit" value="' . __( 'Start Topic', 'wp-discussion-board' ) . '" tabindex="903" id="submit_topic" name="submit_topic" />';
+			$form['hidden'] = array();
+			if ( $is_edit ) {
+				$form['submit'] = '<input type="submit" value="' . __( 'Edit Topic', 'wp-discussion-board' ) . '" tabindex="903" id="submit_topic" name="submit_topic" />';
+				$form['hidden'] = array( '<input type="hidden" name="topic_id" value="' . esc_attr( $post_id ) . '">' );
+			} else {
+				$form['submit'] = '<input type="submit" value="' . __( 'Start Topic', 'wp-discussion-board' ) . '" tabindex="903" id="submit_topic" name="submit_topic" />';
+			}
 			$form['insert_post'] = '<input type="hidden" name="insert_post" value="post" />';
 			$form['nonce'] = wp_nonce_field( "display_new_topic_form", "new_topic", true, false );
 			$form['close'] = '<input type="hidden" name="ctdb_uniqid" id="ctdb_uniqid" value="' . uniqid() . '"></form></div>';
@@ -295,6 +320,11 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 			$form_output .= $form['open_form'];
 			if( is_array( $form['fields'] ) ) {
 				foreach( $form['fields'] as $field ) {
+					$form_output .= $field;
+				}
+			}
+			if( is_array( $form['hidden'] ) ) {
+				foreach( $form['hidden'] as $field ) {
 					$form_output .= $field;
 				}
 			}

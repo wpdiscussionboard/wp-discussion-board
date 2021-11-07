@@ -32,7 +32,22 @@ if ( ! function_exists ( 'ctdb_classic_forum_comment' ) ) {
 		// do_action( 'ctdb_comment_metadata_end' );
 					
 		$comment_html .= '</div><!-- .comment-metadata -->';
-		$comment_html .= sprintf( '<span class="edit-link ctdb-edit-link"><a href="%s">%s</a></span>', get_edit_comment_link(),  __( 'Edit', 'wp-discussion-board' ) );
+
+		$options = get_option( 'ctdb_options_settings' );
+		$edit_allowed = 0 === intval( $options['edit_comment_disallowed'] );
+
+		if ( $edit_allowed ) {
+			// has more time elapsed since the comment was created than is allowed by settings?
+			$edit_time_limit = intval( $options['edit_comment_time_limit'] );
+			$comment_date = DateTime::createFromFormat( 'Y-m-d H:i:s', sprintf( '%s %s', get_comment_date( 'Y-m-d', $comment ), get_comment_time('H:i:s') ) )->format('U');
+			$now = new DateTime();
+			$edit_allowed = 0 === $edit_time_limit ? true : $now->format('U') - $comment_date < $edit_time_limit;
+			
+			if ( $edit_allowed ) {
+				$comment_html .= sprintf( '<span class="edit-link ctdb-edit-link"><a href="#" data-comment-id="%d">%s</a></span>', esc_attr( get_comment_ID() ), __( 'Edit', 'wp-discussion-board' ) );
+			}
+		}
+
 		$comment_html .= '</header>';
 		$comment_html .= '<footer class="comment-meta">';
 		$comment_html .= '<div class="comment-author vcard">';
@@ -43,8 +58,18 @@ if ( ! function_exists ( 'ctdb_classic_forum_comment' ) ) {
 		$comment_html .= '</footer><!-- .comment-meta -->';
 
 		$comment_html .= '<div class="comment-content">';
+
+		if ( $edit_allowed ) {
+			$comment_html .= sprintf( '<div class="comment-content-edit" style="display: none" data-comment-id="%d">', esc_attr( get_comment_ID() ) );
+			$comment_editor = sprintf( '<textarea rows="5" cols="25" name="comment-content-edited">%s</textarea>', esc_textarea( wpautop( get_comment_text() ) ) );
+			$comment_html .= apply_filters( 'wpdb_comment_editor', $comment_editor, $comment );
+			$comment_html .= sprintf( '<button>%s</button>', __( 'Save Comment', 'wp-discussion-board' ) );
+			$comment_html .= '</div>';
+		}
 						
+		$comment_html .= sprintf( '<div class="comment-content-text" data-comment-id="%d">', esc_attr( get_comment_ID() ) );
 		$comment_html .= wpautop( get_comment_text() );
+		$comment_html .= '</div>';
 		
 		if ( '0' == $comment->comment_approved ) {
 			$comment_html .= '<p class="comment-awaiting-moderation">' . __( 'Your comment is awaiting moderation.', 'wp-discussion-board' ) . '</p>';
