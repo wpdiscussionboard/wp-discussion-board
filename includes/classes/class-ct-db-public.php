@@ -144,6 +144,8 @@ if( ! class_exists( 'CT_DB_Public' ) ) { // Don't initialise if there's already 
 			wp_enqueue_script( 'wpdb-script', WPDBD_PLUGIN_URL . 'assets/js/wpdb.js', array( 'jquery' ), WPDBD_PLUGIN_VERSION, true );
 			wp_localize_script( 'wpdb-script', 'wpdb_config', array( 
 				'edit_post_url' => $url,
+				'rest_nonce' => wp_create_nonce( 'wp_rest' ),
+				'edit_comment_url' => get_rest_url( null, '/wp/v2/comments/' ),
 			) );
 		}
 
