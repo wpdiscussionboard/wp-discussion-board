@@ -27,6 +27,7 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 			add_action( 'admin_menu', array( $this, 'add_settings_submenu' ) );
 			add_action( 'admin_init', array( $this, 'register_options_init' ) );
 			add_action( 'admin_init', array( $this, 'register_design_init' ) );
+			add_action( 'admin_init', array( $this, 'register_themes_init' ) );
 			add_action( 'admin_init', array( $this, 'register_user_init' ) );
 			add_action( 'admin_init', array( $this, 'prevent_wp_admin_access' ), 100 );
 			add_action( 'admin_init', array( $this, 'save_tracker_settings' ), 20 );
@@ -222,6 +223,20 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 				update_option( 'ctdb_design_settings', $defaults );
 			}
 
+		}
+
+		/**
+		 * Set up the Themes tab in Settings.
+		 */
+		public function register_themes_init() {
+			register_setting( 'ctdb_theme', 'ctdb_theme_settings' );
+
+			add_settings_section(
+				'ctdb_theme_section',
+				__( 'Theme Settings', 'wp-discussion-board' ),
+				array( $this, 'discussion_board_design_settings_section_callback' ),
+				'ctdb_theme'
+			);
 		}
 
 		/**
@@ -837,6 +852,7 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 			$tabs    = array(
 				'options' => __( 'General', 'wp-discussion-board' ),
 				'design'  => __( 'Design', 'wp-discussion-board' ),
+				'themes'  => __( 'Themes', 'wp-discussion-board' ),
 				'user'    => __( 'User', 'wp-discussion-board' ),
 			);
 			$tabs    = apply_filters( 'ct_db_settings_tabs', $tabs );
