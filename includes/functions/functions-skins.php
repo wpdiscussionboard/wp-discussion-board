@@ -34,11 +34,12 @@ if ( ! function_exists ( 'ctdb_classic_forum_comment' ) ) {
 		$comment_html .= '</div><!-- .comment-metadata -->';
 
 		$options = get_option( 'ctdb_options_settings' );
-		$edit_allowed = 0 === intval( $options['edit_comment_disallowed'] );
+		// @todo: check this logic (test)
+		$edit_allowed = empty( $options['edit_comment_disallowed'] ) || 0 === intval( $options['edit_comment_disallowed'] );
 
 		if ( $edit_allowed ) {
 			// has more time elapsed since the comment was created than is allowed by settings?
-			$edit_time_limit = intval( $options['edit_comment_time_limit'] );
+			$edit_time_limit = ! empty( $options['edit_comment_time_limit'] ) ? intval( $options['edit_comment_time_limit'] ) : 60000000000;
 			$comment_date = DateTime::createFromFormat( 'Y-m-d H:i:s', sprintf( '%s %s', get_comment_date( 'Y-m-d', $comment ), get_comment_time('H:i:s') ) )->format('U');
 			$now = new DateTime();
 			$edit_allowed = 0 === $edit_time_limit ? true : $now->format('U') - $comment_date < $edit_time_limit;

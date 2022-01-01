@@ -297,10 +297,11 @@ if ( ! function_exists ( 'wpdb_is_editing_permitted' ) ) {
 		$user = wp_get_current_user();
 
 		$options = get_option( 'ctdb_options_settings' );
-		$allowed = 0 === intval( $options['edit_topic_disallowed'] );
+		// @todo: check this logic (test)
+		$allowed = empty( $options['edit_topic_disallowed'] ) || 0 === intval( $options['edit_topic_disallowed'] );
 
 		// has more time elapsed since the post was created than is allowed by settings?
-		$edit_time_limit = intval( $options['edit_topic_time_limit'] );
+		$edit_time_limit = ! empty( $options['edit_topic_time_limit'] ) ? intval( $options['edit_topic_time_limit'] ) : 60000000000;
 		$post_date = DateTime::createFromFormat( 'Y-m-d H:i:s', $post->post_date_gmt )->format('U');
 		$now = new DateTime();
 		$now = $now->format('U');
