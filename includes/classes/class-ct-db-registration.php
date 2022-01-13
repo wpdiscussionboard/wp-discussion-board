@@ -1014,8 +1014,21 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 			}
 
 			// If we're heading towards wp-login.php and our settings are right
-			if( 'wp-login.php' == $pagenow && isset( $options['hide_wp_login'] ) && isset( $options['frontend_login_page'] ) ) {
-				$redirect_url = esc_url_raw( add_query_arg( 'login', 'bounced', get_permalink( $options['frontend_login_page'] ) ) );
+			if ( 'wp-login.php' === $pagenow && ! empty( $options['hide_wp_login'] ) && ! empty( $options['frontend_login_page'] ) ) {
+				$frontend_login_page = $options['frontend_login_page'];
+
+				if ( 'publish' !== get_post_status( $frontend_login_page ) ) {
+					return;
+				}
+
+				$redirect_url = get_permalink( $frontend_login_page );
+
+				// Check that the redirect URL is a valid page.
+				if ( empty( $redirect_url ) ) {
+					return;
+				}
+
+				$redirect_url = esc_url_raw( add_query_arg( 'login', 'bounced', $redirect_url ) );
 				wp_redirect( $redirect_url );
 				exit;
 			}
