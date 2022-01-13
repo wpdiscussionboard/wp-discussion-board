@@ -25,7 +25,7 @@ if ( ! defined( 'WPDBD_PLUGIN_FILE' ) ) {
 // Load config files.
 require_once 'includes/config/config.php';
 
-if ( is_admin() ) {
+if ( is_admin() || wp_doing_cron() ) {
 	require_once 'includes/config/settings.php';
 }
 
