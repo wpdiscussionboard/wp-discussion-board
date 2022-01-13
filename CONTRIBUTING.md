@@ -73,11 +73,11 @@ Our workflow is very basic.
 
 - Always branch off of the `master` branch
 - Name your branch after the Github issue i.e. `feature/1` or `fix/1` where 1 is the ID of the Github issue. We use the `feature` prefix for enhancements and `fix` for bugs
-- Submit a PR to the repository against the `develop` branch when your feature or fix is ready to be reviewed
+- Submit a PR to the repository against the `release/x.x.x` (the next release of the plugin) branch when your feature or fix is ready to be reviewed
 - Your PR will then be code reviewed and changes will be requested where applicable
-- Once everything checks out, the feature/fix will be merged to the develop branch
-- Testing should now be done in our staging environment
-- Once testing is passed, the branch will be merged to the `release/x.x.x` branch for release
+- Once everything checks out, the feature/fix will be merged to the release branch
+- Testing should now be done
+- Once testing is passed and the release is ready, the branch will be merged to the `master` branch and deployed
 
 ## Release workflow
 
