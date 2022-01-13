@@ -23,6 +23,8 @@ services:
     environment:
       WP_TESTS_DIR: /var/www/html/tests/phpunit
       WP_PHPUNIT__TESTS_CONFIG: /var/www/html/wp-tests-config.php
+      XDEBUG_MODE: debug
+      XDEBUG_CONFIG: start_with_request=yes client_host=host.docker.internal client_port=9000 remote_host=host.docker.internal
 
   wpdiscussionboard_db:
     container_name: wpdiscussionboard_mysql
