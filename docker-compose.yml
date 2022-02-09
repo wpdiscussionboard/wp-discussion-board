@@ -38,6 +38,25 @@ services:
     networks:
       - local
 
+  wordpress_phpunit:
+    container_name: wpdiscussionboard_wordpress_phpunit
+    image: "chriszarate/wordpress-phpunit"
+    volumes:
+      - ".:/app"
+    environment:
+      WP_TESTS_DIR: /app/vendor/wp-phpunit/wp-phpunit
+      WP_PHPUNIT__TESTS_CONFIG: /app/tests/wp-tests-config.php
+    networks:
+      - local
+
+  mysql_phpunit:
+    container_name: wpdiscussionboard_mysql_phpunit
+    image: mysql:5.7
+    env_file:
+      - .env.tests
+    networks:
+      - local
+
 networks:
   local:
     external: true
