@@ -2,13 +2,18 @@
 /**
  * PHPUnit bootstrap file
  *
- * @package Salespack
+ * @package WPDiscussionBoard
  */
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 
 if ( ! $_tests_dir ) {
 	$_tests_dir = rtrim( sys_get_temp_dir(), '/\\' ) . '/wordpress-tests-lib';
+}
+
+// Include Polyfills.
+if ( class_exists( '\Yoast\PHPUnitPolyfills\Autoload' ) === false ) {
+	require_once 'vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
 }
 
 if ( ! file_exists( $_tests_dir . '/includes/functions.php' ) ) {
