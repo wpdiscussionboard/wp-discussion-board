@@ -10,15 +10,15 @@
       "url": "https://wpackagist.org"
     }
   ],
-  "require": {},
   "require-dev": {
     "johnpbloch/wordpress": "^5.6",
     "php-coveralls/php-coveralls": "^2.1",
     "phpunit/phpunit": "^5.7",
     "squizlabs/php_codesniffer": "^3.0",
     "dealerdirect/phpcodesniffer-composer-installer": "*",
-    "wp-coding-standards/wpcs": "^2.2",
-    "wp-phpunit/wp-phpunit": "^5.4"
+    "wp-coding-standards/wpcs": "^2.3",
+    "wp-phpunit/wp-phpunit": "^5.4",
+    "yoast/phpunit-polyfills": "^1.0"
   },
   "config": {
     "process-timeout": 3000,
@@ -48,11 +48,7 @@
       "@lint-php"
     ],
     "test": [
-      "phpunit --coverage-text",
-      "php local/scripts/make-clover-relative.php ./tests/reports/clover.xml"
-    ],
-    "test-report": [
-      "php-coveralls --verbose"
+      "bin/test-php"
     ]
   }
 }

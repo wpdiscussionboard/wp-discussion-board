@@ -3,9 +3,9 @@ Contributors: MattGeri, Catapult_Themes, jf_bertrand
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 5.7
+Tested up to: 5.9
 Requires PHP: 5.2.4
-Stable tag: 2.4.3
+Stable tag: 2.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -176,6 +176,10 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 2. Example topic with replies (includes some Pro features)
 
 == Changelog ==
+
+= 2.4.4, February 09, 2022 =
+* Fixed: Don't redirect to login page for password protected
+* Added: Ability to log in with email address or username 
 
 = 2.4.3, January 13, 2022 =
 * Updated: Use select2 for multi select on the roles and permissions input field
