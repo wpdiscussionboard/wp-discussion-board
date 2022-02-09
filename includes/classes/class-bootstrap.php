@@ -94,7 +94,7 @@ class Bootstrap {
 			$key = str_replace( 'WPDiscussionBoard\\', '', $class );
 
 			// Add component to container.
-			$this->container[ $key ] = new $class;
+			$this->container[ $key ] = new $class();
 		}
 	}
 
