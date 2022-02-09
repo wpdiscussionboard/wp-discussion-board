@@ -59,4 +59,32 @@ class Test_CT_DB_Registration extends \WP_UnitTestCase {
 		$test_email_user = $this->instance->get_user( 'test@test.com' );
 		$this->assertEquals( 'test@test.com', $test_email_user->user_email );
 	}
+
+	/**
+	 * Test the redirect login action.
+	 *
+	 * @since 2.4.4
+	 *
+	 * @covers CT_DB_Registration::redirect_login_action()
+	 */
+	public function test_redirect_login_action() {
+		$_GET['action'] = 'login';
+
+		$this->assertTrue( $this->instance->redirect_login_action() );
+
+		$_GET['action'] = 'logout';
+		$this->assertFalse( $this->instance->redirect_login_action() );
+
+		$_GET['action'] = 'lostpassword';
+		$this->assertFalse( $this->instance->redirect_login_action() );
+
+		$_GET['action'] = 'rp';
+		$this->assertFalse( $this->instance->redirect_login_action() );
+
+		$_GET['action'] = 'resetpass';
+		$this->assertFalse( $this->instance->redirect_login_action() );
+
+		$_GET['action'] = 'postpass';
+		$this->assertFalse( $this->instance->redirect_login_action() );
+	}
 }

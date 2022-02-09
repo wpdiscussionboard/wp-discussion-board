@@ -1012,16 +1012,8 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 			global $pagenow;
 			$options = get_option( 'ctdb_options_settings' );
 
-			// Check we're not trying to log out or recover password.
-			if (
-				! empty( $_GET['action'] ) &&
-				(
-					'logout' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
-					'lostpassword' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
-					'rp' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
-					'resetpass' === sanitize_text_field( wp_unslash( $_GET['action'] ) )
-				)
-			) {
+			// Should we redirect this request to the login page?
+			if ( ! $this->redirect_login_action() ) {
 				return;
 			}
 
@@ -1044,7 +1036,31 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 				wp_redirect( $redirect_url );
 				exit;
 			}
+		}
 
+		/**
+		 * Checks to see if a request for the login form should be redirected to our
+		 * custom login form. The login page in WordPress performs other actions such
+		 * as resetting passwords which we do not want to redirect so that WordPress
+		 * can handle that request successfully.
+		 * 
+		 * @since 2.4.4
+		 *
+		 * @return bool
+		 */
+		public function redirect_login_action() {
+			if ( empty( $_GET['action'] ) ) {
+				return false;
+			}
+
+			$action = sanitize_text_field( wp_unslash( $_GET['action'] ) );
+
+			// Certain actions on the login form should not invoke a redirect.
+			if ( in_array( $action, array( 'logout', 'lostpassword', 'rp', 'resetpass', 'postpass' ) ) ) {
+				return false;
+			}
+
+			return true;
 		}
 
 		/**
