@@ -638,13 +638,12 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		 * @credit https://pippinsplugins.com/creating-custom-front-end-registration-and-login-forms/
 		 */
 		public function login_user() {
+			if ( isset( $_POST['ctdb_user_login'] ) && isset( $_POST['ctdb_login_nonce'] ) && wp_verify_nonce( $_POST['ctdb_login_nonce'], 'ctdb-login-nonce' ) ) {
 
-			if( isset( $_POST['ctdb_user_login'] ) && isset( $_POST['ctdb_login_nonce'] ) && wp_verify_nonce( $_POST['ctdb_login_nonce'], 'ctdb-login-nonce' ) ) {
+				// This returns the user ID and other info from the user name.
+				$user = $this->get_user( sanitize_text_field( wp_unslash( $_POST['ctdb_user_login'] ) ) );
 
-				// this returns the user ID and other info from the user name
-				$user = get_user_by( 'login', $_POST['ctdb_user_login'] );
-
-				if( ! $user ) {
+				if ( ! $user ) {
 					// if the user name doesn't exist
 					$this->ctdb_errors()->add( 'login_error', __( 'You\'ve entered an invalid combination of username and password.', 'wp-discussion-board' ) );
 					return;
@@ -703,10 +702,23 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 					}
 					wp_redirect( $url );
 					exit;
-
 				}
-
 			}
+		}
+
+		/**
+		 * Get the user based on the login form entry.
+		 *
+		 * @since 2.4.4
+		 *
+		 * @param string $user_string Email or user name of the user.
+		 */
+		public function get_user( $user_string ) {
+			if ( is_email( $user_string ) ) {
+				return get_user_by( 'email', $user_string );
+			}
+
+			return get_user_by( 'login', $user_string );
 		}
 
 		/**
