@@ -9,11 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Build Plugin
-        run: |
-          composer install --no-dev --prefer-dist --no-progress --no-suggest
       - name: Deploy Plugin
-        uses: 10up/action-wordpress-plugin-deploy@master
+        uses: 10up/action-wordpress-plugin-deploy@stable
         env:
           SVN_PASSWORD: ${{ secrets.SVN_WPORG_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_WPORG_USERNAME }}
