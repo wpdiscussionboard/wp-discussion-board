@@ -3,9 +3,9 @@ Contributors: MattGeri, Catapult_Themes, jf_bertrand
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 5.7
+Tested up to: 5.9
 Requires PHP: 5.2.4
-Stable tag: 2.4.2
+Stable tag: 2.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -177,14 +177,23 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 
 == Changelog ==
 
-= 2.4.2, August 11 2021 =
+= 2.4.4, February 09, 2022 =
+* Fixed: Don't redirect to login page for password protected
+* Added: Ability to log in with email address or username 
+
+= 2.4.3, January 13, 2022 =
+* Updated: Use select2 for multi select on the roles and permissions input field
+* Fixed: Don't redirect to the login page if it does not exist
+* Fixed: Load settings when a cron is running
+
+= 2.4.2, August 11, 2021 =
 * Added: oEmbeds for replies
 
-= 2.4.1, June 24 2021 =
+= 2.4.1, June 24, 2021 =
 * Fixed: Always enqueue customizer color picker as some themes don't include it
 * Fixed: Allow user to reset password when forcing the plugin login form
 
-= 2.4, May 13 2021 =
+= 2.4, May 13, 2021 =
 * Major update, please test before upgrading
 * Updated: Refactor admin code to be cleaner and easier to extend
 * Added: Free license registration form
@@ -200,7 +209,7 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 * Fixed: Registration form required fields throw validation if not filled out
 * Fixed: After a user registers, don't show the registration form again
 
-= 2.3.15, May 11 2020 =
+= 2.3.15, May 11, 2020 =
 * Added: ctdb_admin_email filter
 * Fixed: added second parameter to wp_login
 

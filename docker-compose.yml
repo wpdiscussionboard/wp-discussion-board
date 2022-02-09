@@ -23,6 +23,8 @@ services:
     environment:
       WP_TESTS_DIR: /var/www/html/tests/phpunit
       WP_PHPUNIT__TESTS_CONFIG: /var/www/html/wp-tests-config.php
+      XDEBUG_MODE: debug
+      XDEBUG_CONFIG: start_with_request=yes client_host=host.docker.internal client_port=9000 remote_host=host.docker.internal
 
   wpdiscussionboard_db:
     container_name: wpdiscussionboard_mysql
@@ -33,6 +35,25 @@ services:
       - .env
     volumes:
       - "./docker/data/db:/var/lib/mysql"
+    networks:
+      - local
+
+  wordpress_phpunit:
+    container_name: wpdiscussionboard_wordpress_phpunit
+    image: "chriszarate/wordpress-phpunit"
+    volumes:
+      - ".:/app"
+    environment:
+      WP_TESTS_DIR: /app/vendor/wp-phpunit/wp-phpunit
+      WP_PHPUNIT__TESTS_CONFIG: /app/tests/wp-tests-config.php
+    networks:
+      - local
+
+  mysql_phpunit:
+    container_name: wpdiscussionboard_mysql_phpunit
+    image: mysql:5.7
+    env_file:
+      - .env.tests
     networks:
       - local
 

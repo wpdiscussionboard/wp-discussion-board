@@ -7,14 +7,14 @@
  */
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Registration public class
  **/
-if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's already a Discussion Board activated
+if ( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's already a Discussion Board activated
 	class CT_DB_Registration {
 
 		public $user_can_view = false;
@@ -60,7 +60,7 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 			$successful_registration = false;
 			if ( ! empty( $_POST['ctdb_user_email'] ) ) {
 				$user_email = sanitize_email( wp_unslash( $_POST['ctdb_user_email'] ) );
-				$user = get_user_by( 'email', $user_email );
+				$user       = get_user_by( 'email', $user_email );
 				if ( $user ) {
 					$successful_registration = true;
 				}
@@ -69,11 +69,11 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 			if ( ! is_user_logged_in() && ! $successful_registration ) {
 
 				$message = '';
-				$class = '';
+				$class   = '';
 
 				// Check if styles are enqueued
-				$options = get_option( 'ctdb_design_settings' );
-				$general_options = get_option( 'ctdb_options_settings' );
+				$options           = get_option( 'ctdb_design_settings' );
+				$general_options   = get_option( 'ctdb_options_settings' );
 				$hide_registration = ! empty( $general_options['hide_registration_tab'] ) ? true : false;
 
 				// Use icons?
@@ -81,37 +81,41 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 
 				// Log in tab
 				$message .= '<div class="ctdb-login-form-wrapper">';
-				if( isset( $_POST['ctdb_page'] ) && $_POST['ctdb_page'] != 'register' ) $class='active-header';
+				if ( isset( $_POST['ctdb_page'] ) && $_POST['ctdb_page'] != 'register' ) {
+					$class = 'active-header';
+				}
 				$message .= '<div class="ctdb-header ' . $class . '" data-form-id="ctdb-login-wrap"><h3 class="ctdb-h3">';
-				if( $show_icons ) {
+				if ( $show_icons ) {
 					$message .= '<span class="dashicons dashicons-unlock"></span>';
 				}
-				$message .= __('Log in', 'wp-discussion-board' ) . '</h3></div>';
+				$message .= __( 'Log in', 'wp-discussion-board' ) . '</h3></div>';
 
 				// If styles are not enqueued we will display the log-in form fields directly after the heading
-				if( empty( $options['enqueue_styles'] ) ) {
+				if ( empty( $options['enqueue_styles'] ) ) {
 					$message .= $this->display_login_form();
 				}
 
 				// Registration tab
-				if( ! $hide_registration ) {
+				if ( ! $hide_registration ) {
 					$class = '';
-					if( isset( $_POST['ctdb_page'] ) && $_POST['ctdb_page'] == 'register' ) $class='active-header';
+					if ( isset( $_POST['ctdb_page'] ) && $_POST['ctdb_page'] == 'register' ) {
+						$class = 'active-header';
+					}
 					$message .= '<div class="ctdb-header ' . $class . '" data-form-id="ctdb-registration-wrap"><h3 class="ctdb-h3">';
-					if( $show_icons ) {
+					if ( $show_icons ) {
 						$message .= '<span class="dashicons dashicons-edit"></span>';
 					}
-					$message .= __('Register', 'wp-discussion-board' ) . '</h3></div>';
+					$message .= __( 'Register', 'wp-discussion-board' ) . '</h3></div>';
 				}
 
 				// Get the forms HTML
 
 				// If styles are enqueued we will display the log-in form fields after both headings
-				if( ! empty( $options['enqueue_styles'] ) ) {
+				if ( ! empty( $options['enqueue_styles'] ) ) {
 					$message .= $this->display_login_form();
 				}
 
-				if( ! $hide_registration ) {
+				if ( ! $hide_registration ) {
 					$message .= $this->display_registration_form();
 				}
 
@@ -145,10 +149,10 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		 */
 		public function return_login_form_only( $atts, $content = '' ) {
 
-			if( ! is_user_logged_in() ) {
+			if ( ! is_user_logged_in() ) {
 
 				$message = '';
-				$class = '';
+				$class   = '';
 
 				// Check if styles are enqueued
 				$options = get_option( 'ctdb_design_settings' );
@@ -158,10 +162,10 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 
 				// Log in tab
 				$message .= '<div class="ctdb-header active-header" data-form-id="ctdb-login-wrap"><h3 class="ctdb-h3">';
-				if( $show_icons ) {
+				if ( $show_icons ) {
 					$message .= '<span class="dashicons dashicons-unlock"></span>';
 				}
-				$message .= __('Log in', 'wp-discussion-board' ) . '</h3></div>';
+				$message .= __( 'Log in', 'wp-discussion-board' ) . '</h3></div>';
 
 				// Get the forms HTML
 				$message .= $this->display_login_form();
@@ -184,9 +188,9 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		public function return_access_restricted_title() {
 
 			$options = get_option( 'ctdb_options_settings' );
-			$title = ctdb_get_restricted_title();
+			$title   = ctdb_get_restricted_title();
 
-			if( $title == '' ) {
+			if ( $title == '' ) {
 				$title = __( 'Content not available', 'wp-discussion-board' );
 			}
 
@@ -202,13 +206,13 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		public function display_registration_form() {
 
 			// Only show the registration form to non-logged-in members
-			if( ! is_user_logged_in() ) {
+			if ( ! is_user_logged_in() ) {
 
 				$output = $this->registration_form_fields();
 
 			} else {
 
-				$output = '<div id="ctdb-registration-wrap" class="ctdb-form-section">';
+				$output  = '<div id="ctdb-registration-wrap" class="ctdb-form-section">';
 				$output .= '<p>' . __( 'You are already registered on this site.', 'wp-discussion-board' ) . '</p>';
 				$output .= '</div>';
 
@@ -240,11 +244,13 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 			$options = get_option( 'ctdb_options_settings' );
 			// Check if we need to add a humanity check to the form
 			$require_humanity = isset( $options['check_human'] );
-			$class = '';
+			$class            = '';
 
 			ob_start();
 
-			if( isset( $_POST['ctdb_page'] ) && $_POST['ctdb_page'] == 'register' ) $class='active-section'; ?>
+			if ( isset( $_POST['ctdb_page'] ) && $_POST['ctdb_page'] == 'register' ) {
+				$class = 'active-section';
+			} ?>
 
 			<div id="ctdb-registration-wrap" class="ctdb-form-section <?php echo $class; ?>">
 
@@ -253,7 +259,8 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 				$this->ctdb_show_error_messages();
 
 				// Get the registration form fields
-				$form = ctdb_registration_form_fields(); ?>
+				$form = ctdb_registration_form_fields();
+				?>
 
 				<form id="ctdb_registration_form" class="ctdb-form" action="" method="POST">
 
@@ -357,7 +364,7 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 									'email': $('#ctdb-registration-wrap #ctdb_user_email').val(),
 									'pass': $('#ctdb-registration-wrap #ctdb_user_pass').val(),
 									'confirm': $('#ctdb-registration-wrap #ctdb_user_pass_confirm').val(),
-									'security': "<?php echo wp_create_nonce ( "validation_nonce" ); ?>",
+									'security': "<?php echo wp_create_nonce( 'validation_nonce' ); ?>",
 									'dataType': 'json'
 								};
 								$.post(ajaxurl, data, function(response){
@@ -405,113 +412,113 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		}
 
 		public function ajax_validation_callback() {
-			check_ajax_referer ( 'validation_nonce', 'security' );
-			$login_name = sanitize_text_field( $_POST['login'] );
-			$val = $_POST['val'];
-			$email = $_POST['email'];
-			$pass = sanitize_text_field( $_POST['pass'] );
-			$confirm = sanitize_text_field( $_POST['confirm'] );
+			check_ajax_referer( 'validation_nonce', 'security' );
+			$login_name  = sanitize_text_field( $_POST['login'] );
+			$val         = $_POST['val'];
+			$email       = $_POST['email'];
+			$pass        = sanitize_text_field( $_POST['pass'] );
+			$confirm     = sanitize_text_field( $_POST['confirm'] );
 			$is_required = ( $_POST['required'] );
-			$current = isset( $_POST['current'] ) ? $_POST['current'] : '';
-			$response = array();
-			if( $current == 'ctdb_user_login' ) {
-				if(	username_exists( $login_name ) && ! empty ( $login_name ) ) {
+			$current     = isset( $_POST['current'] ) ? $_POST['current'] : '';
+			$response    = array();
+			if ( $current == 'ctdb_user_login' ) {
+				if ( username_exists( $login_name ) && ! empty( $login_name ) ) {
 					$response[] = array(
-						'id'		=> 'ctdb_user_login',
-						'status'	=> 'error',
-						'message'	=> __( 'That username already exists', 'wp-discussion-board' )
+						'id'      => 'ctdb_user_login',
+						'status'  => 'error',
+						'message' => __( 'That username already exists', 'wp-discussion-board' ),
 					);
-				} else if( ! validate_username( $login_name ) && ! empty ( $login_name ) ) {
+				} elseif ( ! validate_username( $login_name ) && ! empty( $login_name ) ) {
 					$response[] = array(
-						'id'		=> 'ctdb_user_login',
-						'status'	=> 'error',
-						'message'	=> __( 'Only use lower case alphanumeric characters', 'wp-discussion-board' )
+						'id'      => 'ctdb_user_login',
+						'status'  => 'error',
+						'message' => __( 'Only use lower case alphanumeric characters', 'wp-discussion-board' ),
 					);
-				} else if( empty ( $login_name ) && $is_required == true ) {
+				} elseif ( empty( $login_name ) && $is_required == true ) {
 					$response[] = array(
-						'id'		=> $current,
-						'status'	=> 'error',
-						'message'	=> __( 'This field is required', 'wp-discussion-board' )
+						'id'      => $current,
+						'status'  => 'error',
+						'message' => __( 'This field is required', 'wp-discussion-board' ),
 					);
-				} else if( ( ! empty( $login_name ) ) ) {
+				} elseif ( ( ! empty( $login_name ) ) ) {
 					$response[] = array(
-						'id'		=> 'ctdb_user_login',
-						'status'	=> 'ok',
-						'message'	=> __( 'Looks good', 'wp-discussion-board' )
-					);
-				}
-			} else if( $current == 'ctdb_user_email' ) {
-				if(	! is_email( $val ) && ! empty ( $val ) ) {
-					$response[] = array(
-						'id'		=> 'ctdb_user_email',
-						'status'	=> 'error',
-						'message'	=> __( 'That email doesn\'t look valid', 'wp-discussion-board' )
-					);
-				} else if( email_exists( $val ) ) {
-					$response[] = array(
-						'id'		=> 'ctdb_user_email',
-						'status'	=> 'error',
-						'message'	=> __( 'That email has already been used', 'wp-discussion-board' )
-					);
-				} else if( empty ( $val ) && $is_required == 'true' ) {
-					$response[] = array(
-						'id'		=> $current,
-						'status'	=> 'error',
-						'message'	=> __( 'This field is required', 'wp-discussion-board' )
-					);
-				} else if( ! empty ( $val ) ) {
-					$response[] = array(
-						'id'		=> 'ctdb_user_email',
-						'status'	=> 'ok',
-						'message'	=> __( 'That email looks good', 'wp-discussion-board' )
+						'id'      => 'ctdb_user_login',
+						'status'  => 'ok',
+						'message' => __( 'Looks good', 'wp-discussion-board' ),
 					);
 				}
-			} else if( $current == 'ctdb_user_pass' || $current == 'ctdb_user_pass_confirm' ) {
-				if(	$confirm == $pass && ! empty( $confirm ) && ! empty( $pass ) ) {
+			} elseif ( $current == 'ctdb_user_email' ) {
+				if ( ! is_email( $val ) && ! empty( $val ) ) {
 					$response[] = array(
-						'id'		=> 'ctdb_user_pass_confirm',
-						'status'	=> 'ok',
-						'message'	=> __( 'Passwords match', 'wp-discussion-board' )
+						'id'      => 'ctdb_user_email',
+						'status'  => 'error',
+						'message' => __( 'That email doesn\'t look valid', 'wp-discussion-board' ),
 					);
+				} elseif ( email_exists( $val ) ) {
 					$response[] = array(
-						'id'		=> 'ctdb_user_pass',
-						'status'	=> 'ok',
-						'message'	=> ''
+						'id'      => 'ctdb_user_email',
+						'status'  => 'error',
+						'message' => __( 'That email has already been used', 'wp-discussion-board' ),
+					);
+				} elseif ( empty( $val ) && $is_required == 'true' ) {
+					$response[] = array(
+						'id'      => $current,
+						'status'  => 'error',
+						'message' => __( 'This field is required', 'wp-discussion-board' ),
+					);
+				} elseif ( ! empty( $val ) ) {
+					$response[] = array(
+						'id'      => 'ctdb_user_email',
+						'status'  => 'ok',
+						'message' => __( 'That email looks good', 'wp-discussion-board' ),
 					);
 				}
-				if( $current == 'ctdb_user_pass_confirm' ) {
-					if(	$confirm != $pass ) {
+			} elseif ( $current == 'ctdb_user_pass' || $current == 'ctdb_user_pass_confirm' ) {
+				if ( $confirm == $pass && ! empty( $confirm ) && ! empty( $pass ) ) {
+					$response[] = array(
+						'id'      => 'ctdb_user_pass_confirm',
+						'status'  => 'ok',
+						'message' => __( 'Passwords match', 'wp-discussion-board' ),
+					);
+					$response[] = array(
+						'id'      => 'ctdb_user_pass',
+						'status'  => 'ok',
+						'message' => '',
+					);
+				}
+				if ( $current == 'ctdb_user_pass_confirm' ) {
+					if ( $confirm != $pass ) {
 						$response[] = array(
-							'id'		=> 'ctdb_user_pass_confirm',
-							'status'	=> 'error',
-							'message'	=> __( 'The passwords don\'t match', 'wp-discussion-board' )
+							'id'      => 'ctdb_user_pass_confirm',
+							'status'  => 'error',
+							'message' => __( 'The passwords don\'t match', 'wp-discussion-board' ),
 						);
 					}
 				}
-				if( empty( $val ) && $is_required == 'true' ) {
+				if ( empty( $val ) && $is_required == 'true' ) {
 					$response[] = array(
-						'id'		=> $current,
-						'status'	=> 'error',
-						'message'	=> __( 'This field is required', 'wp-discussion-board' )
+						'id'      => $current,
+						'status'  => 'error',
+						'message' => __( 'This field is required', 'wp-discussion-board' ),
 					);
 				} else {
 					$response[] = array(
-						'id'		=> $current,
-						'status'	=> '',
-						'message'	=> ''
+						'id'      => $current,
+						'status'  => '',
+						'message' => '',
 					);
 				}
-			} else if( empty( $val ) && $is_required == 'true' ) {
+			} elseif ( empty( $val ) && $is_required == 'true' ) {
 				$response[] = array(
-					'id'		=> $current,
-					'status'	=> 'error',
-					'message'	=> __( 'This field is required', 'wp-discussion-board' )
+					'id'      => $current,
+					'status'  => 'error',
+					'message' => __( 'This field is required', 'wp-discussion-board' ),
 				);
-			} else if( $current != 'ctdb_user_pass' && ! empty( $val ) ){
+			} elseif ( $current != 'ctdb_user_pass' && ! empty( $val ) ) {
 				$response[] = array(
-					'id'		=> $current,
-					'status'	=> 'ok',
-					'message'	=> __( 'Looks good', 'wp-discussion-board' )
+					'id'      => $current,
+					'status'  => 'ok',
+					'message' => __( 'Looks good', 'wp-discussion-board' ),
 				);
 			}
 
@@ -529,48 +536,48 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		public function registration_form_fields_array() {
 
 			$form = array(
-				'ctdb_user_login'	=> array(
-					'id'		=> 'ctdb_user_login',
-					'label'		=> __( 'Username', 'wp-discussion-board' ),
-					'field'		=> 'input',
-					'type'		=> 'text',
-					'class'		=> 'required'
+				'ctdb_user_login'        => array(
+					'id'    => 'ctdb_user_login',
+					'label' => __( 'Username', 'wp-discussion-board' ),
+					'field' => 'input',
+					'type'  => 'text',
+					'class' => 'required',
 				),
-				'ctdb_user_email'	=> array(
-					'id'		=> 'ctdb_user_email',
-					'label'		=> __( 'Email', 'wp-discussion-board' ),
-					'field'		=> 'input',
-					'type'		=> 'email',
-					'class'		=> 'required'
+				'ctdb_user_email'        => array(
+					'id'    => 'ctdb_user_email',
+					'label' => __( 'Email', 'wp-discussion-board' ),
+					'field' => 'input',
+					'type'  => 'email',
+					'class' => 'required',
 				),
-				'ctdb_user_first'	=> array(
-					'id'		=> 'ctdb_user_first',
-					'label'		=> __( 'First Name', 'wp-discussion-board' ),
-					'field'		=> 'input',
-					'type'		=> 'text',
-					'class'		=> 'required'
+				'ctdb_user_first'        => array(
+					'id'    => 'ctdb_user_first',
+					'label' => __( 'First Name', 'wp-discussion-board' ),
+					'field' => 'input',
+					'type'  => 'text',
+					'class' => 'required',
 				),
-				'ctdb_user_last'	=> array(
-					'id'		=> 'ctdb_user_last',
-					'label'		=> __( 'Last Name', 'wp-discussion-board' ),
-					'field'		=> 'input',
-					'type'		=> 'text',
-					'class'		=> 'required'
+				'ctdb_user_last'         => array(
+					'id'    => 'ctdb_user_last',
+					'label' => __( 'Last Name', 'wp-discussion-board' ),
+					'field' => 'input',
+					'type'  => 'text',
+					'class' => 'required',
 				),
-				'ctdb_user_pass'	=> array(
-					'id'		=> 'ctdb_user_pass',
-					'label'		=> __( 'Password', 'wp-discussion-board' ),
-					'field'		=> 'input',
-					'type'		=> 'password',
-					'class'		=> 'required'
+				'ctdb_user_pass'         => array(
+					'id'    => 'ctdb_user_pass',
+					'label' => __( 'Password', 'wp-discussion-board' ),
+					'field' => 'input',
+					'type'  => 'password',
+					'class' => 'required',
 				),
-				'ctdb_user_pass_confirm'	=> array(
-					'id'		=> 'ctdb_user_pass_confirm',
-					'label'		=> __( 'Password again', 'wp-discussion-board' ),
-					'field'		=> 'input',
-					'type'		=> 'password',
-					'class'		=> 'required'
-				)
+				'ctdb_user_pass_confirm' => array(
+					'id'    => 'ctdb_user_pass_confirm',
+					'label' => __( 'Password again', 'wp-discussion-board' ),
+					'field' => 'input',
+					'type'  => 'password',
+					'class' => 'required',
+				),
 			);
 
 			// See ctdb_get_protected_registration_fields() for protected fields
@@ -591,17 +598,21 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 
 			ob_start();
 
-			if( empty( $_POST['ctdb_page'] ) || $_POST['ctdb_page'] != 'register' ) $class='active-section'; ?>
+			if ( empty( $_POST['ctdb_page'] ) || $_POST['ctdb_page'] != 'register' ) {
+				$class = 'active-section';
+			}
+			?>
 
 			<div id="ctdb-login-wrap" class="ctdb-form-section <?php echo $class; ?>">
 
 				<?php
 				// Show any error messages after form submission
-				$this->ctdb_show_error_messages(); ?>
+				$this->ctdb_show_error_messages();
+				?>
 
 				<?php // Password reset notification message ?>
 				<?php // @todo better notification method ?>
-				<?php if( isset( $_GET['action'] ) && $_GET['action'] == 'passwordrequest' ) { ?>
+				<?php if ( isset( $_GET['action'] ) && $_GET['action'] == 'passwordrequest' ) { ?>
 					<p class="ctdb-success"><?php _e( 'Please check your inbox for an email containing a link to reset your password.', 'wp-discussion-board' ); ?></p>
 				<?php } ?>
 
@@ -617,7 +628,7 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 							<input name="ctdb_user_pass" id="ctdb_user_pass" class="required" type="password"/>
 						</p>
 						<p>
-							<input type="hidden" name="ctdb_login_nonce" value="<?php echo wp_create_nonce('ctdb-login-nonce'); ?>"/>
+							<input type="hidden" name="ctdb_login_nonce" value="<?php echo wp_create_nonce( 'ctdb-login-nonce' ); ?>"/>
 							<input id="ctdb_login_submit" type="submit" value="<?php _e( 'Log in', 'wp-discussion-board' ); ?>"/>
 						</p>
 					</fieldset>
@@ -638,13 +649,12 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		 * @credit https://pippinsplugins.com/creating-custom-front-end-registration-and-login-forms/
 		 */
 		public function login_user() {
+			if ( isset( $_POST['ctdb_user_login'] ) && isset( $_POST['ctdb_login_nonce'] ) && wp_verify_nonce( $_POST['ctdb_login_nonce'], 'ctdb-login-nonce' ) ) {
 
-			if( isset( $_POST['ctdb_user_login'] ) && isset( $_POST['ctdb_login_nonce'] ) && wp_verify_nonce( $_POST['ctdb_login_nonce'], 'ctdb-login-nonce' ) ) {
+				// This returns the user ID and other info from the user name.
+				$user = $this->get_user( sanitize_text_field( wp_unslash( $_POST['ctdb_user_login'] ) ) );
 
-				// this returns the user ID and other info from the user name
-				$user = get_user_by( 'login', $_POST['ctdb_user_login'] );
-
-				if( ! $user ) {
+				if ( ! $user ) {
 					// if the user name doesn't exist
 					$this->ctdb_errors()->add( 'login_error', __( 'You\'ve entered an invalid combination of username and password.', 'wp-discussion-board' ) );
 					return;
@@ -652,22 +662,22 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 
 				$user_roles = $user->roles;
 
-				if( $user_roles ) {
+				if ( $user_roles ) {
 					$user_role = array_shift( $user_roles );
 				}
 
-				if( $user_role == 'pending' ) {
+				if ( $user_role == 'pending' ) {
 					// User hasn't activated their registration yet
 					$this->ctdb_errors()->add( 'unactivated', __( 'You haven\'t activated your registration yet. Please check your email for an activation link', 'wp-discussion-board' ) );
 				}
 
-				if( empty( $_POST['ctdb_user_pass'] ) ) {
+				if ( empty( $_POST['ctdb_user_pass'] ) ) {
 					// if no password was entered
 					$this->ctdb_errors()->add( 'empty_password', __( 'Please enter a password', 'wp-discussion-board' ) );
 				}
 
 				// check the user's login with their password
-				if( ! wp_check_password( $_POST['ctdb_user_pass'], $user->user_pass, $user->ID ) ) {
+				if ( ! wp_check_password( $_POST['ctdb_user_pass'], $user->user_pass, $user->ID ) ) {
 					// if the password is incorrect for the specified user
 					$this->ctdb_errors()->add( 'login_error', __( 'You\'ve entered an invalid combination of username and password.', 'wp-discussion-board' ) );
 				}
@@ -676,11 +686,11 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 				$errors = $this->ctdb_errors()->get_error_messages();
 
 				// only log the user in if there are no errors
-				if( empty( $errors ) ) {
+				if ( empty( $errors ) ) {
 					$options = get_option( 'ctdb_options_settings' );
 					// Check what page has been set to redirect to
 					$redirect_to = '';
-					if( ! empty( $options['redirect_to_page'] ) ) {
+					if ( ! empty( $options['redirect_to_page'] ) ) {
 						$redirect_to = $options['redirect_to_page'];
 					}
 
@@ -690,11 +700,11 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 
 					$this->check_user_permission();
 
-					if( current_user_can( 'manage_plugins' ) ) {
+					if ( current_user_can( 'manage_plugins' ) ) {
 
 						// Redirect admins to the dashboard
 						$url = get_admin_url();
-					} else if( ! empty( $redirect_to ) ) {
+					} elseif ( ! empty( $redirect_to ) ) {
 						// Redirect to the correct page if user is not an admin
 						$url = esc_url_raw( add_query_arg( 'redirecting', 'true', get_permalink( $redirect_to ) ) );
 					} else {
@@ -703,10 +713,23 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 					}
 					wp_redirect( $url );
 					exit;
-
 				}
-
 			}
+		}
+
+		/**
+		 * Get the user based on the login form entry.
+		 *
+		 * @since 2.4.4
+		 *
+		 * @param string $user_string Email or user name of the user.
+		 */
+		public function get_user( $user_string ) {
+			if ( is_email( $user_string ) ) {
+				return get_user_by( 'email', $user_string );
+			}
+
+			return get_user_by( 'login', $user_string );
 		}
 
 		/**
@@ -718,62 +741,61 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 
 			global $post;
 
-			if( empty( $_POST['ctdb_register_nonce'] ) ) {
+			if ( empty( $_POST['ctdb_register_nonce'] ) ) {
 				return;
 			}
 
 			// Need to check if we're running reCaptcha
-			if( class_exists( 'InvisibleReCaptcha' ) ) {
+			if ( class_exists( 'InvisibleReCaptcha' ) ) {
 
 				$is_valid = apply_filters( 'google_invre_is_valid_request_filter', true );
-				if( ! $is_valid ) {
+				if ( ! $is_valid ) {
 					// reCaptcha failed
 					// Maybe write a kind note here?
 					$this->ctdb_errors()->add( 'reCaptcha', __( 'Your registration failed the reCaptcha check.', 'wp-discussion-board' ) );
 					$errors = $this->ctdb_errors()->get_error_messages();
 					return;
 				}
-
 			}
 
 			$options = get_option( 'ctdb_options_settings' );
 
 			// Check if we need to add a humanity check to the form
-			if( isset( $options['check_human'] ) ) {
+			if ( isset( $options['check_human'] ) ) {
 				$require_humanity = $options['check_human'];
 			} else {
 				$require_humanity = false;
 			}
 
-			if( $require_humanity && isset( $_POST['ctdb_check_humanity'] ) && $_POST['ctdb_check_humanity'] == 'yes' ) {
+			if ( $require_humanity && isset( $_POST['ctdb_check_humanity'] ) && $_POST['ctdb_check_humanity'] == 'yes' ) {
 				$is_human = true;
-			} else if( $require_humanity &&( ! isset( $_POST['ctdb_check_humanity'] ) || $_POST['ctdb_check_humanity'] == 'no' ) ) {
+			} elseif ( $require_humanity && ( ! isset( $_POST['ctdb_check_humanity'] ) || $_POST['ctdb_check_humanity'] == 'no' ) ) {
 				$is_human = false;
 			} else {
 				$is_human = true;
 			}
 
-			if( isset( $_POST["ctdb_user_login"] ) && $is_human && wp_verify_nonce( $_POST['ctdb_register_nonce'], 'ctdb-register-nonce' ) ) {
+			if ( isset( $_POST['ctdb_user_login'] ) && $is_human && wp_verify_nonce( $_POST['ctdb_register_nonce'], 'ctdb-register-nonce' ) ) {
 
-				$user_login = $_POST["ctdb_user_login"];
-				$user_email = $_POST["ctdb_user_email"];
+				$user_login = $_POST['ctdb_user_login'];
+				$user_email = $_POST['ctdb_user_email'];
 				$user_first = '';
-				if( isset( $_POST["ctdb_user_first"] ) ) {
-					$user_first = $_POST["ctdb_user_first"];
+				if ( isset( $_POST['ctdb_user_first'] ) ) {
+					$user_first = $_POST['ctdb_user_first'];
 				}
 				$user_last = '';
-				if( isset( $_POST["ctdb_user_last"] ) ) {
-					$user_last = $_POST["ctdb_user_last"];
+				if ( isset( $_POST['ctdb_user_last'] ) ) {
+					$user_last = $_POST['ctdb_user_last'];
 				}
-				$user_pass = $_POST["ctdb_user_pass"];
-				$pass_confirm = $_POST["ctdb_user_pass_confirm"];
-				if( isset( $_POST["ctdb_url"] ) ) {
-					$website = $_POST["ctdb_url"];
+				$user_pass    = $_POST['ctdb_user_pass'];
+				$pass_confirm = $_POST['ctdb_user_pass_confirm'];
+				if ( isset( $_POST['ctdb_url'] ) ) {
+					$website = $_POST['ctdb_url'];
 				} else {
 					$website = '';
 				}
-				if( isset( $_POST["ctdb_bio"] ) ) {
-					$bio = $_POST["ctdb_bio"];
+				if ( isset( $_POST['ctdb_bio'] ) ) {
+					$bio = $_POST['ctdb_bio'];
 				} else {
 					$bio = '';
 				}
@@ -783,29 +805,29 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 				 * @since 2.2.0
 				 */
 				$user_options = get_option( 'ctdb_user_settings' );
-				if( isset( $user_options['email_blacklist'] ) ) {
+				if ( isset( $user_options['email_blacklist'] ) ) {
 					// Convert list to array
-					$email_address = $_POST["ctdb_user_email"];
-					if( $email_address ) {
+					$email_address = $_POST['ctdb_user_email'];
+					if ( $email_address ) {
 						// Get the email domain
-						$email_split = explode( "@", $email_address );
-						$domain = '@' . $email_split[1];
+						$email_split = explode( '@', $email_address );
+						$domain      = '@' . $email_split[1];
 
 						// Split the textarea by line break
 						$blacklisted = preg_split( '/[\n\r]+/', ( $user_options['email_blacklist'] ) );
-						if( ! empty( $blacklisted ) && is_array( $blacklisted ) ) {
-							foreach( $blacklisted as $blacklisted_email ) {
+						if ( ! empty( $blacklisted ) && is_array( $blacklisted ) ) {
+							foreach ( $blacklisted as $blacklisted_email ) {
 								// Look for wildcards, e.g. *.top
-								if( strpos( $blacklisted_email, '*' ) !== false ) {
+								if ( strpos( $blacklisted_email, '*' ) !== false ) {
 									$blacklisted_string = substr( $blacklisted_email, strpos( $blacklisted_email, '*' ) + 1 );
-									if( strpos( $email_address, $blacklisted_string ) !== false ) {
+									if ( strpos( $email_address, $blacklisted_string ) !== false ) {
 										// If the email address contains the string we don't like, then bounce
 										return;
 									}
 								}
 								// Remove any accidental spaces
 								$blacklisted_email = str_replace( ' ', '', $blacklisted_email );
-								if( $email_address == $blacklisted_email || $domain == $blacklisted_email ) {
+								if ( $email_address == $blacklisted_email || $domain == $blacklisted_email ) {
 									// This email is blacklisted so don't allow registration
 									return;
 								}
@@ -814,31 +836,31 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 					}
 				}
 
-				if( username_exists( $user_login ) ) {
+				if ( username_exists( $user_login ) ) {
 					// Username already registered
 					$this->ctdb_errors()->add( 'username_unavailable', __( 'That username has already been taken. Please choose another.', 'wp-discussion-board' ) );
 				}
-				if( ! validate_username( $user_login ) ) {
+				if ( ! validate_username( $user_login ) ) {
 					// invalid username
 					$this->ctdb_errors()->add( 'username_invalid', __( 'The username you selected was not valid. Please only use lowercase alphanumeric characters.', 'wp-discussion-board' ) );
 				}
-				if( $user_login == '' ) {
+				if ( $user_login == '' ) {
 					// empty username
 					$this->ctdb_errors()->add( 'username_empty', __( 'Please enter your username.', 'wp-discussion-board' ) );
 				}
-				if( ! is_email( $user_email ) ) {
+				if ( ! is_email( $user_email ) ) {
 					//invalid email
 					$this->ctdb_errors()->add( 'email_invalid', __( 'Please check you have entered a valid email address.', 'wp-discussion-board' ) );
 				}
-				if( email_exists( $user_email ) ) {
+				if ( email_exists( $user_email ) ) {
 					//Email address already registered
 					$this->ctdb_errors()->add( 'email_used', __( 'That email address has already been registered.', 'wp-discussion-board' ) );
 				}
-				if( $user_pass == '' ) {
+				if ( $user_pass == '' ) {
 					// password is empty
 					$this->ctdb_errors()->add( 'password_empty', __( 'Please enter a password.', 'wp-discussion-board' ) );
 				}
-				if( $user_pass != $pass_confirm ) {
+				if ( $user_pass != $pass_confirm ) {
 					// passwords do not match
 					$this->ctdb_errors()->add( 'password_mismatch', __( 'Please check that the passwords match.', 'wp-discussion-board' ) );
 				}
@@ -846,9 +868,9 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 				// Check additional fields for errors
 				$extra_fields = ctdb_get_extra_fields();
 
-				if( $extra_fields ) {
-					foreach( $extra_fields as $field ) {
-						if( $field['class'] == 'required' && empty( $_POST[$field['id']] ) ) {
+				if ( $extra_fields ) {
+					foreach ( $extra_fields as $field ) {
+						if ( $field['class'] == 'required' && empty( $_POST[ $field['id'] ] ) ) {
 							$this->ctdb_errors()->add( 'field_empty', sprintf( '%s %s', $field['label'], __( 'not set', 'wp-discussion-board' ) ) );
 						}
 					}
@@ -857,15 +879,15 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 				$errors = $this->ctdb_errors()->get_error_messages();
 
 				// Only create the user if there are no errors
-				if( empty( $errors ) ) {
+				if ( empty( $errors ) ) {
 
 					$require_activation = ctdb_get_activation_setting();
 
 					// Define role for new users
-					if( $require_activation != 'none' ) {
+					if ( $require_activation != 'none' ) {
 						// Set the user role to pending if we require user activation
 						$register_role = 'pending';
-					} else if( ! empty( $options['new_user_role'] ) ) {
+					} elseif ( ! empty( $options['new_user_role'] ) ) {
 						$register_role = $options['new_user_role'];
 					} else {
 						$register_role = 'subscriber';
@@ -873,19 +895,21 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 
 					// Register user without activation
 					// Sanitization is handled by wp_insert_user
-					$new_user_id = wp_insert_user( array(
-						'user_login'		=> sanitize_user( $user_login ),
-						'user_pass'	 		=> $user_pass,
-						'user_email'		=> sanitize_email( $user_email ),
-						'first_name'		=> sanitize_text_field( $user_first ),
-						'last_name'			=> sanitize_text_field( $user_last ),
-						'user_registered'	=> date('Y-m-d H:i:s'),
-						'role'				=> sanitize_text_field( $register_role ),
-						'user_url'			=> esc_url( $website ),
-						'description'		=> sanitize_text_field( $bio )
-					) );
+					$new_user_id = wp_insert_user(
+						array(
+							'user_login'      => sanitize_user( $user_login ),
+							'user_pass'       => $user_pass,
+							'user_email'      => sanitize_email( $user_email ),
+							'first_name'      => sanitize_text_field( $user_first ),
+							'last_name'       => sanitize_text_field( $user_last ),
+							'user_registered' => date( 'Y-m-d H:i:s' ),
+							'role'            => sanitize_text_field( $register_role ),
+							'user_url'        => esc_url( $website ),
+							'description'     => sanitize_text_field( $bio ),
+						)
+					);
 
-					if( ! is_wp_error( $new_user_id ) ) {
+					if ( ! is_wp_error( $new_user_id ) ) {
 
 						ctdb_register_extra_fields( $new_user_id, $_POST );
 
@@ -904,9 +928,7 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 						add_filter( 'the_content', array( $this, 'registration_success' ) );
 
 					}
-
 				}
-
 			}
 
 		}
@@ -917,10 +939,10 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		 */
 		public function activate_new_user() {
 
-			if( ! isset( $_GET['activate_code'] ) || ! isset( $_GET['user_id'] ) ) {
+			if ( ! isset( $_GET['activate_code'] ) || ! isset( $_GET['user_id'] ) ) {
 				return;
 			}
-			if( $_GET['activate_code'] && $_GET['user_id'] ) {
+			if ( $_GET['activate_code'] && $_GET['user_id'] ) {
 
 				// An activation link has been clicked
 				$user_id = intval( $_GET['user_id'] );
@@ -929,31 +951,30 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 				$user_activation = get_user_meta( $user_id, 'activate_key', true );
 
 				$is_pending = false;
-				$user = new WP_User( $user_id );
-				foreach( $user->roles as $role ) {
-					if( $role == 'pending' ) {
+				$user       = new WP_User( $user_id );
+				foreach ( $user->roles as $role ) {
+					if ( $role == 'pending' ) {
 						$is_pending = true;
 					}
 				}
 
 				// Only update if role is still pending
-				if( $is_pending && $_GET['activate_code'] == $user_activation ) {
+				if ( $is_pending && $_GET['activate_code'] == $user_activation ) {
 
 					// The user ID and activation code match so we'll register this user
 					$options = get_option( 'ctdb_user_settings' );
-					$role = $options['new_user_role'];
+					$role    = $options['new_user_role'];
 
 					$user_update = wp_update_user(
 						array(
-							'ID'	=>	$user_id,
-							'role'	=>	$role
+							'ID'   => $user_id,
+							'role' => $role,
 						)
 					);
 
-					if( ! is_wp_error( $user_update ) ) {
+					if ( ! is_wp_error( $user_update ) ) {
 						add_filter( 'the_content', array( $this, 'activate_success' ) );
 					}
-
 				}
 			}
 
@@ -968,7 +989,7 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 			$require_activation = ctdb_get_activation_setting();
 
 			// Additional text if activation is required
-			if( $require_activation != 'none' ) {
+			if ( $require_activation != 'none' ) {
 				$success = __( 'Please check your inbox for an activation email - if you don\'t see an email from us, please remember to check your spam folder.', 'wp-discussion-board' );
 			} else {
 				$success = __( 'Thank you for registering. You may now log in.', 'wp-discussion-board' );
@@ -1000,26 +1021,55 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 			global $pagenow;
 			$options = get_option( 'ctdb_options_settings' );
 
-			// Check we're not trying to log out or recover password.
-			if (
-				! empty( $_GET['action'] ) &&
-				(
-					'logout' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
-					'lostpassword' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
-					'rp' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) ||
-					'resetpass' === sanitize_text_field( wp_unslash( $_GET['action'] ) )
-				)
-			) {
+			// Should we redirect this request to the login page?
+			if ( ! $this->redirect_login_action() ) {
 				return;
 			}
 
 			// If we're heading towards wp-login.php and our settings are right
-			if( 'wp-login.php' == $pagenow && isset( $options['hide_wp_login'] ) && isset( $options['frontend_login_page'] ) ) {
-				$redirect_url = esc_url_raw( add_query_arg( 'login', 'bounced', get_permalink( $options['frontend_login_page'] ) ) );
+			if ( 'wp-login.php' === $pagenow && ! empty( $options['hide_wp_login'] ) && ! empty( $options['frontend_login_page'] ) ) {
+				$frontend_login_page = $options['frontend_login_page'];
+
+				if ( 'publish' !== get_post_status( $frontend_login_page ) ) {
+					return;
+				}
+
+				$redirect_url = get_permalink( $frontend_login_page );
+
+				// Check that the redirect URL is a valid page.
+				if ( empty( $redirect_url ) ) {
+					return;
+				}
+
+				$redirect_url = esc_url_raw( add_query_arg( 'login', 'bounced', $redirect_url ) );
 				wp_redirect( $redirect_url );
 				exit;
 			}
+		}
 
+		/**
+		 * Checks to see if a request for the login form should be redirected to our
+		 * custom login form. The login page in WordPress performs other actions such
+		 * as resetting passwords which we do not want to redirect so that WordPress
+		 * can handle that request successfully.
+		 *
+		 * @since 2.4.4
+		 *
+		 * @return bool
+		 */
+		public function redirect_login_action() {
+			if ( empty( $_GET['action'] ) ) {
+				return false;
+			}
+
+			$action = sanitize_text_field( wp_unslash( $_GET['action'] ) );
+
+			// Certain actions on the login form should not invoke a redirect.
+			if ( in_array( $action, array( 'logout', 'lostpassword', 'rp', 'resetpass', 'postpass' ) ) ) {
+				return false;
+			}
+
+			return true;
 		}
 
 		/**
@@ -1030,11 +1080,11 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		public function login_fail( $username ) {
 			// If we've opted to hide the wp-login.php page and have an alternative front-end page set
 			$options = get_option( 'ctdb_options_settings' );
-			if( isset( $options['hide_wp_login'] ) && isset( $options['frontend_login_page'] ) ) {
+			if ( isset( $options['hide_wp_login'] ) && isset( $options['frontend_login_page'] ) ) {
 				// Where did the post submission come from?
 				$referrer = $_SERVER['HTTP_REFERER'];
 				// If there's a valid referrer, and it's not the default log-in screen
-				if( ! empty( $referrer ) && ! strstr( $referrer, 'wp-login' ) && ! strstr( $referrer, 'wp-admin' ) ) {
+				if ( ! empty( $referrer ) && ! strstr( $referrer, 'wp-login' ) && ! strstr( $referrer, 'wp-admin' ) ) {
 					$redirect_url = esc_url( add_query_arg( 'login', 'failed', get_permalink( $options['frontend_login_page'] ) ) );
 					wp_redirect( $redirect_url );
 					exit;
@@ -1059,14 +1109,14 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		 */
 		public function ctdb_show_error_messages() {
 
-			if( $codes = $this->ctdb_errors()->get_error_codes() ) {
+			if ( $codes = $this->ctdb_errors()->get_error_codes() ) {
 
 				echo '<div class="ctdb-errors">';
 					// Loop error codes and display errors
-				   foreach( $codes as $code ) {
-						$message = $this->ctdb_errors()->get_error_message( $code );
-						echo '<span class="error"><strong>' . __( 'Error', 'wp-discussion-board' ) . '</strong>: ' . $message . '</span><br/>';
-					}
+				foreach ( $codes as $code ) {
+					 $message = $this->ctdb_errors()->get_error_message( $code );
+					 echo '<span class="error"><strong>' . __( 'Error', 'wp-discussion-board' ) . '</strong>: ' . $message . '</span><br/>';
+				}
 				echo '</div>';
 
 			}
@@ -1078,13 +1128,13 @@ if( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's al
 		 * @since 2.3.0
 		 */
 		public function get_error_messages( $content ) {
-			if( $codes = $this->ctdb_errors()->get_error_codes() ) {
+			if ( $codes = $this->ctdb_errors()->get_error_codes() ) {
 				$return = '<div class="ctdb-errors">';
 					// Loop error codes and display errors
-				   foreach( $codes as $code ) {
-						$message = $this->ctdb_errors()->get_error_message( $code );
-						$return .= '<span class="error"><strong>' . __( 'Error', 'wp-discussion-board' ) . '</strong>: ' . $message . '</span><br/>';
-					}
+				foreach ( $codes as $code ) {
+					 $message = $this->ctdb_errors()->get_error_message( $code );
+					 $return .= '<span class="error"><strong>' . __( 'Error', 'wp-discussion-board' ) . '</strong>: ' . $message . '</span><br/>';
+				}
 				$return .= '</div>';
 
 				return $return . $content;

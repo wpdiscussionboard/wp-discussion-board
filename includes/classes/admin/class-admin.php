@@ -30,19 +30,44 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 			add_action( 'admin_init', array( $this, 'register_user_init' ) );
 			add_action( 'admin_init', array( $this, 'prevent_wp_admin_access' ), 100 );
 			add_action( 'admin_init', array( $this, 'save_tracker_settings' ), 20 );
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10, 1 );
 			add_action( 'admin_notices', array( $this, 'ctdb_admin_notices' ) );
 			add_action( 'admin_footer', array( $this, 'user_registration_notice_script' ) );
 			add_action( 'wp_ajax_ctdb_dismiss_notice', array( $this, 'ctdb_dismiss_notice' ) );
 			add_action( 'show_user_profile', array( $this, 'ctdb_display_activation_key' ), 10, 1 );
 			add_action( 'edit_user_profile', array( $this, 'ctdb_display_activation_key' ), 10, 1 );
 			add_filter( 'plugin_action_links_wp-discussion-board/wp-discussion-board.php', array( $this, 'filter_action_links' ), 10, 1 );
+
+			add_action( 'wpdbd_load_assets', array( $this, 'load_assets_for_screen' ), 10, 1 );
+
+		}
+
+		/**
+		 * Loads assets for a particular screen.
+		 *
+		 * @since 2.4.3
+		 */
+		public function load_assets_for_screen( $type ) {
+			switch ( $type ) {
+				case 'settings':
+					wp_enqueue_style( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/css/lib/select2.min.css', array(), WPDBD_PLUGIN_VERSION );
+					wp_enqueue_script( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/js/lib/select2.min.js', array(), WPDBD_PLUGIN_VERSION );
+					wp_enqueue_script( 'wpdbd-settings', WPDBD_PLUGIN_URL . 'assets/js/settings.js', array( 'wpdbd-select2' ), WPDBD_PLUGIN_VERSION );
+					wp_localize_script( 'wpdbd-settings', 'config', array() );
+					break;
+			}
 		}
 
 		/**
 		 * Enqueue scripts.
 		 */
-		public function enqueue_scripts() {
+		public function enqueue_scripts( $hook ) {
+			switch ( $hook ) {
+				case 'discussion-topics_page_discussion_board':
+					$this->load_assets_for_screen( 'settings' );
+					break;
+			}
+
 			wp_enqueue_style( 'ctdb-admin-style', WPDBD_PLUGIN_URL . 'assets/css/admin-style.css', array(), WPDBD_PLUGIN_VERSION );
 		}
 
