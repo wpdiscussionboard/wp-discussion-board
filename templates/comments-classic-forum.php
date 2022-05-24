@@ -44,6 +44,8 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'wp-discussion-board' ); ?></p>
 	<?php endif; ?>
 
+	<div id="wpdbd-editor"></div>
+
 	<?php
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',

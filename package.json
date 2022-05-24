@@ -1,0 +1,40 @@
+{
+  "name": "wp-discussion-board",
+  "version": "1.0.0",
+  "description": "Add a discussion board to WordPress",
+  "main": "editor.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "wp-scripts build",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "start": "wp-scripts start",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpdiscussionboard/wp-discussion-board.git"
+  },
+  "keywords": [
+    "wordpress",
+    "wordpress discussion board"
+  ],
+  "author": "Matt Geri",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/wpdiscussionboard/wp-discussion-board/issues"
+  },
+  "homepage": "https://github.com/wpdiscussionboard/wp-discussion-board#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^21.0.1"
+  },
+  "dependencies": {
+    "react-quill": "^1.3.5"
+  }
+}

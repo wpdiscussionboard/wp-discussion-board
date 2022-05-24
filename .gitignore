@@ -1,5 +1,5 @@
-vendor
 docker
-svn
+node_modules
+vendor
 wp
 .env

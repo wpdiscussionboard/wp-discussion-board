@@ -51,8 +51,8 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin' ) ) {
 			switch ( $type ) {
 				case 'settings':
 					wp_enqueue_style( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/css/lib/select2.min.css', array(), WPDBD_PLUGIN_VERSION );
-					wp_enqueue_script( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/js/lib/select2.min.js', array(), WPDBD_PLUGIN_VERSION );
-					wp_enqueue_script( 'wpdbd-settings', WPDBD_PLUGIN_URL . 'assets/js/settings.js', array( 'wpdbd-select2' ), WPDBD_PLUGIN_VERSION );
+					wp_enqueue_script( 'wpdbd-select2', WPDBD_PLUGIN_URL . 'assets/js/src/lib/select2.min.js', array(), WPDBD_PLUGIN_VERSION );
+					wp_enqueue_script( 'wpdbd-settings', WPDBD_PLUGIN_URL . 'assets/js/src/settings.js', array( 'wpdbd-select2' ), WPDBD_PLUGIN_VERSION );
 					wp_localize_script( 'wpdbd-settings', 'config', array() );
 					break;
 			}

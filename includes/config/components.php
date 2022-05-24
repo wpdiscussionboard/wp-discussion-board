@@ -7,4 +7,6 @@
  * @package WPDiscussionBoard
  */
 
-$components = [];
+$components = [
+	'WPDiscussionBoard\Editor',
+];

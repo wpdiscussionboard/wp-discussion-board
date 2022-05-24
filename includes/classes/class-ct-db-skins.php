@@ -309,6 +309,7 @@ if( ! class_exists( 'CT_DB_Skins' ) ) {
 			// Insert the date with the author name if it's table layout
 			if( $this->skin == 'classic' ) {
 				$output .= '<div class="classic-topic-date comment-metadata">';
+					$output .= '<span id="wpdbd-topic-actions" style="float:right;"></span>';
 					$output .= ctdb_topic_date_time();
 				$output .= '</div><!-- .classic-topic-date -->';
 			}

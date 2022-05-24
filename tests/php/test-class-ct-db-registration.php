@@ -29,8 +29,10 @@ class Test_CT_DB_Registration extends \WP_UnitTestCase {
 	 *
 	 * @since 2.4.4
 	 */
-	public function setUp() {
+	protected function setUp() {
 		$this->instance = new CT_DB_Registration();
+
+		parent::setUp();
 	}
 
 	/**
