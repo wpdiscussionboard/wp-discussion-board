@@ -1,5 +1,7 @@
 vendor
+node_modules
 docker
 svn
 wp
 .env
+.DS_Store
