@@ -1058,11 +1058,11 @@ if ( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's a
 		 * @return bool
 		 */
 		public function redirect_login_action() {
-			if ( empty( $_GET['action'] ) ) {
-				return false;
-			}
+            $action = '';
 
-			$action = sanitize_text_field( wp_unslash( $_GET['action'] ) );
+			if ( ! empty( $_GET['action'] ) ) {
+				$action = sanitize_text_field( wp_unslash( $_GET['action'] ) );
+			}
 
 			// Certain actions on the login form should not invoke a redirect.
 			if ( in_array( $action, array( 'logout', 'lostpassword', 'rp', 'resetpass', 'postpass' ) ) ) {

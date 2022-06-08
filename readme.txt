@@ -3,9 +3,9 @@ Contributors: MattGeri, Catapult_Themes, jf_bertrand
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 5.2.4
-Stable tag: 2.4.4
+Stable tag: 2.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -176,6 +176,11 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 2. Example topic with replies (includes some Pro features)
 
 == Changelog ==
+
+= 2.4.5, June 08, 2022 =
+* Fixed: Bug where login page was sometimes not being redirect to from WP-Admin
+* Fixed: Only show edit button when an admin user is viewing the forum
+* Added: German translation files
 
 = 2.4.4, February 09, 2022 =
 * Fixed: Don't redirect to login page for password protected

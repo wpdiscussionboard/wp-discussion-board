@@ -32,7 +32,10 @@ if ( ! function_exists ( 'ctdb_classic_forum_comment' ) ) {
 		// do_action( 'ctdb_comment_metadata_end' );
 					
 		$comment_html .= '</div><!-- .comment-metadata -->';
-		$comment_html .= sprintf( '<span class="edit-link ctdb-edit-link"><a href="%s">%s</a></span>', get_edit_comment_link(),  __( 'Edit', 'wp-discussion-board' ) );
+
+		if ( current_user_can( 'editor' ) || current_user_can( 'administrator' ) ) {
+			$comment_html .= sprintf( '<span class="edit-link ctdb-edit-link"><a href="%s">%s</a></span>', get_edit_comment_link(), __( 'Edit', 'wp-discussion-board' ) );
+		}
 		$comment_html .= '</header>';
 		$comment_html .= '<footer class="comment-meta">';
 		$comment_html .= '<div class="comment-author vcard">';

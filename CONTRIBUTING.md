@@ -88,4 +88,4 @@ To prepare and deploy a release, follow these steps.
 - Increment the version number in [readme.txt](readme.txt), [config.php](includes/config/config.php) and [wp-discussion-board.php](wp-discussion-board.php)
 - Make sure all code docblocs reference the new version in their `@since` parameters
 - Merge the final release branch in to the `master` branch
-- Sync the changes to the SVN repo, tag and commit. This is a manual step for now but will be changed to use a tag and Github action shortly
+- Changes will be auto deployed to the WordPress.org SVN repo using a Github action 

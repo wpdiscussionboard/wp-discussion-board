@@ -1,0 +1,1447 @@
+# Copyright (C) 2017 Discussion Board
+# This file is distributed under the same license as the Discussion Board package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Discussion Board 2.2.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-discussion-"
+"board\n"
+"POT-Creation-Date: 2021-05-12 21:24+0200\n"
+"PO-Revision-Date: 2022-03-30 02:21+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: wp\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: docker\n"
+
+#: includes/classes/admin/class-admin-getting-started.php:71
+#: includes/classes/admin/class-admin-getting-started.php:72
+msgid "Getting Started"
+msgstr "Erste Schritte"
+
+#: includes/classes/admin/class-admin-license.php:114
+msgid "Free license activated!"
+msgstr "Kostenlose Lizenz aktiviert!"
+
+#: includes/classes/admin/class-admin-license.php:126
+msgid "Something went wrong! Try again later."
+msgstr "Ein Fehler ist aufgetreten! Bitte später noch einmal versuchen."
+
+#: includes/classes/admin/class-admin-license.php:138
+msgid "Invalid email address!"
+msgstr "Ungültige Email-Adresse!"
+
+#: includes/classes/admin/class-admin-notices.php:47
+#: includes/classes/admin/class-admin.php:825
+#: includes/helpers/customizer.php:164
+#: templates/archive-discussion-topics.php:66
+msgid "Discussion Board"
+msgstr "Forum"
+
+#: includes/classes/admin/class-admin-notices.php:48
+msgid ""
+"Hi. It looks like you have been using Discussion Board for a while now. If "
+"you are finding it useful I'd really appreciate it if you could give it a 5 "
+"star rating on the WordPress repository. Positive reviews and feedback help "
+"me to continue developing the plugin."
+msgstr ""
+"Hallo. Es sieht so aus, als ob Sie das Diskussionsforum schon eine Weile "
+"benutzen. Wenn Sie es nützlich finden, würde ich mich freuen, wenn Sie es im "
+"WordPress-Repository mit 5 Sternen bewerten könnten. Positive Bewertungen "
+"und Feedback helfen mir, das Plugin weiterzuentwickeln."
+
+#: includes/classes/admin/class-admin-notices.php:54
+#, php-format
+msgid ""
+"Don't forget: if you have any questions or problems regarding the plugin, "
+"please <a href=\"%s\" target=\"_blank\">contact me directly <span class="
+"\"dashicons dashicons-external\"></span></a> and I will get straight back to "
+"you."
+msgstr ""
+
+#: includes/classes/admin/class-admin-notices.php:59
+msgid "Many thanks for your support."
+msgstr "Vielen Dank für Ihre Unterstützung."
+
+#: includes/classes/admin/class-admin-notices.php:60
+#: includes/classes/admin/class-admin-notices.php:123
+msgid "Matt, Discussion Board Maintainer."
+msgstr "Matt, Betreuer des Diskussionsforums."
+
+#: includes/classes/admin/class-admin-notices.php:66
+#: templates/admin/getting-started.php:102
+msgid "Leave a review"
+msgstr "Bewertung schreiben"
+
+#: includes/classes/admin/class-admin-notices.php:67
+#: includes/classes/admin/class-admin-notices.php:129
+msgid "No thanks"
+msgstr "Nein danke"
+
+#: includes/classes/admin/class-admin-notices.php:119
+msgid "Discussion Board Pro - Save 20%"
+msgstr "Diskussionsforum Pro - 20% sparen"
+
+#: includes/classes/admin/class-admin-notices.php:120
+msgid ""
+"Hi. Thanks for using Discussion Board - I hope it's helping you run a "
+"successful forum. I just wanted to remind you about the Pro version, which "
+"features multiple boards for creating sub-forums, categories and tags, topic "
+"following, user profiles, WYSIWYG editing, image uploads, and more."
+msgstr ""
+"Hallo. Danke, dass Sie Discussion Board nutzen - ich hoffe, es hilft Ihnen, "
+"ein erfolgreiches Forum zu betreiben. Ich wollte Sie nur an die Pro-Version "
+"erinnern, die mehrere Boards zum Erstellen von Unterforen, Kategorien und "
+"Tags, Themenverfolgung, Benutzerprofile, WYSIWYG-Bearbeitung, Bild-Uploads "
+"und mehr bietet."
+
+#: includes/classes/admin/class-admin-notices.php:121
+#, php-format
+msgid ""
+"You can get 20% off the cost of the Pro version - just use the discount code "
+"UPGRADE on the checkout page. Click the button below to find out more."
+msgstr ""
+"Sie können 20% off die Kosten für die Pro-Version erhalten - verwenden Sie "
+"einfach den Rabatt-Code UPGRADE auf der Checkout-Seite. Klicken Sie auf die "
+"Schaltfläche unten, um mehr zu erfahren."
+
+#: includes/classes/admin/class-admin-notices.php:122
+msgid "Thanks for using my plugin."
+msgstr "Vielen Dank für die Verwendung meines Plugins."
+
+#: includes/classes/admin/class-admin-notices.php:128
+msgid "Find out more"
+msgstr "Erfahre mehr"
+
+#: includes/classes/admin/class-admin.php:73
+#: includes/classes/admin/class-admin.php:74
+#: includes/classes/admin/class-admin.php:983
+#: templates/admin/getting-started.php:78
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/classes/admin/class-admin.php:92
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: includes/classes/admin/class-admin.php:99 includes/config/settings.php:29
+msgid "Pages"
+msgstr "Seiten"
+
+#: includes/classes/admin/class-admin.php:129
+msgid "Design Settings"
+msgstr "Designeinstellungen"
+
+#: includes/classes/admin/class-admin.php:136
+#, fuzzy
+msgid "Enqueue icons?"
+msgstr "Enqueue-Symbole?"
+
+#: includes/classes/admin/class-admin.php:144
+#, fuzzy
+msgid "Enqueue styles?"
+msgstr "Enqueue-Stile?"
+
+#: includes/classes/admin/class-admin.php:152
+#, fuzzy
+msgid "Use theme templates"
+msgstr "Themenvorlagen verwenden"
+
+#: includes/classes/admin/class-admin.php:160
+#: includes/helpers/customizer.php:24
+#, fuzzy
+msgid "Archive layout"
+msgstr "Archiv-Layout"
+
+#: includes/classes/admin/class-admin.php:168
+#: includes/helpers/customizer.php:98
+#, fuzzy
+msgid "Single topic layout"
+msgstr "Layout für ein einzelnes Thema"
+
+#: includes/classes/admin/class-admin.php:176
+#, fuzzy
+msgid "Meta data fields"
+msgstr "Felder für Metadaten"
+
+#: includes/classes/admin/class-admin.php:184
+#, fuzzy
+msgid "Topic meta data position"
+msgstr "Position der Metadaten zum Thema"
+
+#: includes/classes/admin/class-admin.php:192
+#, fuzzy
+msgid "Number of topics per page"
+msgstr "Anzahl der Themen pro Seite"
+
+#: includes/classes/admin/class-admin.php:200
+#, fuzzy
+msgid "Number of words per excerpt"
+msgstr "Anzahl der Wörter pro Auszug"
+
+#: includes/classes/admin/class-admin.php:247
+msgid "User Settings"
+msgstr "Benutzereinstellungen"
+
+#: includes/classes/admin/class-admin.php:504
+#, fuzzy
+msgid ""
+"Select one or more user roles that are permitted to view Discussion Board "
+"topics. Administrators can always view."
+msgstr ""
+"Wählen Sie eine oder mehrere Benutzerrollen aus, die Themen im "
+"Diskussionsforum anzeigen dürfen. Administratoren können immer sehen."
+
+#: includes/classes/admin/class-admin.php:541
+#, fuzzy
+msgid ""
+"Select one or more user roles that are permitted to post new Discussion "
+"Board topics"
+msgstr ""
+"Wählen Sie eine oder mehrere Benutzerrollen aus, die berechtigt sind, neue "
+"Diskussionsthemen zu erstellen"
+
+#: includes/classes/admin/class-admin.php:572
+#, fuzzy
+msgid "Newly registered users will be assigned this role"
+msgstr "Neu registrierten Benutzern wird diese Rolle zugewiesen"
+
+#: includes/classes/admin/class-admin.php:584
+#, fuzzy
+msgid "This will automatically log users in once they have registered."
+msgstr ""
+"Dadurch werden die Benutzer automatisch angemeldet, sobald sie sich "
+"registriert haben."
+
+#: includes/classes/admin/class-admin.php:631
+#: includes/classes/admin/class-admin.php:652
+#: includes/helpers/customizer.php:28 includes/helpers/customizer.php:102
+#: includes/helpers/customizer.php:172 includes/helpers/customizer.php:210
+msgid "Archive"
+msgstr "Archiv"
+
+#: includes/classes/admin/class-admin.php:632
+#: includes/classes/admin/class-admin.php:653
+#: includes/helpers/customizer.php:29 includes/helpers/customizer.php:103
+#: includes/helpers/customizer.php:211
+#, fuzzy
+msgid "Classic Forum"
+msgstr "Klassisches Forum"
+
+#: includes/classes/admin/class-admin.php:633
+#: includes/classes/admin/class-admin.php:654
+#: includes/helpers/customizer.php:30 includes/helpers/customizer.php:104
+#: includes/helpers/customizer.php:212
+msgid "Table"
+msgstr "Tabelle"
+
+#: includes/classes/admin/class-admin.php:635
+#, fuzzy
+msgid ""
+"Set the layout of your topics archive if you are using the discussion_topics "
+"shortcode to display topics."
+msgstr ""
+"Legen Sie das Layout Ihres Themenarchivs fest, wenn Sie den Shortcode "
+"discussion_topics zur Anzeige von Themen verwenden."
+
+#: includes/classes/admin/class-admin.php:656
+#, fuzzy
+msgid "Set the layout of single topic pages."
+msgstr "Legen Sie das Layout der einzelnen Themenseiten fest."
+
+#: includes/classes/admin/class-admin.php:679
+#, fuzzy
+msgid "Select which meta fields to display for topics."
+msgstr "Wählen Sie aus, welche Metafelder für Themen angezeigt werden sollen."
+
+#: includes/classes/admin/class-admin.php:691
+msgid "Hide"
+msgstr "Verstecken"
+
+#: includes/classes/admin/class-admin.php:694
+msgid "Below Title"
+msgstr "Unter dem Titel"
+
+#: includes/classes/admin/class-admin.php:697
+msgid "Below Content"
+msgstr "Unterhalb von Inhalt"
+
+#: includes/classes/admin/class-admin.php:700
+#, fuzzy
+msgid ""
+"If you are using the Archive or Table layout style, you can position the "
+"meta data."
+msgstr ""
+"Wenn Sie den Layoutstil Archiv oder Tabelle verwenden, können Sie die "
+"Metadaten positionieren."
+
+#: includes/classes/admin/class-admin.php:711
+#, fuzzy
+msgid ""
+"Truncate the content to a set number of words when each topic is displayed "
+"in the archive. Leave at 0 to display all the content for each topic on "
+"archive pages."
+msgstr ""
+"Kürzen Sie den Inhalt auf eine bestimmte Anzahl von Wörtern, wenn jedes "
+"Thema im Archiv angezeigt wird. Belassen Sie es bei 0, um den gesamten "
+"Inhalt für jedes Thema auf den Archivseiten anzuzeigen."
+
+#: includes/classes/admin/class-admin.php:758
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#: includes/classes/admin/class-admin.php:759
+#: includes/classes/class-ct-db-registration.php:534
+#: includes/classes/class-ct-db-registration.php:612
+#: includes/functions/functions-registration.php:186
+msgid "Username"
+msgstr "Benutzername"
+
+#: includes/classes/admin/class-admin.php:760
+msgid "Nickname"
+msgstr "Spitzname"
+
+#: includes/classes/admin/class-admin.php:762
+#, fuzzy
+msgid "Decide how to display user name"
+msgstr "Entscheiden Sie, wie Sie den Benutzernamen anzeigen möchten"
+
+#: includes/classes/admin/class-admin.php:774
+#, fuzzy
+msgid ""
+"Block specific email addresses(e.g. nasty@spammer.com) or entire email "
+"domains(e.g. @spammer.com) from registering. Add one address per line."
+msgstr ""
+"Sperren Sie bestimmte E-Mail-Adressen (z. B. nasty@spammer.com) oder ganze E-"
+"Mail-Domänen (z. B. @spammer.com) für die Registrierung. Fügen Sie eine "
+"Adresse pro Zeile hinzu."
+
+#: includes/classes/admin/class-admin.php:800
+msgid ""
+"This includes settings for the pages that are automatically created when "
+"Discussion Board is first activated, front-end messages, and options for "
+"posting new topics and for registration and log-in."
+msgstr ""
+"Dies umfasst Einstellungen für die Seiten, die beim erstmaligen Aktivieren "
+"von Discussion Board automatisch erstellt werden, Front-End-Nachrichten und "
+"Optionen zum Posten neuer Themen sowie zur Registrierung und Anmeldung."
+
+#: includes/classes/admin/class-admin.php:808
+#, fuzzy
+msgid "Settings for the styles and layout."
+msgstr "Einstellungen für die Stile und das Layout."
+
+#: includes/classes/admin/class-admin.php:816
+#, fuzzy
+msgid "Settings for user options and permissions."
+msgstr "Einstellungen für Benutzeroptionen und Berechtigungen."
+
+#: includes/classes/admin/class-admin.php:827
+msgid "General"
+msgstr "Allgemein"
+
+#: includes/classes/admin/class-admin.php:828
+msgid "Design"
+msgstr "Design"
+
+#: includes/classes/admin/class-admin.php:829
+msgid "User"
+msgstr "Benutzer"
+
+#: includes/classes/admin/class-admin.php:892
+#, fuzzy
+msgid ""
+"You've chosen to hide the WP Login page but you haven't specified a page on "
+"the front end with a login page. Until you specify that, the option to hide "
+"WP Login is disabled."
+msgstr ""
+"Sie haben sich entschieden, die WP Login-Seite auszublenden, aber Sie haben "
+"keine Seite im Frontend mit einer Login-Seite angegeben. Solange Sie das "
+"nicht angeben, ist die Option zum Ausblenden von WP Login deaktiviert."
+
+#: includes/classes/admin/class-admin.php:984
+msgid "Support"
+msgstr "Support"
+
+#: includes/classes/admin/class-admin.php:988
+msgid "Upgrade"
+msgstr "Upgrade"
+
+#: includes/classes/class-ct-db-front-end.php:124
+msgid "Please add a title."
+msgstr "Titel fehlt."
+
+#: includes/classes/class-ct-db-front-end.php:130
+msgid "Please add some content to the topic."
+msgstr "Inhalt zum Thema fehlt."
+
+#: includes/classes/class-ct-db-front-end.php:147
+msgid "We found"
+msgstr "Wir haben"
+
+#: includes/classes/class-ct-db-front-end.php:196
+msgid " successfully added. View it at:"
+msgstr " erfolgreich hinzugefügt. Zu sehen unter:"
+
+#: includes/classes/class-ct-db-front-end.php:200
+msgid " is awaiting moderation"
+msgstr " wartet auf Moderation"
+
+#: includes/classes/class-ct-db-front-end.php:230
+msgid " minutes"
+msgstr " Minuten"
+
+#: includes/classes/class-ct-db-front-end.php:232
+msgid "a minute"
+msgstr "eine Minute"
+
+#: includes/classes/class-ct-db-front-end.php:234
+msgid "You can't post a new topic just yet. Please come back in "
+msgstr ""
+"Sie können jetzt noch kein neues Thema erstellen. Bitte versuchen Sie es "
+"nochmals in "
+
+#: includes/classes/class-ct-db-front-end.php:280
+msgid "Topic Title"
+msgstr "Titel/Name des Themas"
+
+#: includes/classes/class-ct-db-front-end.php:281
+msgid "Topic Content"
+msgstr "Inhalt des Themas"
+
+#: includes/classes/class-ct-db-front-end.php:286
+msgid "Start Topic"
+msgstr "Thema starten"
+
+#: includes/classes/class-ct-db-front-end.php:331
+#: includes/helpers/install.php:46
+msgid "View Topic"
+msgstr "Thema anzeigen"
+
+#: includes/classes/class-ct-db-front-end.php:554
+msgid "There are no topics posted yet."
+msgstr "Es sind noch keine Themen vorhanden."
+
+#: includes/classes/class-ct-db-front-end.php:593
+msgid "Read More"
+msgstr "Weiterlesen"
+
+#: includes/classes/class-ct-db-front-end.php:624
+msgid "Topic"
+msgstr "Thema"
+
+#: includes/classes/class-ct-db-front-end.php:625
+#: includes/classes/class-ct-db-front-end.php:719
+#: includes/classes/class-ct-db-front-end.php:952
+#: includes/functions/functions-skins.php:78
+msgid "Replies"
+msgstr "Antworten"
+
+#: includes/classes/class-ct-db-front-end.php:626
+msgid "Since"
+msgstr "Seit"
+
+#: includes/classes/class-ct-db-front-end.php:627
+msgid "Posted by: "
+msgstr "Veröffentlicht von: "
+
+#: includes/classes/class-ct-db-front-end.php:628
+#: includes/classes/class-ct-db-front-end.php:731
+#: includes/functions/functions-skins.php:79
+msgid "Voices"
+msgstr "Teilnehmer"
+
+#: includes/classes/class-ct-db-front-end.php:725
+msgid "Started"
+msgstr "Gestartet"
+
+#: includes/classes/class-ct-db-front-end.php:943
+#: includes/classes/class-ct-db-skins.php:297
+#: includes/functions/functions-skins.php:116
+msgid "at"
+msgstr "um"
+
+#: includes/classes/class-ct-db-front-end.php:998
+msgid "Sorry - you're not permitted to view this content."
+msgstr "Sie sind nicht berechtigt, diesen Inhalt zu sehen."
+
+#: includes/classes/class-ct-db-front-end.php:1032
+#: includes/classes/class-ct-db-front-end.php:1033
+msgid "Log out"
+msgstr "Abmelden"
+
+#: includes/classes/class-ct-db-front-end.php:1048
+#: includes/classes/class-ct-db-front-end.php:1049
+#: includes/classes/class-ct-db-registration.php:89
+#: includes/classes/class-ct-db-registration.php:164
+#: includes/classes/class-ct-db-registration.php:621
+msgid "Log in"
+msgstr "Anmelden"
+
+#: includes/classes/class-ct-db-front-end.php:1109
+msgid "Add new topic"
+msgstr "Neues Thema hinzufügen"
+
+#: includes/classes/class-ct-db-front-end.php:1132
+#, fuzzy
+msgid ""
+"Site Admin: please set the \"New topic form page\" field in Settings > "
+"Discussion Board > Options for the new_topic_button shortcode to work. This "
+"message will not be displayed to non-admins."
+msgstr ""
+"Site-Administrator: Bitte setzen Sie das Feld \"Seite für neues Thema\" in "
+"Einstellungen > Diskussionsforum > Optionen, damit der Shortcode "
+"new_topic_button funktioniert. Diese Nachricht wird für Nicht-"
+"Administratoren nicht angezeigt."
+
+#: includes/classes/class-ct-db-notifications.php:74
+msgid "Opt out of receiving notifications for this topic."
+msgstr "Benachrichtigungen zu diesem Thema nicht mehr erhalten."
+
+#: includes/classes/class-ct-db-notifications.php:214
+msgid "New comment on your topic"
+msgstr "Neuer Kommentar zu Ihrem Thema"
+
+#: includes/classes/class-ct-db-notifications.php:215
+msgid "A new comment has been left on your topic: "
+msgstr "Es wurde ein neuer Kommentar zu Ihrem Thema abgegeben"
+
+#: includes/classes/class-ct-db-notifications.php:254
+msgid "New comment - please moderate"
+msgstr "Neuer Kommentar - bitte moderieren"
+
+#: includes/classes/class-ct-db-notifications.php:255
+msgid "Please moderate the following comment on the topic: "
+msgstr "Bitte moderieren Sie den folgenden Kommentar zu diesem Thema"
+
+#: includes/classes/class-ct-db-notifications.php:288
+#: includes/classes/class-ct-db-notifications.php:331
+msgid "New Topic Posted"
+msgstr "Neues Thema veröffentlicht"
+
+#: includes/classes/class-ct-db-notifications.php:289
+msgid "A new topic has been created:"
+msgstr "Es wurde ein neues Thema erstellt:"
+
+#: includes/classes/class-ct-db-notifications.php:291
+msgid "Topic status: "
+msgstr "Status des Themas: "
+
+#: includes/classes/class-ct-db-notifications.php:293
+msgid "This topic is waiting for you to moderate and publish it."
+msgstr "Dieses Thema wartet darauf, dass es moderiert und veröffentlicht wird."
+
+#: includes/classes/class-ct-db-notifications.php:299
+#: includes/classes/class-ct-db-notifications.php:335
+msgid "This topic has been published and is live."
+msgstr "Dieses Thema wurde veröffentlicht und ist live."
+
+#: includes/classes/class-ct-db-notifications.php:332
+msgid "<p>A new topic has been created:<br>"
+msgstr "<p>Es wurde ein neues Thema erstellt:<br>"
+
+#: includes/classes/class-ct-db-registration.php:104
+msgid "Register"
+msgstr "Registrieren"
+
+#: includes/classes/class-ct-db-registration.php:190
+msgid "Content not available"
+msgstr "Inhalt nicht verfügbar"
+
+#: includes/classes/class-ct-db-registration.php:212
+msgid "You are already registered on this site."
+msgstr "Sie sind bereits auf dieser Website registriert."
+
+#: includes/classes/class-ct-db-registration.php:319
+msgid "Are you a human?"
+msgstr "Sind Sie ein Mensch?"
+
+#: includes/classes/class-ct-db-registration.php:320
+msgid "No"
+msgstr "Nein"
+
+#: includes/classes/class-ct-db-registration.php:321
+msgid "Yes"
+msgstr "Ja"
+
+#: includes/classes/class-ct-db-registration.php:327
+msgid "Register Your Account"
+msgstr "Konto erstellen"
+
+#: includes/classes/class-ct-db-registration.php:331
+msgid "Please make sure all required fields are filled out."
+msgstr ""
+"Bitte stellen Sie sicher, dass alle erforderlichen Felder ausgefüllt sind."
+
+#: includes/classes/class-ct-db-registration.php:422
+msgid "That username already exists"
+msgstr "Dieser Benutzername existiert bereits"
+
+#: includes/classes/class-ct-db-registration.php:428
+msgid "Only use lower case alphanumeric characters"
+msgstr "Verwenden Sie nur alphanumerische Kleinbuchstaben"
+
+#: includes/classes/class-ct-db-registration.php:434
+#: includes/classes/class-ct-db-registration.php:460
+#: includes/classes/class-ct-db-registration.php:495
+#: includes/classes/class-ct-db-registration.php:508
+msgid "This field is required"
+msgstr "Dieses Feld ist erforderlich"
+
+#: includes/classes/class-ct-db-registration.php:440
+#: includes/classes/class-ct-db-registration.php:514
+msgid "Looks good"
+msgstr "Sieht gut aus"
+
+#: includes/classes/class-ct-db-registration.php:448
+msgid "That email doesn't look valid"
+msgstr "Diese E-Mail-Adresse scheint nicht gültig zu sein"
+
+#: includes/classes/class-ct-db-registration.php:454
+msgid "That email has already been used"
+msgstr "Diese E-Mail-Adresse ist bereits verwendet worden"
+
+#: includes/classes/class-ct-db-registration.php:466
+msgid "That email looks good"
+msgstr "Diese E-Mail-Adresse sieht gut aus"
+
+#: includes/classes/class-ct-db-registration.php:474
+msgid "Passwords match"
+msgstr "Passwörter stimmen überein"
+
+#: includes/classes/class-ct-db-registration.php:487
+msgid "The passwords don't match"
+msgstr "Die Passwörter stimmen nicht überein"
+
+#: includes/classes/class-ct-db-registration.php:541
+#: includes/functions/functions-registration.php:193
+msgid "Email"
+msgstr "E-Mail"
+
+#: includes/classes/class-ct-db-registration.php:548
+#: includes/functions/functions-registration.php:200
+msgid "First Name"
+msgstr "Vorname"
+
+#: includes/classes/class-ct-db-registration.php:555
+#: includes/functions/functions-registration.php:207
+msgid "Last Name"
+msgstr "Nachname"
+
+#: includes/classes/class-ct-db-registration.php:562
+#: includes/classes/class-ct-db-registration.php:616
+#: includes/functions/functions-registration.php:214
+msgid "Password"
+msgstr "Passwort"
+
+#: includes/classes/class-ct-db-registration.php:569
+#: includes/functions/functions-registration.php:221
+msgid "Password again"
+msgstr "Passwort wiederholen"
+
+#: includes/classes/class-ct-db-registration.php:605
+msgid ""
+"Please check your inbox for an email containing a link to reset your "
+"password."
+msgstr ""
+"Bitte überprüfen Sie Ihren Posteingang auf eine E-Mail, die einen Link zum "
+"Zurücksetzen Ihres Passworts enthält."
+
+#: includes/classes/class-ct-db-registration.php:627
+msgid "Lost password?"
+msgstr "Passwort vergessen?"
+
+#: includes/classes/class-ct-db-registration.php:649
+#: includes/classes/class-ct-db-registration.php:672
+msgid "You've entered an invalid combination of username and password."
+msgstr ""
+"Sie haben eine ungültige Kombination aus Benutzernamen und Passwort "
+"eingegeben."
+
+#: includes/classes/class-ct-db-registration.php:661
+msgid ""
+"You haven't activated your registration yet. Please check your email for an "
+"activation link"
+msgstr ""
+"Ihre Registrierung bzw. Ihr Account wurde noch nicht aktiviert. Bitte haben "
+"Sie noch etwas Geduld."
+
+#: includes/classes/class-ct-db-registration.php:666
+msgid "Please enter a password"
+msgstr "Bitte Passwort eingeben"
+
+#: includes/classes/class-ct-db-registration.php:732
+msgid "Your registration failed the reCaptcha check."
+msgstr "Ihre Registrierung hat die reCaptcha-Prüfung nicht bestanden."
+
+#: includes/classes/class-ct-db-registration.php:819
+msgid "That username has already been taken. Please choose another."
+msgstr ""
+"Dieser Benutzername ist bereits vergeben. Bitte wählen Sie einen anderen."
+
+#: includes/classes/class-ct-db-registration.php:823
+msgid ""
+"The username you selected was not valid. Please only use lowercase "
+"alphanumeric characters."
+msgstr ""
+"Der von Ihnen gewählte Benutzername war nicht gültig. Bitte verwenden Sie "
+"nur alphanumerische Kleinbuchstaben."
+
+#: includes/classes/class-ct-db-registration.php:827
+msgid "Please enter your username."
+msgstr "Bitte geben Sie Ihren Benutzernamen ein."
+
+#: includes/classes/class-ct-db-registration.php:831
+msgid "Please check you have entered a valid email address."
+msgstr ""
+"Bitte überprüfen Sie, ob Sie eine gültige E-Mail-Adresse eingegeben haben."
+
+#: includes/classes/class-ct-db-registration.php:835
+msgid "That email address has already been registered."
+msgstr "Diese E-Mail-Adresse wurde bereits registriert."
+
+#: includes/classes/class-ct-db-registration.php:839
+msgid "Please enter a password."
+msgstr "Bitte Passwort eingeben."
+
+#: includes/classes/class-ct-db-registration.php:843
+msgid "Please check that the passwords match."
+msgstr "Bitte prüfen Sie, ob die Passwörter übereinstimmen."
+
+#: includes/classes/class-ct-db-registration.php:852
+msgid "not set"
+msgstr "nicht gesetzt"
+
+#: includes/classes/class-ct-db-registration.php:972
+msgid ""
+"Please check your inbox for an activation email - if you don't see an email "
+"from us, please remember to check your spam folder."
+msgstr ""
+"Bitte prüfen Sie Ihren Posteingang auf eine Aktivierungs-E-Mail - wenn Sie "
+"keine E-Mail von uns sehen, überprüfen Sie bitte Ihren Spam-Ordner."
+
+#: includes/classes/class-ct-db-registration.php:974
+msgid "Thank you for registering. You may now log in."
+msgstr "Vielen Dank für Ihre Registrierung. Sie können sich jetzt einloggen."
+
+#: includes/classes/class-ct-db-registration.php:990
+msgid "You have activated your account successfully. You can now log in."
+msgstr ""
+"Sie haben Ihr Konto erfolgreich aktiviert. Sie können sich jetzt einloggen."
+
+#: includes/classes/class-ct-db-registration.php:1059
+#: includes/classes/class-ct-db-registration.php:1077
+msgid "Error"
+msgstr "Fehler"
+
+#: includes/classes/class-ct-db-user.php:41
+msgid "Pending"
+msgstr "Ausstehend"
+
+#: includes/config/settings.php:36
+msgid "New topic form page"
+msgstr "Neue Themenformularseite"
+
+#: includes/config/settings.php:38
+msgid ""
+"The page where your New Topic form is displayed. The [discussion_board_form] "
+"shortcode should be on this page."
+msgstr ""
+"Die Seite, auf der Ihr neues Themenformular angezeigt wird. Der Shortcode "
+"[discussion_board_form] sollte sich auf dieser Seite befinden."
+
+#: includes/config/settings.php:44
+msgid "Discussion topics page"
+msgstr "Seite mit Diskussionsthemen"
+
+#: includes/config/settings.php:46
+#, fuzzy
+msgid ""
+"The page where your Discussion Topics are displayed. The [discussion_topics] "
+"shortcode should be on this page."
+msgstr ""
+"Die Seite, auf der Ihre Diskussionsthemen angezeigt werden. Der Shortcode "
+"[discussion_topics] sollte sich auf dieser Seite befinden."
+
+#: includes/config/settings.php:52
+msgid "Log-in form page"
+msgstr "Anmeldeformular Seite"
+
+#: includes/config/settings.php:54
+msgid ""
+"The page that displays your log-in form. The [discussion_board_login_form] "
+"shortcode should be on this page."
+msgstr ""
+"Die Seite, auf der Ihr Anmeldeformular angezeigt wird. Der Shortcode "
+"[discussion_board_login_form] sollte sich auf dieser Seite befinden."
+
+#: includes/config/settings.php:60
+msgid "Redirect on log-in"
+msgstr "Beim Anmelden umleiten"
+
+#: includes/config/settings.php:62
+msgid "After logging in, the user will be redirected to this page."
+msgstr "Nach dem Einloggen wird der Benutzer auf diese Seite weitergeleitet."
+
+#: includes/config/settings.php:72
+msgid "Messages"
+msgstr "Nachrichten"
+
+#: includes/config/settings.php:79
+msgid "Archive title"
+msgstr "Archivtitel"
+
+#: includes/config/settings.php:80
+msgid "You can enter an alternative archive title here if you wish."
+msgstr ""
+"Wenn Sie möchten, können Sie hier einen alternativen Archivtitel eingeben."
+
+#: includes/config/settings.php:87
+msgid "New topic message"
+msgstr "Neue Themenmeldung"
+
+#: includes/config/settings.php:88
+msgid ""
+"You can enter an alternative message on the New Topic form here if you wish."
+msgstr ""
+"Wenn Sie möchten, können Sie hier eine alternative Nachricht in das Formular "
+"\"Neues Thema\" eingeben."
+
+#: includes/config/settings.php:95
+msgid "Restricted message"
+msgstr "Eingeschränkte Nachricht"
+
+#: includes/config/settings.php:96
+msgid ""
+"You can enter an alternative message to users who don't have permissions."
+msgstr ""
+"Sie können eine alternative Nachricht für Benutzer eingeben, die keine "
+"Berechtigungen haben."
+
+#: includes/config/settings.php:107
+msgid "Log In and Registration"
+msgstr "Einloggen und Registrierung"
+
+#: includes/config/settings.php:114
+msgid "Hide WP Login?"
+msgstr "WP Login verstecken?"
+
+#: includes/config/settings.php:116
+msgid ""
+"This will prevent users logging in via wp-login.php and force them to use "
+"the Discussion Board log-in form. You must specify a front-end page "
+"containing your log-in form in the Log-in form page field above."
+msgstr ""
+"Dies verhindert, dass sich Benutzer über wp-login.php anmelden und zwingt "
+"sie, das Anmeldeformular für das Diskussionsforum zu verwenden. Sie müssen "
+"im Feld Anmeldeformularseite oben eine Front-End-Seite angeben, die Ihr "
+"Anmeldeformular enthält."
+
+#: includes/config/settings.php:122
+msgid "Hide log-in form with restricted content?"
+msgstr "Anmeldeformular mit eingeschränktem Inhalt ausblenden?"
+
+#: includes/config/settings.php:124
+msgid ""
+"Hide the log-in/registration form that is automatically displayed when the "
+"user is not logged in."
+msgstr ""
+"Verbergen Sie das Anmelde- / Registrierungsformular, das automatisch "
+"angezeigt wird, wenn der Benutzer nicht angemeldet ist."
+
+#: includes/config/settings.php:130
+msgid "Prevent wp-admin access?"
+msgstr "Wp-admin-zugriff verhindern?"
+
+#: includes/config/settings.php:132
+msgid ""
+"Hide the Admin bar and prevent wp-admin access to users registered on the "
+"Discussion Board. By default, this will apply to users with the Subscriber "
+"role."
+msgstr ""
+"Blenden Sie die Admin-Leiste aus und verhindern Sie so den Zugriff von "
+"Benutzern, die im Diskussionsforum registriert sind auf wp-admin. "
+"Standardmäßig gilt dies für Benutzer mit der Abonnentenrolle."
+
+#: includes/config/settings.php:138
+msgid "Hide registration tab?"
+msgstr "Registrierungs-Tab verstecken?"
+
+#: includes/config/settings.php:140
+msgid "Hide the Registration tab on the log-in form."
+msgstr "Blenden Sie die Registerkarte Registrierung im Anmeldeformular aus."
+
+#: includes/config/settings.php:146
+msgid "Add check to registration form to prevent spam"
+msgstr "Check zum Registrierungsformular hinzufügen, um Spam zu vermeiden"
+
+#: includes/config/settings.php:148
+msgid ""
+"Check this to include a radio button option on the registration form to "
+"reduce the number of spam registrations"
+msgstr ""
+"Aktivieren Sie dieses Kontrollkästchen, um eine Optionsfeldoption in das "
+"Registrierungsformular aufzunehmen, mit der die Anzahl der Spam-"
+"Registrierungen verringert werden kann"
+
+#: includes/config/settings.php:158
+msgid "Posting"
+msgstr "Buchung"
+
+#: includes/config/settings.php:165
+msgid "Publish new topic without moderation"
+msgstr "Neues Thema ohne Moderation veröffentlichen"
+
+#: includes/config/settings.php:167
+msgid "Select this option to publish all new topics without moderation."
+msgstr ""
+"Wählen Sie diese Option, um alle neuen Themen ohne Moderation zu "
+"veröffentlichen."
+
+#: includes/config/settings.php:173
+msgid "Prevent user re-posting within (seconds)"
+msgstr ""
+"Verhindern Sie das erneute Posten des Benutzers innerhalb von (Sekunden)"
+
+#: includes/config/settings.php:185
+msgid ""
+"The number of seconds before a user can post a new topic. This prevents "
+"misuse."
+msgstr ""
+"Anzahl von Sekunden, bevor ein Benutzer ein neues Thema veröffentlichen "
+"kann. Dies verhindert Missbrauch."
+
+#: includes/config/settings.php:195
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+#: includes/config/settings.php:202
+msgid "Email address for notifications"
+msgstr "E-Mail-Adresse für Benachrichtigungen"
+
+#: includes/config/settings.php:204
+msgid "Define an email address here to send notifications to."
+msgstr ""
+"Geben Sie hier eine E-Mail-Adresse an, an die Benachrichtigungen gesendet "
+"werden sollen."
+
+#: includes/config/settings.php:210
+msgid "Enable poster notification opt-out"
+msgstr "Beitragsersteller können sich von Benachrichtigungen abmelden"
+
+#: includes/config/settings.php:212
+msgid ""
+"Allow topic posters to opt out of receiving notifications when a comment is "
+"left on their topic."
+msgstr ""
+"Zulassen, dass Beitragsersteller keine Benachrichtigungen mehr erhalten, "
+"wenn zu ihrem Thema ein Kommentar hinterlassen wird."
+
+#: includes/config/settings.php:218
+msgid "Global poster notification opt-out"
+msgstr "Deaktivierung der globalen Benachrichtigung an Beitragsersteller"
+
+#: includes/config/settings.php:220
+msgid ""
+"Don't send any notifications of new comments to topic posters. Check this "
+"option to prevent duplicate notifications."
+msgstr ""
+"Senden Sie keine Benachrichtigungen über neue Kommentare an "
+"Beitragsersteller. Aktivieren Sie diese Option, um doppelte "
+"Benachrichtigungen zu vermeiden."
+
+#: includes/config/settings.php:245
+msgid "Permitted viewer roles"
+msgstr "Zulässige Zuschauerrollen"
+
+#: includes/config/settings.php:252
+msgid "Permitted poster roles"
+msgstr "Zulässige Rollen für Beitragsersteller"
+
+#: includes/config/settings.php:259
+msgid "Register new user as"
+msgstr "Neuen Benutzer registrieren als"
+
+#: includes/config/settings.php:266
+msgid "Display user name as"
+msgstr "Benutzername anzeigen als"
+
+#: includes/config/settings.php:273
+msgid "Require account activation"
+msgstr "Kontoaktivierung erforderlich"
+
+#: includes/config/settings.php:275
+msgid ""
+"Select \"User must activate\" to require new users to click an activation "
+"link before they are fully registered. This will significantly reduce spam "
+"registrations."
+msgstr ""
+"Wählen Sie \"Benutzer muss sich aktivieren\", damit neue Benutzer auf einen "
+"Aktivierungslink klicken müssen, bevor sie vollständig registriert sind. "
+"Dadurch werden Spam-Registrierungen erheblich reduziert."
+
+#: includes/config/settings.php:277
+msgid "None"
+msgstr "Nichts"
+
+#: includes/config/settings.php:278
+msgid "User must activate"
+msgstr "Benutzer muss sich aktivieren"
+
+#: includes/config/settings.php:285
+msgid "Email blacklist"
+msgstr "E-Mail Blacklist"
+
+#: includes/functions/functions-messages.php:20
+msgid "Discussion Topics"
+msgstr "Diskussionsthemen"
+
+#: includes/functions/functions-messages.php:39
+msgid "Please enter your topic title and content below."
+msgstr "Bitte geben Sie unten den Titel und den Inhalt Ihres Themas ein."
+
+#: includes/functions/functions-messages.php:56
+msgid "This page is not available."
+msgstr "Diese Seite ist nicht verfügbar."
+
+#: includes/functions/functions-messages.php:73
+msgid ""
+"You're not currently permitted to view this content. Please log-in or "
+"register in order to view the page."
+msgstr ""
+"Sie sind derzeit nicht berechtigt, diesen Inhalt zu sehen. Bitte melden Sie "
+"sich an oder registrieren Sie sich, um die Seite zu sehen."
+
+#: includes/functions/functions-messages.php:90
+msgid ""
+"You're logged in but you don't seem to have permission to view the content. "
+"Please contact the site administrator for further information."
+msgstr ""
+"Sie sind eingeloggt, aber Sie scheinen keine Berechtigung zu haben, den "
+"Inhalt zu sehen. Bitte kontaktieren Sie den Administrator der Website für "
+"weitere Informationen."
+
+#: includes/functions/functions-registration.php:74
+msgid "Activate your account"
+msgstr "Kundenkonto aktivieren"
+
+#: includes/functions/functions-registration.php:75
+msgid ""
+"Thank you for registering. Please activate your account by clicking the link "
+"below:"
+msgstr ""
+"Vielen Dank für Ihre Registrierung. Bitte aktivieren Sie Ihr Konto, indem "
+"Sie auf den unten stehenden Link klicken:"
+
+#: includes/functions/functions-skins.php:28
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s um %2$s"
+
+#: includes/functions/functions-skins.php:35
+#: templates/archive-discussion-topics.php:45
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: includes/functions/functions-skins.php:50
+msgid "Your comment is awaiting moderation."
+msgstr "Ihr Kommentar wartet auf Moderation."
+
+#: includes/helpers/customizer.php:35 includes/helpers/customizer.php:109
+msgid "Border Color"
+msgstr "Rahmenfarbe"
+
+#: includes/helpers/customizer.php:44
+msgid "Heading Background Color"
+msgstr "Überschrift Hintergrundfarbe"
+
+#: includes/helpers/customizer.php:53
+msgid "Heading Text Color"
+msgstr "Text Farbe für Überschrift"
+
+#: includes/helpers/customizer.php:62 includes/helpers/customizer.php:127
+msgid "Row Background Color"
+msgstr "Zeilen Hintergrundfarbe"
+
+#: includes/helpers/customizer.php:71 includes/helpers/customizer.php:136
+#, fuzzy
+msgid "Row Background Color (Alt)"
+msgstr "Zeilenhintergrundfarbe (Alt)"
+
+#: includes/helpers/customizer.php:80
+msgid "Row Border Color"
+msgstr "Zeilenrahmenfarbe"
+
+#: includes/helpers/customizer.php:89
+msgid "Row Text Color"
+msgstr "Farbe des Zeilentextes"
+
+#: includes/helpers/customizer.php:118
+msgid "Divider Color"
+msgstr "Trennerfarbe"
+
+#: includes/helpers/customizer.php:145
+msgid "Text Color"
+msgstr "Textfarbe"
+
+#: includes/helpers/customizer.php:181
+msgid "Single"
+msgstr "Einzeln"
+
+#: includes/helpers/deprecated.php:19
+#, fuzzy, php-format
+msgid ""
+"%s class has been deprecated since version 2.4. Use \\WPDiscussionBoard"
+"\\Admin\\Admin instead"
+msgstr ""
+"die Klasse %s ist seit Version 2.4 veraltet. Verwenden Sie stattdessen "
+"\\WPDiscussionBoard\\Admin\\Admin"
+
+#: includes/helpers/deprecated.php:32
+#, fuzzy, php-format
+msgid ""
+"%s class has been deprecated since version 2.4. Use \\WPDiscussionBoard"
+"\\Admin\\Admin_Getting_Started instead"
+msgstr ""
+"die Klasse %s ist seit Version 2.4 veraltet. Verwenden Sie stattdessen "
+"\\WPDiscussionBoard\\Admin\\Admin_Getting_Started"
+
+#: includes/helpers/deprecated.php:45
+#, fuzzy, php-format
+msgid ""
+"%s class has been deprecated since version 2.4. Use \\WPDiscussionBoard"
+"\\Admin\\Admin_Notices instead"
+msgstr ""
+"die Klasse %s ist seit Version 2.4 veraltet. Verwenden Sie stattdessen "
+"\\WPDiscussionBoard\\Admin\\Admin_Notices"
+
+#: includes/helpers/deprecated.php:58
+#, fuzzy, php-format
+msgid ""
+"%s class has been deprecated since version 2.4. Use \\WPDiscussionBoard"
+"\\Admin\\Admin_Upgrades instead"
+msgstr ""
+"die Klasse %s ist seit Version 2.4 veraltet. Verwenden Sie stattdessen "
+"\\WPDiscussionBoard\\Admin\\Admin_Upgrades"
+
+#: includes/helpers/deprecated.php:69
+#, fuzzy, php-format
+msgid ""
+"%s function has been deprecated since version 2.4. Use "
+"wpdbd_general_page_settings() instead"
+msgstr ""
+"%s Funktion ist seit Version 2.4 veraltet. Verwenden Sie stattdessen "
+"wpdbd_general_page_settings()"
+
+#: includes/helpers/deprecated.php:79
+#, fuzzy, php-format
+msgid ""
+"%s function has been deprecated since version 2.4. Use "
+"ctdb_get_user_settings() instead"
+msgstr ""
+"%s Funktion ist seit Version 2.4 veraltet. Verwenden Sie stattdessen "
+"ctdb_get_user_settings()"
+
+#: includes/helpers/install.php:43
+msgid "Add New Topic"
+msgstr "Thema hinzufügen"
+
+#: includes/helpers/install.php:44 includes/helpers/install.php:98
+msgid "New Topic"
+msgstr "Neues Thema"
+
+#: includes/helpers/install.php:45
+msgid "Edit Topic"
+msgstr "Thema bearbeiten"
+
+#: includes/helpers/install.php:47
+msgid "All Topics"
+msgstr "Alle Themen"
+
+#: includes/helpers/install.php:48
+msgid "Search Topics"
+msgstr "Themen suchen"
+
+#: includes/helpers/install.php:49
+msgid "Parent Topic:"
+msgstr "Übergeordnetes Thema:"
+
+#: includes/helpers/install.php:50
+msgid "No topics found."
+msgstr "Keine Themen gefunden."
+
+#: includes/helpers/install.php:51
+msgid "No topics found in Trash."
+msgstr "Keine Themen im Papierkorb gefunden."
+
+#: includes/helpers/install.php:56
+msgid "Description."
+msgstr "Beschreibung."
+
+#: includes/helpers/install.php:86 templates/admin/getting-started.php:43
+msgid "Topics"
+msgstr "Themen"
+
+#: includes/helpers/install.php:111 templates/admin/getting-started.php:47
+msgid "Log In"
+msgstr "Anmelden"
+
+#: includes/helpers/install.php:112
+msgid "You are already logged in"
+msgstr "Sie sind bereits angemeldet"
+
+#: templates/admin/free-license-form.php:13
+#, fuzzy
+msgid "Free License"
+msgstr "Freie Lizenz"
+
+#: templates/admin/free-license-form.php:14
+#, fuzzy
+msgid ""
+"You're currently using the free version of WP Discussion Board. To register "
+"a free license for the plugin, please fill in your email below. This is not "
+"required but helps us support you better."
+msgstr ""
+"Sie verwenden derzeit die kostenlose Version von WP Discussion Board. Um "
+"eine kostenlose Lizenz für das Plugin zu registrieren, geben Sie bitte unten "
+"Ihre E-Mail-Adresse an. Dies ist nicht erforderlich, hilft uns aber, Sie "
+"besser zu unterstützen."
+
+#: templates/admin/free-license-form.php:15
+msgid "Email Address"
+msgstr "E-Mail Adresse"
+
+#: templates/admin/free-license-form.php:18
+#, fuzzy
+msgid ""
+"Your email is secure with us! We will only spend you a single email with "
+"helpful resources to get you started."
+msgstr ""
+"Ihre E-Mail ist bei uns sicher! Wir senden Ihnen nur eine einzige E-Mail mit "
+"hilfreichen Informationen, die Ihnen den Einstieg erleichtern."
+
+#: templates/admin/getting-started.php:19
+#, fuzzy
+msgid "Welcome to Discussion Board"
+msgstr "Willkommen im Diskussionsforum"
+
+#: templates/admin/getting-started.php:23
+msgid ""
+"Thanks for installing Discussion Board. This page is intended to help you "
+"get started as smoothly as possible."
+msgstr ""
+"Vielen Dank für die Installation des Diskussionsforums. Diese Seite soll "
+"Ihnen helfen, so reibungslos wie möglich loszulegen."
+
+#: templates/admin/getting-started.php:31
+msgid "Getting started"
+msgstr "Erste Schritte"
+
+#: templates/admin/getting-started.php:35
+msgid ""
+"Discussion Board has automatically created the three essential pages you "
+"need. You can click the links below to view these pages if you like - but "
+"please note that because you are already logged in, you won't see the same "
+"content that a new user would."
+msgstr ""
+"Discussion Board hat automatisch die drei wesentlichen Seiten erstellt, die "
+"Sie benötigen. Sie können auf die Links unten klicken, um diese Seiten "
+"anzuzeigen, wenn Sie möchten - aber bitte beachten Sie, dass, da Sie bereits "
+"angemeldet sind, Sie nicht den gleichen Inhalt sehen, den ein neuer Benutzer "
+"hätte."
+
+#: templates/admin/getting-started.php:36
+msgid ""
+"To see the pages from the point of view of a new user, try viewing them in "
+"an incognito browser window."
+msgstr ""
+"Um die Seiten aus der Sicht eines neuen Benutzers anzuzeigen, versuchen Sie, "
+"sie in einem Inkognito-Browserfenster anzuzeigen."
+
+#: templates/admin/getting-started.php:45
+#, fuzzy
+msgid "New Topic Form"
+msgstr "Formular für neue Themen"
+
+#: templates/admin/getting-started.php:51
+#, fuzzy
+msgid ""
+"These pages are all you need for your forum to function - probably the only "
+"thing you need to do now is add the pages to your menu so that users can "
+"access them."
+msgstr ""
+"Diese Seiten sind alles, was Sie brauchen, damit Ihr Forum funktioniert - "
+"das Einzige, was Sie jetzt noch tun müssen, ist, die Seiten zu Ihrem Menü "
+"hinzuzufügen, damit die Benutzer sie aufrufen können."
+
+#: templates/admin/getting-started.php:52
+#, fuzzy
+msgid ""
+"You can add any content you like to these pages but don't delete the "
+"shortcodes that have been added already - the shortcodes create functional "
+"content, like the log-in form."
+msgstr ""
+"Sie können beliebige Inhalte zu diesen Seiten hinzufügen, aber löschen Sie "
+"nicht die bereits hinzugefügten Shortcodes - die Shortcodes erstellen "
+"funktionale Inhalte, wie das Anmeldeformular."
+
+#: templates/admin/getting-started.php:53
+msgid "Support link"
+msgstr "Support Link"
+
+#: templates/admin/getting-started.php:58
+#, fuzzy
+msgid "Getting started support article"
+msgstr "Artikel zur Unterstützung der ersten Schritte"
+
+#: templates/admin/getting-started.php:64
+msgid "FAQs"
+msgstr "FAQs"
+
+#: templates/admin/getting-started.php:65
+#, fuzzy
+msgid ""
+"There are a couple of questions that you might need the answer to when you "
+"get started:"
+msgstr ""
+"Es gibt eine Reihe von Fragen, auf die Sie vielleicht eine Antwort brauchen, "
+"wenn Sie anfangen:"
+
+#: templates/admin/getting-started.php:69
+#, fuzzy
+msgid "I see an error message about invalid post type. What's that?"
+msgstr ""
+"Ich sehe eine Fehlermeldung über einen ungültigen Beitragstyp. Was ist das?"
+
+#: templates/admin/getting-started.php:70
+#, fuzzy
+msgid ""
+"In your dashboard, just go to Settings > Permalinks. This will clear the "
+"permalinks and validate the topics post type - then everything should be "
+"fine."
+msgstr ""
+"Gehen Sie in Ihrem Dashboard einfach auf Einstellungen > Permalinks. Dadurch "
+"werden die Permalinks gelöscht und die Themen des Beitragstyps validiert - "
+"dann sollte alles in Ordnung sein."
+
+#: templates/admin/getting-started.php:71
+#, fuzzy
+msgid "Help, I can't seem to log out. Why?"
+msgstr "Hilfe, ich kann mich nicht abmelden. Warum nicht?"
+
+#: templates/admin/getting-started.php:72
+#, fuzzy
+msgid ""
+"We've included a helpful log-in / log-out shortcode to display a log-in / "
+"log-out link. Use a plugin like Shortcode Widget and add the "
+"[discussion_board_log_in_out] shortcode to your sidebar or other widget area "
+"of your choice. The plugin also automatically displays a log-out link under "
+"the new topic form."
+msgstr ""
+"Wir haben einen hilfreichen Shortcode zum Ein- und Ausloggen hinzugefügt, um "
+"einen Link zum Ein- und Ausloggen anzuzeigen. Verwenden Sie ein Plugin wie "
+"Shortcode Widget und fügen Sie den Shortcode [discussion_board_log_in_out] "
+"in Ihre Seitenleiste oder einen anderen Widget-Bereich Ihrer Wahl ein. Das "
+"Plugin zeigt auch automatisch einen Abmeldelink unter dem Formular für neue "
+"Themen an."
+
+#: templates/admin/getting-started.php:79
+#, fuzzy
+msgid ""
+"You can change the settings by clicking on the Settings link in the "
+"Discussion Board menu. There is more information on the links below:"
+msgstr ""
+"Sie können die Einstellungen ändern, indem Sie im Menü des Diskussionsforums "
+"auf den Link Einstellungen klicken. Weitere Informationen finden Sie unter "
+"den folgenden Links:"
+
+#: templates/admin/getting-started.php:84
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
+
+#: templates/admin/getting-started.php:86
+msgid "Design settings"
+msgstr "Design-Einstellungen"
+
+#: templates/admin/getting-started.php:88
+msgid "User settings"
+msgstr "Benutzereinstellungen"
+
+#: templates/admin/getting-started.php:94
+msgid "Further links"
+msgstr "Weitere Links"
+
+#: templates/admin/getting-started.php:95
+#, fuzzy
+msgid ""
+"If you have any questions, please ask them via the support forum. If you "
+"find this plugin useful, please leave it a 5 star review - links below:"
+msgstr ""
+"Wenn Sie Fragen haben, stellen Sie diese bitte über das Support-Forum. Wenn "
+"Sie dieses Plugin nützlich finden, lassen Sie es bitte eine 5-Sterne-"
+"Bewertung - Links unten:"
+
+#: templates/admin/getting-started.php:100
+msgid "Support forum"
+msgstr "Supportforum"
+
+#: templates/archive-discussion-topics.php:36
+#, php-format
+msgid "Continue reading %s"
+msgstr "Weiterlesen %s"
+
+#: templates/archive-discussion-topics.php:43
+msgid "Leave a comment"
+msgstr "Hinterlasse einen Kommentar"
+
+#: templates/archive-discussion-topics.php:43
+msgid "1 Comment"
+msgstr "1 Kommentar"
+
+#: templates/archive-discussion-topics.php:43
+msgid "% Comments"
+msgstr "% Kommentare"
+
+#: templates/archive-discussion-topics.php:55
+msgid "Previous page"
+msgstr "Vorherige Seite"
+
+#: templates/archive-discussion-topics.php:56
+msgid "Next page"
+msgstr "Nächste Seite"
+
+#: templates/archive-discussion-topics.php:57
+msgid "Page"
+msgstr "Seite"
+
+#: templates/archive-discussion-topics.php:70
+msgid "There were no topics found."
+msgstr "Es wurden keine Themen gefunden."
+
+#: templates/comments-classic-forum.php:44
+msgid "Comments are closed."
+msgstr "Kommentare sind geschlossen."
+
+#: templates/single-discussion-topics.php:39
+msgid "Next"
+msgstr "Weiter"
+
+#: templates/single-discussion-topics.php:40
+msgid "Next topic:"
+msgstr "Nächstes Thema:"
+
+#: templates/single-discussion-topics.php:42
+msgid "Previous"
+msgstr "Zurück"
+
+#: templates/single-discussion-topics.php:43
+msgid "Previous topic:"
+msgstr "Vorheriges Thema:"
