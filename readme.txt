@@ -1,11 +1,11 @@
 === Discussion Board - WordPress Forum Plugin ===
-Contributors: MattGeri, Catapult_Themes, jf_bertrand
+Contributors: marketingfire, MattGeri 
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 6.0
+Tested up to: 6.0.2
 Requires PHP: 5.2.4
-Stable tag: 2.4.5
+Stable tag: 2.4.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -174,8 +174,17 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 
 1. Discussion Board list of topics (includes some Pro features)
 2. Example topic with replies (includes some Pro features)
+3. Login / Registration page
+4. Discussion Board list of topics with latest topics sidebars
+5. Archive layout of Discussion Board list 
+6. Classic Forum layout of Discussion Board list 
+7. Table layout of Discussion Board list 
 
 == Changelog ==
+
+= 2.4.6, September 20, 2022 =
+* Added: Screenshots to details page
+* Update: List of Contributors & Developers
 
 = 2.4.5, June 08, 2022 =
 * Fixed: Bug where login page was sometimes not being redirect to from WP-Admin
