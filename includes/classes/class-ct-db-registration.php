@@ -43,6 +43,7 @@ if ( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's a
 
 			add_shortcode( 'discussion_board_login_form', array( $this, 'return_login_registration_form' ), 10, 2 );
 			add_shortcode( 'discussion_board_login_only', array( $this, 'return_login_form_only' ), 10, 2 );
+			add_shortcode( 'discussion_board_registration_only', array( $this, 'return_registration_form_only' ), 10, 2 );
 
 		}
 
@@ -167,8 +168,60 @@ if ( ! class_exists( 'CT_DB_Registration' ) ) { // Don't initialise if there's a
 				}
 				$message .= __( 'Log in', 'wp-discussion-board' ) . '</h3></div>';
 
+				// Fake page to show form
+				$_POST['ctdb_page'] = 'login';
+
 				// Get the forms HTML
 				$message .= $this->display_login_form();
+
+			} else {
+
+				$message = do_shortcode( $content );
+
+			}
+
+			return $message;
+
+		}
+
+		/**
+		 * Return log-in form markup
+		 * @since 1.3.1
+		 */
+		public function return_registration_form_only( $atts, $content = '' ) {
+
+			$successful_registration = false;
+			if ( ! empty( $_POST['ctdb_user_email'] ) ) {
+				$user_email = sanitize_email( wp_unslash( $_POST['ctdb_user_email'] ) );
+				$user       = get_user_by( 'email', $user_email );
+				if ( $user ) {
+					$successful_registration = true;
+				}
+			}
+
+			if ( ! is_user_logged_in() ) {
+
+				$message = '';
+				$class   = '';
+
+				// Check if styles are enqueued
+				$options = get_option( 'ctdb_design_settings' );
+
+				// Use icons?
+				$show_icons = ctdb_use_icons();
+
+				// Registration tab
+				$message .= '<div class="ctdb-header active-header" data-form-id="ctdb-registration-wrap"><h3 class="ctdb-h3">';
+				if ( $show_icons ) {
+					$message .= '<span class="dashicons dashicons-edit"></span>';
+				}
+				$message .= __( 'Register', 'wp-discussion-board' ) . '</h3></div>';
+
+				// Fake page to show form
+				$_POST['ctdb_page'] = 'register';
+
+				// Get the forms HTML
+				$message .= $this->display_registration_form();
 
 			} else {
 

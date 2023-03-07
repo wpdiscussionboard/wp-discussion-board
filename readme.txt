@@ -3,9 +3,9 @@ Contributors: marketingfire, MattGeri
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 6.0.2
+Tested up to: 6.1.1
 Requires PHP: 5.2.4
-Stable tag: 2.4.6
+Stable tag: 2.4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,11 +13,15 @@ Discussion Board is an easy way to add a WordPress forum to your site.
 
 == Description ==
 
-Discussion Board is an easy way to add a forum to your WordPress site. It has a one-click installation and stacks of essential features that make it the leading WordPress forum plugin. In brief:
+Discussion Board is an easy way to add a forum to your WordPress site. It has a one-click installation and stacks of <a href="https://wpdiscussionboard.com/features/">essential features</a> that make it the leading WordPress forum plugin. In brief:
 
 * Users can register and log in via a front-end form
 * Users post new forum topics via a simple form
 * Each forum topic is displayed on its own page where other users can reply
+
+= WordPress forum plugin demo =
+
+Test out a [live demo version of our forum plugin here](https://wpdiscussionboard.com "Discussion Board Demo"). Note that this demo includes some features only available with the Pro version. Feel free to register and post some sample content.
 
 = One-click installation =
 
@@ -63,6 +67,7 @@ Discussion Board has a number of shortcodes. Some of these are installed automat
 [discussion_topics] - displays a list of all topics (automatically installed)
 [discussion_board_login_form] – displays a log-in and registration form for new users (automatically installed)
 [discussion_board_login_only] – displays a log-in form without a registration form
+[discussion_board_registration_only] – displays a registration form without a log-in form
 [discussion_board_log_in_out] – displays a log-in / log-out link
 [is_logged_in] - use this shortcode to display content only to users who are logged in
 [not_logged_in] - display content only to users who are not logged in
@@ -84,9 +89,6 @@ You can use this plugin to create any type of forum that you like. Typically, th
 * Bulletin boards
 * Job boards
 
-= WordPress forum plugin demo =
-
-There's [a Discussion Board demo here](https://wpdiscussionboard.com "Discussion Board Demo"). Note that this demo includes some features only available with the Pro version. Feel free to register and post some sample content.
 
 = WordPress forum theme =
 
@@ -182,9 +184,13 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 
 == Changelog ==
 
+= 2.4.7, March 07, 2023 =
+* Added: [discussion_board_registration_only] Register only tab shortcode
+* Updated: Plugin Description page 
+
 = 2.4.6, September 20, 2022 =
 * Added: Screenshots to details page
-* Update: List of Contributors & Developers
+* Updated: List of Contributors & Developers
 
 = 2.4.5, June 08, 2022 =
 * Fixed: Bug where login page was sometimes not being redirect to from WP-Admin
