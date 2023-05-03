@@ -1223,10 +1223,10 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 			$post_id = get_the_ID();
 			
 			$new_content = '';
-			if( $categories_enabled ) {
+			if( $categories_enabled && taxonomy_exists('topic-category') ) {
 				$new_content .= get_the_term_list( $post_id, 'topic-category', '<div class="ctdb-span-3 ctdb-border-left">' . $heading_cat, ',&nbsp;', '</div>' );
 			}
-			if( $tags_enabled ) {
+			if( $tags_enabled && taxonomy_exists('topic-tag') ) {
 				$new_content .= get_the_term_list( $post_id, 'topic-tag', '<div class="ctdb-span-3 ctdb-border-left">' . $heading_tag, ',&nbsp;', '</div>' );
 			}
 
