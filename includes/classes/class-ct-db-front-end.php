@@ -39,6 +39,7 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 			add_filter( 'comment_form_defaults', array( $this, 'remove_comment_form_defaults' ) );
 			add_filter( 'comment_form_default_fields', array( $this, 'remove_comment_form_fields' ) );
 			add_filter( 'comment_reply_link', array( $this, 'custom_reply_link' ) );
+			add_filter( 'ctdb_filter_archive_content_end', array( $this, 'display_categories_standard_layout' ), 30 );
 
 			add_shortcode( 'discussion_board_form', array( $this, 'display_new_topic_form' ) );
 			add_shortcode( 'discussion_topics', array( $this, 'display_all_topics' ), 10, 2 );
@@ -930,8 +931,12 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 						if( $show_icons ) $output .= '<span class="dashicons dashicons-calendar-alt"></span>';
 						$output .= get_the_date();
 					$output .= '</div><!-- .ctdb-span-3 -->';
+					// Check to see if the information bar is included
+					$output .= apply_filters( 'ctdb_filter_archive_content_end', ' ' );
 				$output .= '</div><!-- .ctdb-info-bar-row -->';
 			$output .= '</div><!-- .ctdb-information-bar -->';
+
+			
 
 			return $output;
 
@@ -1169,6 +1174,63 @@ if( ! class_exists( 'CT_DB_Front_End' ) ) {
 
 			return $output;
 
+		}
+	
+		/*
+		 * Display categories in standard layout on single.php
+		 * @since 1.1.0
+		*/
+		public function display_categories_standard_layout( $content = '' ) {
+			/*
+			 * Check the layout.
+			 * Only display categories here if the layout is standard
+			 * @since 1.2.0
+			 */
+			
+			$design_options = get_option( 'ctdb_design_settings' );
+			if( ( is_single() && isset( $design_options['info_bar_layout'] ) && $design_options['info_bar_layout'] != 'standard' ) ||
+				( is_archive() && isset( $design_options['archive_layout'] ) && $design_options['archive_layout'] != 'standard' )
+			 ) {
+				return $content;
+			}
+
+			$categories_enabled = true;
+			$tags_enabled = true;
+			$show_icons = ctdb_use_icons();
+			$options = get_option( 'ctdb_categories_settings' );
+			if( ! isset( $options['allow_categories'] ) ) {
+				$categories_enabled = false;
+			}
+			if( ! isset( $options['allow_tags'] ) ) {
+				$tags_enabled = false;
+			}
+
+			// Categories position
+			$options = get_option( 'ctdb_categories_settings' );
+			$position = $options['categories_position'];
+			if( $position == 'hide' ) {
+				return $content;
+			}
+			
+			// Use icons?
+			if( $show_icons ) {
+				$heading_cat = '<span class="dashicons dashicons-category"></span>';
+				$heading_tag = '<span class="dashicons dashicons-tag"></span>';
+			} else {
+				$heading_cat = __( 'Categorized: ', 'discussion-board-pro' );
+				$heading_tag = __( 'Tagged: ', 'discussion-board-pro' );
+			}
+			$post_id = get_the_ID();
+			
+			$new_content = '';
+			if( $categories_enabled ) {
+				$new_content .= get_the_term_list( $post_id, 'topic-category', '<div class="ctdb-span-3 ctdb-border-left">' . $heading_cat, ',&nbsp;', '</div>' );
+			}
+			if( $tags_enabled ) {
+				$new_content .= get_the_term_list( $post_id, 'topic-tag', '<div class="ctdb-span-3 ctdb-border-left">' . $heading_tag, ',&nbsp;', '</div>' );
+			}
+
+			return $new_content;
 		}
 
 		public function use_icons() {

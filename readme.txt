@@ -3,9 +3,9 @@ Contributors: marketingfire, MattGeri
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 6.1.1
+Tested up to: 6.2
 Requires PHP: 5.2.4
-Stable tag: 2.4.7
+Stable tag: 2.4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -184,9 +184,15 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 
 == Changelog ==
 
+= 2.4.8, May 03, 2023 =
+* Improve: Compatibility PHP 8
+* Improve: Compatibility with WP 6.2
+* Improve: Profile and boards archive pages
+* Updated: Topic's archive that supports PRO version to display category and tags
+
 = 2.4.7, March 07, 2023 =
 * Added: [discussion_board_registration_only] Register only tab shortcode
-* Updated: Plugin Description page 
+* Updated: Plugin's Description 
 
 = 2.4.6, September 20, 2022 =
 * Added: Screenshots to details page
