@@ -5,7 +5,7 @@ Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wo
 Requires at least: 4.3
 Tested up to: 6.2
 Requires PHP: 5.2.4
-Stable tag: 2.4.8
+Stable tag: 2.4.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,10 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 7. Table layout of Discussion Board list 
 
 == Changelog ==
+
+= 2.4.9, July 25, 2023 =
+* Improve: Tags and odes sanitization
+* Improve: Security
 
 = 2.4.8, May 03, 2023 =
 * Improve: Compatibility PHP 8
