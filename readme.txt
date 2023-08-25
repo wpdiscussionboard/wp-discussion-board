@@ -3,9 +3,9 @@ Contributors: marketingfire, MattGeri
 Donate Link: https://wpdiscussionboard.com
 Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
 Requires at least: 4.3
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 5.2.4
-Stable tag: 2.4.9
+Stable tag: 2.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -184,14 +184,17 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 
 == Changelog ==
 
+= 2.5.0, Augus 25, 2023 =
+* Fixed: Upload media not displaying on front-end
+* Improved: Tags and odes sanitization
+
 = 2.4.9, July 25, 2023 =
-* Improve: Tags and odes sanitization
-* Improve: Security
+* Improved: Tags and odes sanitization
+* Improved: Security
 
 = 2.4.8, May 03, 2023 =
-* Improve: Compatibility PHP 8
-* Improve: Compatibility with WP 6.2
-* Improve: Profile and boards archive pages
+* Improved: Compatibility with WP 6.2
+* Improved: Profile and boards archive pages
 * Updated: Topic's archive that supports PRO version to display category and tags
 
 = 2.4.7, March 07, 2023 =

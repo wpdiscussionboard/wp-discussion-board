@@ -171,11 +171,12 @@ if (!class_exists('CT_DB_Front_End')) {
 						$status = 'draft';
 					}
 
-					$allowed_tags = "<div>,<p>,<span>,<strong>,<b>,<i>,<sup>,<sub>,<u>,<ul>,<ol>,<li>,<table>,<tr>,<td>,<th>,<tbody>,<thead>,<h1>,<h2>,<h3>,<h4>,<h5>,<h6>,<hr>,<br>,<code>";
+					$allowed_tags = wp_kses_allowed_html('post');
+					unset($allowed_tags['a']);
 
 					$post_args = array(
 						'post_title'		=> wp_strip_all_tags($_POST['topic_title']),
-						'post_content'		=> strip_shortcodes(sanitize_textarea_field(strip_tags($_POST['topic_content'], $allowed_tags))), //strip_shortcodes(wp_kses_post($_POST['topic_content'])),
+						'post_content'		=> strip_shortcodes(wp_kses($_POST['topic_content'], $allowed_tags)), //strip_shortcodes(sanitize_textarea_field(strip_tags($_POST['topic_content'], $allowed_tags))),
 						'post_status'		=> $status,
 						'post_type' 		=> 'discussion-topics',
 						'comment_status'	=> 'open', // Forces the comment status to open - otherwise no one can reply
