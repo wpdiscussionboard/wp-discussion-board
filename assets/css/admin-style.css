@@ -1,77 +1,84 @@
 .ctdb-outer-wrap {
-	margin-right: 300px;
-	padding: 0;
+  margin-right: 300px;
+  padding: 0;
 }
 .ctdb-inner-wrap {
-	position: relative;
-	width: 100%;
-	min-width: 463px;
-	float: left;
+  position: relative;
+  width: 100%;
+  min-width: 463px;
+  float: left;
 }
 .ctdb-banners {
-	float: right;
-	margin-right: -300px;
-	width: 280px;
+  float: right;
+  margin-right: -300px;
+  width: 280px;
 }
 .ctdb-banners img {
-	max-width: 100%;
+  max-width: 100%;
 }
 .ctdb-banner {
-	margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 @media only screen and (max-width: 850px) {
-	.ctdb-outer-wrap {
-		margin-right: 0;
-	}
-	.ctdb-inner-wrap {
-		position: relative;
-		width: 100%;
-		min-width: 0;
-		float: none;
-	}
-	.ctdb-banners {
-		float: none;
-		margin-right: 0;
-		width: 100%;
-	}
-	.ctdb-banner {
-		float: left;
-		margin-right: 20px;
-	}
+  .ctdb-outer-wrap {
+    margin-right: 0;
+  }
+  .ctdb-inner-wrap {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    float: none;
+  }
+  .ctdb-banners {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+  .ctdb-banner {
+    float: left;
+    margin-right: 20px;
+  }
 }
 
 .ctdb-about-section {
-	padding-bottom: 1em;
-	border-bottom: 1px solid #ddd;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ddd;
 }
 .ctdb-about-section.cta {
-	background-color: #fff;
-	border: 1px solid #ddd;
-	padding: 1.25em 1.25em 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1.25em 1.25em 0;
 }
 .ctdb-about-section.cta h3 {
-	margin-top: 0;
+  margin-top: 0;
 }
 .ctdb-about-section.cta small {
-	color: #666;
+  color: #666;
 }
 h3.ctdb-about {
-	font-size: 1.8em;
-	font-weight: normal;
-	opacity: 0.6;
+  font-size: 1.8em;
+  font-weight: normal;
+  opacity: 0.6;
 }
 .ctdb-about-section ul li a {
-	text-decoration: none;
+  text-decoration: none;
 }
 .ctdb-about-section ul li a:after {
-	font-family: dashicons;
-	content: "\f504";
-	margin-left: 4px;
+  font-family: dashicons;
+  content: "\f504";
+  margin-left: 4px;
 }
 .ctdb-update-message p:before {
-	content: '';
-	display: none;
+  content: "";
+  display: none;
 }
 .update-message p:empty {
-	display: none;
+  display: none;
+}
+
+.ctdb-sidebar h3.hndle {
+  font-size: 14px;
+  padding: 8px 12px;
+  margin: 0;
+  line-height: 1.4;
 }
