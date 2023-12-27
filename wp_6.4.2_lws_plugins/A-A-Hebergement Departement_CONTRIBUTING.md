@@ -1,4 +1,4 @@
-# Contributing to WP Discussion Board
+# Contributing to WP Discussion Board Team hosting-wp_6.4.2_LWS-plugins_A-A-Hebergement-Departement
 
 Thank you for contributing to the WP Discussion Board plugin! This short guide details the procedures and workflows for development and ongoing support of our plugin.
 
