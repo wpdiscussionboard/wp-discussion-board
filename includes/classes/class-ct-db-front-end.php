@@ -43,6 +43,7 @@ if (!class_exists('CT_DB_Front_End')) {
 			add_filter('comment_form_default_fields', array($this, 'remove_comment_form_fields'));
 			add_filter('comment_reply_link', array($this, 'custom_reply_link'));
 			add_filter('ctdb_filter_archive_content_end', array($this, 'display_categories_standard_layout'), 30);
+			add_filter('ctdb_topics_form_before_submit', array($this, 'check_and_add_recaptcha'), 20, 1);
 
 			add_shortcode('discussion_board_form', array($this, 'display_new_topic_form'));
 			add_shortcode('discussion_topics', array($this, 'display_all_topics'), 10, 2);
@@ -105,6 +106,31 @@ if (!class_exists('CT_DB_Front_End')) {
 				if (!wp_verify_nonce($_POST['new_topic'], 'display_new_topic_form')) {
 					return;
 				}
+
+				//before we check from third party filter for recaptcha
+				if (isset($_POST['g-recaptcha-response'])) {
+					if (empty($_POST['g-recaptcha-response'])) {
+						$output = '<div class="ctdb-errors">';
+						$output .= '<ul>';
+						$output .= '<li>Your new topic post failed the reCaptcha check.</li>';
+						$output .= '</ul></div>';
+						$output .= $this->new_topic_form_content();
+						return $output;
+					}
+
+					$is_valid = apply_filters('discussion_board_validate_recaptcha', true, $_POST['g-recaptcha-response']);
+					if (!$is_valid) {
+						// reCaptcha failed
+						// Maybe write a kind note here?
+						$output = '<div class="ctdb-errors">';
+						$output .= '<ul>';
+						$output .= '<li>Your new topic post failed the reCaptcha check.</li>';
+						$output .= '</ul></div>';
+						$output .= $this->new_topic_form_content();
+						return $output;
+					}
+				}
+
 				// Prevent duplication
 				$args = array(
 					'post_type'				=> 'discussion-topics',
@@ -208,7 +234,8 @@ if (!class_exists('CT_DB_Front_End')) {
 							$url = get_permalink($my_post_id);
 							$output .= '<a href="' . esc_url($url) . '">' . $url . '</a></p>';
 						} else {
-							$output .= '<p>' . wp_strip_all_tags($_POST['topic_title']) . __(' is awaiting moderation', 'wp-discussion-board') . '</p>';
+							$message = isset($options) && isset($options['new_topic_message_after_submission']) && !empty($options['new_topic_message_after_submission']) ? $options['new_topic_message_after_submission'] : 'Your topic has been received and is currently under review. We appreciate your contribution!';
+							$output .= '<p>' . __(sanitize_text_field($message), 'wp-discussion-board') . '</p>';
 						}
 					}
 				}
@@ -310,11 +337,16 @@ if (!class_exists('CT_DB_Front_End')) {
 					$form_output .= $field;
 				}
 			}
+
+			if (isset($form['recaptcha'])) {
+				$form_output .= $form['recaptcha'];
+			}
+
 			$form_output .= $form['submit'];
 			$form_output .= $form['insert_post'];
 			$form_output .= $form['nonce'];
 			$form_output .= $form['close'];
-			$form_output .= $form['logout'];
+			//$form_output .= $form['logout'];
 			return $form_output;
 		}
 
@@ -1246,6 +1278,7 @@ if (!class_exists('CT_DB_Front_End')) {
 			$options = get_option('ctdb_design_settings');
 			$limit = !empty($options['number_words']) ? intval($options['number_words']) : 0;
 			$content = explode(' ', strip_tags(get_the_content()), $limit);
+			$content_length = count($content);
 			if (count($content) >= $limit) {
 				array_pop($content);
 				$content = implode(" ", $content) . '...';
@@ -1253,7 +1286,53 @@ if (!class_exists('CT_DB_Front_End')) {
 				$content = implode(" ", $content);
 			}
 
+			if (is_plugin_active('elementor/elementor.php')) {
+				$content = explode('/*!', $content);
+				if (count($content) > 1 && $content_length >= $limit) {
+					$content = $content[0] . '...';
+				} else {
+					$content = implode(" ", $content);
+				}
+			}
+
 			return $content;
+		}
+
+		public function check_and_add_recaptcha($form)
+		{
+			$CT_DB_Registration = new CT_DB_Registration();
+			$recaptcha = $CT_DB_Registration->check_recaptcha();
+
+			if ($recaptcha['add_recaptcha'] === true) {
+				$form['recaptcha'] = '';
+				if ($recaptcha['type'] !== 'invisible') {
+					$form['recaptcha'] .= '<div id="ctdb_post_topic_submit" class="g-recaptcha" data-sitekey="' . $recaptcha['sitekey'] . '"></div><br />';
+				}
+
+				$form['recaptcha'] .= '<script src="https://www.google.com/recaptcha/api.js?onload=ctdb_render_recaptcha&render=explicit"></script>';
+				$form['recaptcha'] .= '<script>';
+				$form['recaptcha'] .= 'function ctdb_recaptcha_cb(token) {
+						document.getElementById("ctdb_login_form").submit();
+					}';
+
+				$form['recaptcha'] .= 'function ctdb_render_recaptcha() {';
+				if ($recaptcha['type'] === 'invisible') {
+					$form['recaptcha'] .= 'window.ctdblogwidgetid = grecaptcha.render("submit_topic", {
+								sitekey: "' . $recaptcha['sitekey'] . '",
+								callback: ctdb_recaptcha_cb,
+								action: "submit"
+							});';
+				} else {
+					$form['recaptcha'] .= 'window.ctdblogwidgetid = grecaptcha.render("ctdb_post_topic_submit", {
+								sitekey: "' . $recaptcha['sitekey'] . '",
+								action: "submit"
+							});';
+				}
+				$form['recaptcha'] .= '}
+				</script>';
+			}
+
+			return $form;
 		}
 	}
 }

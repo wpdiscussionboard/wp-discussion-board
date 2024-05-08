@@ -16,6 +16,8 @@ if (!defined('ABSPATH')) {
  */
 function wpdbd_flush_rewrites()
 {
+	global $wp_version;
+
 	// Ensure post type is registered
 	wpdbd_register_post_type();
 
@@ -27,8 +29,33 @@ function wpdbd_flush_rewrites()
 
 	if (empty(get_option('ctdb_install_date', '')))
 		update_option('ctdb_install_date', wp_date('Y-m-d h:i:s'));
+
+	$is_6_4_and_above = version_compare($wp_version, '6.4', '>=');
+	if ($is_6_4_and_above) {
+		wp_set_options_autoload(
+			array('ctdb_options_settings', 'ctdb_design_settings', 'ctdb_user_settings', 'ctdb_categories_settings'),
+			'yes'
+		);
+	}
 }
 register_activation_hook(WPDBD_PLUGIN_FILE, 'wpdbd_flush_rewrites');
+
+/**
+ * Remove the auto load options
+ */
+function wpdbd_deactivate()
+{
+	global $wp_version;
+
+	$is_6_4_and_above = version_compare($wp_version, '6.4', '>=');
+	if ($is_6_4_and_above) {
+		wp_set_options_autoload(
+			array('ctdb_options_settings', 'ctdb_design_settings', 'ctdb_user_settings', 'ctdb_categories_settings'),
+			'no'
+		);
+	}
+}
+register_deactivation_hook(WPDBD_PLUGIN_FILE, 'wpdbd_deactivate');
 
 /**
  * Register the discussion-topic post type and taxonomy.

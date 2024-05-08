@@ -1,11 +1,10 @@
 === Discussion Board - WordPress Forum Plugin ===
-Contributors: marketingfire, MattGeri 
-Donate Link: https://wpdiscussionboard.com
-Tags: wordpress forum plugin, wordpress forum, forum wordpress, forum plugin, wordpress forum plugin free
+Contributors: marketingfire
+Tags: wordpress forum, forum plugin, discussion board, community, support forum
 Requires at least: 4.3
-Tested up to: 6.3.1
-Requires PHP: 5.2.4
-Stable tag: 2.5.1
+Tested up to: 6.5.3
+Requires PHP: 7.4
+Stable tag: 2.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -184,9 +183,16 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 
 == Changelog ==
 
+= 2.5.2, March 22, 2024 =
+* Added: new textarea field in the General Tab, allowing users to input custom messages to display post-topic submission
+* Improved: Compatibility with WP 6.5 and PHP v8+
+* Improved: Improvements to the metadata API
+* Improved: Registering scripts with async and defer attributes
+* Improved: Caching for Database Queries in WP_User_Query
+
 = 2.5.1, September 07, 2023 =
-* Improved: Compatibility with PHP 8 and up.
-* Improved: Compatibility with WP 6.2
+* Improved: Compatibility with PHP 8 and up
+* Improved: Compatibility with WP 6.3 and up
 
 = 2.5.0, August 25, 2023 =
 * Fixed: Upload media not displaying on front-end
