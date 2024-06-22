@@ -100,6 +100,24 @@ if ( ! class_exists( 'WPDiscussionBoard\Admin\Admin_License' ) ) {
 						)
 					);
 
+
+					// BREVO
+					if ( !empty( $_POST['wo_free_license_subscribe'] ) ) {
+						$fl = wp_remote_post(
+							'https://wpdiscussionboard.com/wp-admin/admin-ajax.php',
+							array(
+								'body'    =>
+									array(
+										'action' => 'wpdb_free_license',
+										'email_address' => $email,
+										'fname'    => $first_name,
+										'lname'     => $last_name,
+										'url'           => $url,
+									)
+							)
+						);
+					}
+
 					if ( ! is_wp_error( $request ) ) {
 						$license = json_decode( $request['body'] );
 

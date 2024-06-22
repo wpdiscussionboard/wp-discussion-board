@@ -2,9 +2,9 @@
 Contributors: marketingfire
 Tags: wordpress forum, forum plugin, discussion board, community, support forum
 Requires at least: 4.3
-Tested up to: 6.5.3
+Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 2.5.2
+Stable tag: 2.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,7 +183,11 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 
 == Changelog ==
 
-= 2.5.2, March 22, 2024 =
+= 2.5.3, June 22, 2024 =
+* Added: new text field to add an Archive Description
+* Improved: display the archive title and archive description on the archive page
+
+= 2.5.2, May 08, 2024 =
 * Added: new textarea field in the General Tab, allowing users to input custom messages to display post-topic submission
 * Improved: Compatibility with WP 6.5 and PHP v8+
 * Improved: Improvements to the metadata API

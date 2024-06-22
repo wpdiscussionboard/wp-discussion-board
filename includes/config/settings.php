@@ -84,6 +84,14 @@ if (!function_exists('wpdbd_general_page_settings')) {
 				'page'        => 'ctdb_options',
 				'section'     => 'ctdb_options_settings',
 			),
+			'archive_description'             => array(
+				'id'          => 'archive_description',
+				'label'       => __('Archive description', 'wp-discussion-board'),
+				'description' => __('You can enter an alternative archive description here if you wish.', 'wp-discussion-board'),
+				'callback'    => 'text_callback',
+				'page'        => 'ctdb_options',
+				'section'     => 'ctdb_options_settings',
+			),
 			'new_topic_message'         => array(
 				'id'          => 'new_topic_message',
 				'label'       => __('New topic message', 'wp-discussion-board'),

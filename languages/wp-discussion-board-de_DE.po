@@ -1222,8 +1222,8 @@ msgstr "E-Mail Adresse"
 #: templates/admin/free-license-form.php:18
 #, fuzzy
 msgid ""
-"Your email is secure with us! We will only spend you a single email with "
-"helpful resources to get you started."
+"Your email is secure with us! We will send you email with "
+"helpful resources and tips to get you started using Discussion Board."
 msgstr ""
 "Ihre E-Mail ist bei uns sicher! Wir senden Ihnen nur eine einzige E-Mail mit "
 "hilfreichen Informationen, die Ihnen den Einstieg erleichtern."

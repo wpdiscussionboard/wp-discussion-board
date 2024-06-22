@@ -1215,8 +1215,8 @@ msgstr ""
 
 #: templates/admin/free-license-form.php:18
 msgid ""
-"Your email is secure with us! We will only spend you a single email with "
-"helpful resources to get you started."
+"Your email is secure with us! We will send you email with "
+"helpful resources and tips to get you started using Discussion Board."
 msgstr ""
 
 #: templates/admin/getting-started.php:19
