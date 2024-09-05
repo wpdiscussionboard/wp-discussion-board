@@ -2,13 +2,13 @@
 Contributors: marketingfire
 Tags: wordpress forum, forum plugin, discussion board, community, support forum
 Requires at least: 4.3
-Tested up to: 6.5
+Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 2.5.3
+Stable tag: 2.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Discussion Board is an easy way to add a WordPress forum to your site.
+Discussion Board is a simple, effective way to add a forum or discussion board to your site, helping you build and engage an active community.
 
 == Description ==
 
@@ -182,6 +182,9 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 7. Table layout of Discussion Board list 
 
 == Changelog ==
+
+= 2.5.4, September 05, 2024 =
+*Fixed: Shortcode [discussion_topics] and [discussion_board board=#] conflict with Divi Theme
 
 = 2.5.3, June 22, 2024 =
 * Added: new text field to add an Archive Description

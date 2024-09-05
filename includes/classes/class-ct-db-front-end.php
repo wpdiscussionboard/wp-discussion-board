@@ -415,6 +415,21 @@ if (!class_exists('CT_DB_Front_End')) {
 
 			$comment_text = $wp_embed->autoembed($comment_text);
 
+			// Replace line breaks within HTML tags with placeholders
+			$comment_text = wp_replace_in_html_tags($comment_text, array("\n" => '<!-- wp-line-break -->'));
+
+			// Handle <span> tags with URLs using custom processing if needed
+			if (preg_match('#<span([^>]*)>(https?://[^\s<>"]+)<\/span>#i', $comment_text)) {
+				$comment_text = preg_replace_callback('|<span([^>]*)>(https?://[^\s<>"]+)<\/span>|i', array($this, 'autoembed_span_url_callback'), $comment_text);
+			}
+
+			if (has_shortcode($comment_text, 'embed')) {
+				$comment_text = $GLOBALS['wp_embed']->run_shortcode($comment_text);
+			}
+
+			// Restore line breaks within HTML tags
+			$comment_text = str_replace('<!-- wp-line-break -->', "\n", $comment_text);
+
 			// But don't break your posts if you use it.
 			remove_filter('embed_oembed_discover', '__return_false', 999);
 
@@ -1286,7 +1301,7 @@ if (!class_exists('CT_DB_Front_End')) {
 				$content = implode(" ", $content);
 			}
 
-			if (is_plugin_active('elementor/elementor.php')) {
+			if (defined('ELEMENTOR_PATH') && (class_exists('Elementor\Plugin') || defined('ELEMENTOR_PRO_PATH'))) {
 				$content = explode('/*!', $content);
 				if (count($content) > 1 && $content_length >= $limit) {
 					$content = $content[0] . '...';
@@ -1333,6 +1348,21 @@ if (!class_exists('CT_DB_Front_End')) {
 			}
 
 			return $form;
+		}
+
+		// Callback function for handling <span> tags with URLs
+		public function autoembed_span_url_callback($matches)
+		{
+			global $wp_embed;
+			// $matches[0] contains the entire matched <span> tag with URL
+			// $matches[1] contains any attributes within the <span> tag (if needed)
+			// $matches[2] contains the URL
+
+			// Sanitize and embed the URL using WordPress's autoembed function
+			$embed_code = $wp_embed->autoembed(esc_url($matches[2]));
+
+			// Escape output to prevent XSS vulnerabilities
+			return $embed_code;
 		}
 	}
 }
