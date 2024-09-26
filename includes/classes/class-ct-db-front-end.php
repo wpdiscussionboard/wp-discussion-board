@@ -1257,7 +1257,7 @@ if (!class_exists('CT_DB_Front_End')) {
 
 			// Categories position
 			$options = get_option('ctdb_categories_settings');
-			$position = $options['categories_position'];
+			$position = is_array($options) && isset($options['categories_position']) ? $options['categories_position'] : '';
 			if ($position == 'hide') {
 				return $content;
 			}

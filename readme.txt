@@ -4,7 +4,7 @@ Tags: wordpress forum, forum plugin, discussion board, community, support forum
 Requires at least: 4.3
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 2.5.4
+Stable tag: 2.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -182,6 +182,10 @@ Be careful if you are copying and pasting the shortcodes - you might need to del
 7. Table layout of Discussion Board list 
 
 == Changelog ==
+
+= 2.5.5, September 26, 2024 =
+*Fixed: Issue retrieving category options in the settings panel
+*Fixed: Conflict with other post types when replying to comments
 
 = 2.5.4, September 05, 2024 =
 *Fixed: Shortcode [discussion_topics] and [discussion_board board=#] conflict with Divi Theme

@@ -18,5 +18,5 @@ if ( ! defined( 'WPDBD_PLUGIN_DIR' ) ) {
 }
 
 if ( ! defined( 'WPDBD_PLUGIN_VERSION' ) ) {
-	define( 'WPDBD_PLUGIN_VERSION', '2.5.4' );
+	define( 'WPDBD_PLUGIN_VERSION', '2.5.5' );
 }
