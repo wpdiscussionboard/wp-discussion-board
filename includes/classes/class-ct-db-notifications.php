@@ -115,17 +115,23 @@ if( ! class_exists( 'CT_DB_Notifications' ) ) {
 			check_ajax_referer( 'optout_update_nonce', 'security' );
 			$return = 'fail';
 			if ( ! empty( $_REQUEST['postid'] ) ) {
+				$author_id = get_post_field('post_author', $_REQUEST['postid']);
+				$author_id = absint($author_id);
+				$current_user = absint(get_current_user_id());
 
-				$postid = absint( $_REQUEST['postid'] );
-				$checked = stripslashes( strip_tags( $_REQUEST['checked'] ) );
+				// Make sure only author has permission to opt out
+				if ( $author_id == $current_user ) {
+					$postid = absint( $_REQUEST['postid'] );
+					$checked = stripslashes( strip_tags( $_REQUEST['checked'] ) );
 
-				// We need to update the post meta field
-				if( $checked == 'true' ) {
-					$return = 'ok';
-					update_post_meta( $postid, 'ctdb_author_opted_out', $checked );
-				} else {
-					$return = 'delete';
-					delete_post_meta( $postid, 'ctdb_author_opted_out' );
+					// We need to update the post meta field
+					if( $checked == 'true' ) {
+						$return = 'ok';
+						update_post_meta( $postid, 'ctdb_author_opted_out', $checked );
+					} else {
+						$return = 'delete';
+						delete_post_meta( $postid, 'ctdb_author_opted_out' );
+					}
 				}
 
 			}

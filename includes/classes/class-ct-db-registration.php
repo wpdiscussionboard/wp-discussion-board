@@ -393,17 +393,17 @@ if (!class_exists('CT_DB_Registration')) { // Don't initialise if there's alread
 						<br />
 						<input type="submit" value="<?php esc_html_e('Register Your Account', 'wp-discussion-board'); ?>" />
 					<?php } ?>
-					<script src="https://www.google.com/recaptcha/api.js?onload=ctdb_render_recaptcha&render=explicit"></script>
+					<script src="https://www.google.com/recaptcha/api.js?onload=ctdb_render_reg_recaptcha&render=explicit"></script>
 					<script>
 						function ctdb_recaptcha_register_cb(token) {
-							// document.getElementById("ctdb_registration_form").submit();
+							document.getElementById("ctdb_registration_form").submit();
 						}
 
-						function ctdb_render_recaptcha() {
+						function ctdb_render_reg_recaptcha() {
 							let args_log = {
 								sitekey: '<?= $recaptcha['sitekey'] ?>',
 								callback: function(token) {
-									// document.getElementById("ctdb_login_form").submit();
+									document.getElementById("ctdb_login_form").submit();
 								},
 								action: 'submit'
 							};
@@ -415,10 +415,10 @@ if (!class_exists('CT_DB_Registration')) { // Don't initialise if there's alread
 							};
 
 							if (document.getElementById('ctdb_login_submit')) {
-								window.ctdblogwidgetid = grecaptcha.render('ctdb_login_submit', args_reg);
+								window.ctdblogwidgetid = grecaptcha.render('ctdb_login_submit', args_log);
 							}
 
-							window.ctdbregwidgetid = grecaptcha.render('ctdb_registration_form_btn', args_log);
+							window.ctdbregwidgetid = grecaptcha.render('ctdb_registration_form_btn', args_reg);
 
 							<?php if ($class == 'active-section') { ?>
 								document.querySelector('#ctdb_registration_form .grecaptcha-badge').setAttribute('style', `
@@ -431,12 +431,14 @@ if (!class_exists('CT_DB_Registration')) { // Don't initialise if there's alread
 							grecaptcha.reset(widget_id);
 						}
 
-						document.querySelector('.ctdb-header[data-form-id="ctdb-registration-wrap"]').addEventListener('click', function() {
-							ctdb_recaptcha_reset(window.ctdbregwidgetid);
-							document.querySelector('#ctdb_registration_form .grecaptcha-badge').setAttribute('style', `
-							width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;
-							`);
-						});
+						if (document.querySelector('.ctdb-header[data-form-id="ctdb-registration-wrap"]')) {
+							document.querySelector('.ctdb-header[data-form-id="ctdb-registration-wrap"]').addEventListener('click', function() {
+								ctdb_recaptcha_reset(window.ctdbregwidgetid);
+								document.querySelector('#ctdb_registration_form .grecaptcha-badge').setAttribute('style', `
+								width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;
+								`);
+							});
+						}
 
 						if (document.querySelector('.ctdb-header[data-form-id="ctdb-login-wrap"]')) {
 							document.querySelector('.ctdb-header[data-form-id="ctdb-login-wrap"]').addEventListener('click', function() {
@@ -491,17 +493,21 @@ if (!class_exists('CT_DB_Registration')) { // Don't initialise if there's alread
 									for (var i = 0; i < response.length; i++) {
 										if (response[i]['status'] == 'error') {
 											var id = response[i]['id'];
-											$('.' + id).removeClass('valid');
-											$('.' + id).addClass('invalid');
-											$('#' + id + '-response').html('<small> - ' + response[i]['message'] + '</small>');
+											if ( id ) {
+												$('.' + id).removeClass('valid');
+												$('.' + id).addClass('invalid');
+												$('#' + id + '-response').html('<small> - ' + response[i]['message'] + '</small>');
+											}
 										} else if (response[i]['status'] == 'ok') {
 											var id = response[i]['id'];
-											$('.' + id).removeClass('invalid');
-											$('.' + id).addClass('valid');
-											if (response[i]['message']) {
-												$('#' + id + '-response').html('<small> - ' + response[i]['message'] + '</small>');
-											} else {
-												$('#' + id + '-response').html('');
+											if ( id ) {
+												$('.' + id).removeClass('invalid');
+												$('.' + id).addClass('valid');
+												if (response[i]['message']) {
+													$('#' + id + '-response').html('<small> - ' + response[i]['message'] + '</small>');
+												} else {
+													$('#' + id + '-response').html('');
+												}
 											}
 										}
 									}
@@ -1376,27 +1382,34 @@ if (!class_exists('CT_DB_Registration')) { // Don't initialise if there's alread
 
 		public function validate_recaptcha_response($is_valid, $token)
 		{
-			$recaptcha = get_option('ctdb_recaptcha_settings');
+			$recaptcha = $this->check_recaptcha();
+			if ( $recaptcha['add_recaptcha'] ) {
+				$recaptcha = get_option('ctdb_recaptcha_settings');
 
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
-			curl_setopt($ch, CURLOPT_POST, 1);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, ['secret' => $recaptcha['recaptcha_secretkey'], 'response' => $token]);
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
+				curl_setopt($ch, CURLOPT_POST, 1);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, ['secret' => $recaptcha['recaptcha_secretkey'], 'response' => $token]);
 
-			$resp = curl_exec($ch);
-			if (curl_errno($ch) === 0) {
-				$response = json_decode($resp);
-				if ($response->success === true) {
-					$is_valid = true;
+				$resp = curl_exec($ch);
+				if (curl_errno($ch) === 0) {
+					$response = json_decode($resp);
+					if ($response->success === true) {
+						$is_valid = true;
+					} else {
+						$is_valid = false;
+					}
 				} else {
 					$is_valid = false;
 				}
-			} else {
-				$is_valid = false;
+
+				curl_close($ch);
+			}
+			else {
+				$is_valid = true;
 			}
 
-			curl_close($ch);
 			return $is_valid;
 		}
 	}

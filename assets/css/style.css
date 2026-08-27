@@ -668,3 +668,9 @@ ul.ctdb-topic-table li:before,
 ul.ctdb-pagination li:before {
   content: none;
 }
+
+/* New topic form toggle content */
+.ctdb-toggle-header {
+  display: block;
+  margin-bottom: 1em;
+}

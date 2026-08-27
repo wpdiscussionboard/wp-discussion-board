@@ -3,7 +3,7 @@
 Plugin Name: Discussion Board
 Plugin URI: https://wpdiscussionboard.com
 Description: Discussion Board is a simple, effective way to add a forum or discussion board to your site, helping you build and engage an active community.
-Version: 2.5.5
+Version: 2.6.0
 Author: WP Discussion Board
 Author URI: https://wpdiscussionboard.com
 Text Domain: wp-discussion-board

@@ -43,7 +43,7 @@ function ctdb_display_user_name() {
  */
 function ctdb_get_author() {
 	$author = get_the_author();
-	$author = apply_filters( 'ctdb_author_name', $author );
+	$author = apply_filters( 'ctdb_author _name', $author );
 	return $author;
 }
 
@@ -51,9 +51,15 @@ function ctdb_get_author() {
  * Filter author name to respect display_user_name setting
  */
 function ctdb_filter_author_name( $author ) {
+	if ( $author instanceof WP_User ) { 
+    	$author = $author->display_name;
+	}	
+	$author = strip_shortcodes($author);
+
 	$display_as = ctdb_display_user_name();
 	if( ! empty( $display_as ) ) {
-		return get_the_author_meta( $display_as );
+		$author = get_the_author_meta( $display_as );
+		return strip_shortcodes($author);
 	}
 	return $author;
 }

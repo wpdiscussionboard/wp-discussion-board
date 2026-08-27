@@ -157,12 +157,12 @@ if (!class_exists('CT_DB_Front_End')) {
 						'response'		=> __('Please add a title.', 'wp-discussion-board'), // The error message if the element is empty
 						'topic_element'	=> 'title' // The element of the $post_args to be populated with this element's value
 					),
-					'topic_content'	=> array(
-						'id'			=> 'topic_content', // The form element we're evaluating
-						'check'			=> '', // The value that will throw the error
-						'response'		=> __('Please add some content to the topic.', 'wp-discussion-board'), // The error message if the element is empty
-						'topic_element'	=> 'content' // The element of the $post_args to be populated with this element's value
-					)
+					// 'topic_content'	=> array(
+					// 	'id'			=> 'topic_content', // The form element we're evaluating
+					// 	'check'			=> '', // The value that will throw the error
+					// 	'response'		=> __('Please add some content to the topic.', 'wp-discussion-board'), // The error message if the element is empty
+					// 	'topic_element'	=> 'content' // The element of the $post_args to be populated with this element's value
+					// )
 				);
 
 				$error_params = apply_filters('ctdb_new_topic_form_validation', $error_params);
@@ -317,7 +317,10 @@ if (!class_exists('CT_DB_Front_End')) {
 			$form = apply_filters('ctdb_topics_form_before_title', $form);
 
 			$form['fields']['title'] = '<input class="required" type="text" id="topic_title" value="' . esc_attr($title) . '" tabindex="900" name="topic_title" placeholder="' . esc_attr(__('Topic Title', 'wp-discussion-board')) . '" />';
+			$form['fields']['content_toggle'] = '<div class="ctdb-toggle-header"><a href="javascript:void(0);" onclick="var c=document.getElementById(\'ctdb-content-wrapper\'); c.style.display=c.style.display===\'none\'?\'block\':\'none\';">Show/Hide Content</a></div>';
+			$form['fields']['open_content_wrap'] = '<div id="ctdb-content-wrapper" class="ctdb-content-wrapper">';
 			$form['fields']['content'] = '<textarea id="topic_content" name="topic_content" cols="80" rows="20" tabindex="901" placeholder="' . esc_attr(__('Topic Content', 'wp-discussion-board')) . '">' . wp_kses_post($content) . '</textarea>';
+			$form['fields']['close_content_wrap'] = '</div>';
 
 			// Apply filter before submit button
 			$form = apply_filters('ctdb_topics_form_before_submit', $form);
@@ -376,6 +379,9 @@ if (!class_exists('CT_DB_Front_End')) {
 							__('View Topic', 'discussion-tab')
 						);
 					}
+
+					// Auto-link plain URLs if not already linked
+					$content = $this->auto_link_unlinked_urls($content);
 
 					/*
 					 * @hooked CT_DB_Skins::filter_single_content										Add meta data fields and author data	Priority 50
@@ -1363,6 +1369,52 @@ if (!class_exists('CT_DB_Front_End')) {
 
 			// Escape output to prevent XSS vulnerabilities
 			return $embed_code;
+		}
+
+		private function auto_link_unlinked_urls($content)
+		{
+			// Skip auto-linking if <a> already exists
+			if (stripos($content, '<a') !== false) {
+				return $content;
+			}
+
+			$content = $this->make_safe_clickable($content);
+
+			return $content;
+		}
+
+		function make_safe_clickable($content)
+		{
+			// First, extract URLs from plain text using regex
+			$pattern = '~(?<!["\'])\bhttps?://[^\s<>"\'()]+~i';
+
+			return preg_replace_callback($pattern, function ($matches) {
+				$url = $matches[0];
+
+				// Validate URL format
+				if (!filter_var($url, FILTER_VALIDATE_URL)) {
+					return esc_html($url);
+				}
+
+				// Validate safe protocol via WordPress
+				$safe_url = wp_http_validate_url($url);
+				if (!$safe_url) {
+					return esc_html($url);
+				}
+
+				// Catch deceptive @ in the URL path or userinfo
+				$parsed = parse_url($safe_url);
+				if (
+					(isset($parsed['user']) || isset($parsed['pass'])) ||
+					preg_match('/^[^\/]*@/', $parsed['host'] ?? '') ||
+					strpos($safe_url, '@') !== false
+				) {
+					return esc_html($url);
+				}
+
+				// Safe — return clickable link
+				return '<a href="' . esc_url($safe_url) . '" target="_blank" rel="noopener noreferrer">' . esc_html($safe_url) . '</a>';
+			}, $content);
 		}
 	}
 }
