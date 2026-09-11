@@ -171,6 +171,10 @@ We've included a helpful log-in / log-out shortcode to display a log-in / log-ou
 
 Be careful if you are copying and pasting the shortcodes - you might need to delete `<code>` tags. Click on the 'Text' tab in your content editor to see if these tags are there.
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the WP Discussion Board plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/1f1bb06e-3d93-47d7-bf8a-b13e766f2ba1). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Screenshots ==
 
 1. Discussion Board list of topics (includes some Pro features)
