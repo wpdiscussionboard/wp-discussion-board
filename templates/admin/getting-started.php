@@ -117,6 +117,7 @@ $license_key    = get_option( Admin_License::FREE_LICENSE_OPTION_KEY );
 					<img src="<?php echo esc_html( WPDBD_PLUGIN_URL . 'assets/images/singularity-banner-ad.png' ); ?>" alt="">
 				</a>
 			</div>
+			<?php echo do_action('wpdb_module_sidebar'); ?>
 		</div>
 	</div><!-- .ctdb-outer-wrap -->
 </div><!-- .wrap -->
